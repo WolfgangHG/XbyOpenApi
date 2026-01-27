@@ -1,0 +1,27 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <!--First define net8.0-windows so that the .NET8 WinForms designer kicks in. -->
+    <TargetFrameworks>net8.0-windows;net48</TargetFrameworks>
+    <Nullable>enable</Nullable>
+    <!--Update C# version from 7.3 (default for net48) to 8.0 to enable "nullable".
+        Then switch to 10.0 to avoid "CS8400 - Feature 'lambda return type' is not available in C# 8.0. Please use language version 10.0 or greater." 
+        (used when waiting for http requests) -->
+    <LangVersion>10.0</LangVersion>
+    <UseWindowsForms>true</UseWindowsForms>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\XbyOpenApi.OAuth2\HttpController.cs" Link="HttpController.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XbyOpenApi.OAuth1\XbyOpenApi.OAuth1.csproj" />
+    <ProjectReference Include="..\XbyOpenApi.OAuth1.WinForms\XbyOpenApi.OAuth1.WinForms.csproj" />
+    <ProjectReference Include="..\XbyOpenApi.OAuth2\XbyOpenApi.OAuth2.csproj" />
+    <ProjectReference Include="..\XbyOpenApi.OAuth2.WinForms\XbyOpenApi.OAuth2.WinForms.csproj" />
+  </ItemGroup>
+
+</Project>

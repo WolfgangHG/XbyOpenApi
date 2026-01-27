@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <!--Update C# version from 7.3 (default for netstandard2.0) to 8.0 to:
+        -make Kiota generated code compile: https://github.com/microsoft/kiota/issues/7309 
+        -enable "nullable" -->
+    <LangVersion>8.0</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Kiota.Bundle" VersionOverride="1.21.1" />
+  </ItemGroup>
+</Project>

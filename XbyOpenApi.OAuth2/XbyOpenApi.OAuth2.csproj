@@ -1,0 +1,15 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <!--Update C# version from 7.3 (default for netstandard2.0) to 8.0 to enable "nullable" -->
+    <LangVersion>8.0</LangVersion>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\XbyOpenApi.Core\XbyOpenApi.Core.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,12 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path=".editorconfig" />
+    <File Path="Directory.Build.targets" />
+  </Folder>
+  <Project Path="XbyOpenApi.OAuth1.WinForms/XbyOpenApi.OAuth1.WinForms.csproj" Id="bcfea456-a0b8-4b2b-b0b5-de71d5932b71" />
+  <Project Path="XbyOpenApi.Core/XbyOpenApi.Core.csproj" Id="e49f2986-8566-475e-a668-f1b43bd1e262" />
+  <Project Path="XbyOpenApi.OAuth1/XbyOpenApi.OAuth1.csproj" Id="747ac5ea-1fd9-4c7a-9076-6770159f74a1" />
+  <Project Path="XbyOpenApi.OAuth2.WinForms/XbyOpenApi.OAuth2.WinForms.csproj" Id="d5fcfd35-66d3-4c3f-b429-aaf3cce4e7ce" />
+  <Project Path="XbyOpenApi.OAuth2/XbyOpenApi.OAuth2.csproj" Id="1aa8dfe2-75c8-422a-b2ef-138ba59b7e88" />
+  <Project Path="XByOpenApi.Sample.WinForms/XByOpenApi.Sample.WinForms.csproj" Id="a5ca06b1-64e5-404e-b84a-e4c3190099c4" />
+</Solution>
