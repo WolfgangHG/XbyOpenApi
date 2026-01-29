@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Kiota.Http.HttpClientLibrary.Middleware.Options;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -202,27 +203,54 @@ namespace XByOpenApi.Sample.WinForms
 
       XClient xClient = this.InitXClient();
 
+      //Here, we also have a request body:
+      var requestOption = new BodyInspectionHandlerOption { InspectRequestBody = true, InspectResponseBody = true };
+
       try
       {
         TweetCreateRequest body = new TweetCreateRequest();
         body.Text = "Sample post created by Kiota";
-        TweetCreateResponse response = xClient.Two.Tweets.PostAsync(body).GetAwaiter().GetResult();
+        TweetCreateResponse response = xClient.Two.Tweets.PostAsync(body, conf =>
+        {
+          conf.Options.Add(requestOption);
+        }).GetAwaiter().GetResult();
+
+
+        string plainRerequest = GetStringFromStream(requestOption.RequestBody);
+        string plainResponse = GetStringFromStream(requestOption.ResponseBody);
 
         if (response.Data != null)
         {
-          MessageBox.Show(this, "Success: Id = " + response.Data.Id);
+          MessageBox.Show(this, $"Success: Id = {response.Data.Id} " + Environment.NewLine +
+            $"Plain request: {plainRerequest}" + 
+            Environment.NewLine +
+            $"Plain response: {plainResponse}");
 
           this.textBoxDeleteTweetId.Text = response.Data.Id.ToString();
         }
         else if (response.Errors != null)
         {
           string strErrors = LogProblems(response.Errors);
-          MessageBox.Show("Error: " + strErrors);
+          MessageBox.Show($"Error: {strErrors}" + Environment.NewLine +
+            $"Plain request: {plainRerequest}" +
+            Environment.NewLine +
+            $"Plain response: {plainResponse}");
         }
       }
       catch (Exception ex)
       {
-        MessageBox.Show(this, "An error occured while creating the tweet: " + ex.ToString());
+        string error = "An error occured while creating the tweet: " + ex.ToString();
+        if (requestOption.ResponseBody != null)
+        {
+          string plainRerequest = GetStringFromStream(requestOption.RequestBody);
+          string plainResponse = GetStringFromStream(requestOption.ResponseBody);
+
+          error += Environment.NewLine + Environment.NewLine +
+             $"Plain request: {plainRerequest}" +
+            Environment.NewLine +
+            $"Plain response: {plainResponse}";
+        }
+        MessageBox.Show(this, error);
       }
     }
 
@@ -288,26 +316,44 @@ namespace XByOpenApi.Sample.WinForms
 
       XClient xClient = this.InitXClient();
 
+      var requestOption = new BodyInspectionHandlerOption { InspectResponseBody = true };
+
       try
       {
         string tweetId = this.textBoxDeleteTweetId.Text;
         //There is no error message, event a invalid ID results in "success"
         //The Kiota flag "--exclude-backward-compatible" generated a different API.
-        TweetDeleteResponse response = xClient.Two.Tweets[tweetId].DeleteAsync().GetAwaiter().GetResult();
+        TweetDeleteResponse response = xClient.Two.Tweets[tweetId].DeleteAsync(conf =>
+        {
+          conf.Options.Add(requestOption);
+        }).GetAwaiter().GetResult();
+
+
+        string plainResponse = GetStringFromStream(requestOption.ResponseBody);
 
         if (response.Data != null)
         {
-          MessageBox.Show(this, "Success: deleted = " + response.Data.Deleted);
+          MessageBox.Show(this, $"Success: deleted = {response.Data.Deleted} " + Environment.NewLine + 
+            $"Plain response: {plainResponse}");
         }
         else if (response.Errors != null)
         {
           string strErrors = LogProblems(response.Errors);
-          MessageBox.Show("Error: " + strErrors);
+          MessageBox.Show($"Error: {strErrors}" + Environment.NewLine +
+            $"Plain response: {plainResponse}");
         }
       }
       catch (Exception ex)
       {
-        MessageBox.Show(this, "Error on deleting a tweet: " + ex.ToString());
+        string error = "Error on deleting a tweet: " + ex.ToString();
+        if (requestOption.ResponseBody != null)
+        {
+          string plainResponse = GetStringFromStream(requestOption.ResponseBody);
+
+          error += Environment.NewLine + Environment.NewLine +
+            $"Plain response: {plainResponse}";
+        }
+        MessageBox.Show(this, error);
       }
     }
 
@@ -325,23 +371,41 @@ namespace XByOpenApi.Sample.WinForms
 
       XClient client = this.InitXClient();
 
+      var requestOption = new BodyInspectionHandlerOption { InspectResponseBody = true };
+
       try
       {
-        Get2UsersMeResponse response = client.Two.Users.Me.GetAsync().GetAwaiter().GetResult();
+        Get2UsersMeResponse response = client.Two.Users.Me.GetAsync(conf =>
+        {
+          conf.Options.Add(requestOption);
+        }).GetAwaiter().GetResult();
+
+
+        string plainResponse = GetStringFromStream(requestOption.ResponseBody);
 
         if (response.Data != null)
         {
-          MessageBox.Show(this, "Success: Name = " + response.Data.Name + ", Id = " + response.Data.Id);
+          MessageBox.Show(this, $"Success: Name = {response.Data.Name}, Id = {response.Data.Id}" + Environment.NewLine +
+            $"Plain response: {plainResponse}");
         }
         else if (response.Errors != null)
         {
           string strErrors = LogProblems(response.Errors);
-          MessageBox.Show("Erorr: " + strErrors);
+          MessageBox.Show("Erorr: " + strErrors + Environment.NewLine +
+            $"Plain response: {plainResponse}");
         }
       }
       catch (Exception ex)
       {
-        MessageBox.Show(this, "An error occured while fetching the user data: " + ex.ToString());
+        string error = "An error occured while fetching the user data: " + ex.ToString();
+        if (requestOption.ResponseBody != null)
+        {
+          string plainResponse = GetStringFromStream(requestOption.ResponseBody);
+
+          error += Environment.NewLine + Environment.NewLine +
+            $"Plain response: {plainResponse}";
+        }
+        MessageBox.Show(this, error);
       }
     }
 
@@ -650,11 +714,21 @@ namespace XByOpenApi.Sample.WinForms
 
       return strErrors;
     }
+
+    /// <summary>
+    /// Reads a string from the stream. This is used to read request/response bodies.
+    /// </summary>
+    /// <param name="stream"></param>
+    /// <returns></returns>
+    private static string GetStringFromStream(Stream stream)
+    {
+      var reader = new StreamReader(stream);
+      using (reader)
+      {
+        return reader.ReadToEnd();
+      }
+    }
     #endregion
-
-
   }
-
-
 }
 
