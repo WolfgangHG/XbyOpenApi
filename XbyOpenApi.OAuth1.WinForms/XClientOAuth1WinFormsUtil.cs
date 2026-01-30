@@ -36,7 +36,7 @@ namespace XbyOpenApi.OAuth1.WinForms
       // Get the request token and request token secret
       // Here, only pin based authentication is possible due to the fix "oauth_callback=oob" argument in TinyOAuth.
       // If we could specify a different callback url, we might use an embedded web browser.
-      Task<RequestTokenInfo> taskRequestTokenInfo = Task.Run(async () => await tinyOAuth.GetRequestTokenAsync());
+      Task<RequestTokenInfo> taskRequestTokenInfo = Task.Run(() => tinyOAuth.GetRequestTokenAsync());
       taskRequestTokenInfo.Wait();
       RequestTokenInfo requestTokenInfo = taskRequestTokenInfo.Result;
 
@@ -58,7 +58,7 @@ namespace XbyOpenApi.OAuth1.WinForms
       }
       string pinCode = dialogPIN.PIN;
 
-      Task<AccessTokenInfo> taskAccessTokenInfo = Task.Run(async () => await tinyOAuth.GetAccessTokenAsync(requestTokenInfo.RequestToken, requestTokenInfo.RequestTokenSecret, pinCode));
+      Task<AccessTokenInfo> taskAccessTokenInfo = Task.Run(() => tinyOAuth.GetAccessTokenAsync(requestTokenInfo.RequestToken, requestTokenInfo.RequestTokenSecret, pinCode));
       taskAccessTokenInfo.Wait();
       AccessTokenInfo accessTokenInfo = taskAccessTokenInfo.Result;
 

@@ -17,20 +17,20 @@ namespace XbyOpenApi.OAuth1
   internal class XOAuth1AuthenticationProvider : IAuthenticationProvider
   {
     private TinyOAuth tinyOAuth;
-    private string strAccessToken;
-    private string strAccessTokenSecret;
+    private string accessToken;
+    private string accessTokenSecret;
 
     /// <summary>
     /// Creates the provider using a TinyOAuth instance and a access token.
     /// </summary>
-    /// <param name="_tinyOAuth"></param>
-    /// <param name="_strAccessToken"></param>
-    /// <param name="_strAccessTokenSecret"></param>
-    public XOAuth1AuthenticationProvider(TinyOAuth _tinyOAuth, string _strAccessToken, string _strAccessTokenSecret)
+    /// <param name="tinyOAuth"></param>
+    /// <param name="accessToken"></param>
+    /// <param name="accessTokenSecret"></param>
+    public XOAuth1AuthenticationProvider(TinyOAuth tinyOAuth, string accessToken, string accessTokenSecret)
     {
-      this.tinyOAuth = _tinyOAuth;
-      this.strAccessToken = _strAccessToken;
-      this.strAccessTokenSecret = _strAccessTokenSecret;
+      this.tinyOAuth = tinyOAuth;
+      this.accessToken = accessToken;
+      this.accessTokenSecret = accessTokenSecret;
     }
 
     /// <summary>
@@ -51,7 +51,7 @@ namespace XbyOpenApi.OAuth1
         Method.DELETE => HttpMethod.Delete,
         _ => throw new NotImplementedException("Not supported for " + request.HttpMethod)
       };
-      AuthenticationHeaderValue authHeader = this.tinyOAuth.GetAuthorizationHeader(this.strAccessToken, this.strAccessTokenSecret, strUrl, httpMethod);
+      AuthenticationHeaderValue authHeader = this.tinyOAuth.GetAuthorizationHeader(this.accessToken, this.accessTokenSecret, strUrl, httpMethod);
 
       //"ToString" appends Scheme and actual authorization value, here "OAuth xyz":
       request.Headers.Add("Authorization", authHeader.ToString());
