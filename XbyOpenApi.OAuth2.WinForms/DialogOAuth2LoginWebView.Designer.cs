@@ -29,36 +29,36 @@
     private void InitializeComponent()
     {
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DialogOAuth2LoginWebView));
-      this.webBrowser1 = new Microsoft.Web.WebView2.WinForms.WebView2();
-      ((System.ComponentModel.ISupportInitialize)this.webBrowser1).BeginInit();
+      this.webBrowser = new Microsoft.Web.WebView2.WinForms.WebView2();
+      ((System.ComponentModel.ISupportInitialize)this.webBrowser).BeginInit();
       this.SuspendLayout();
       // 
-      // webBrowser1
+      // webBrowser
       // 
-      resources.ApplyResources(this.webBrowser1, "webBrowser1");
-      this.webBrowser1.AllowExternalDrop = true;
-      this.webBrowser1.CreationProperties = null;
-      this.webBrowser1.DefaultBackgroundColor = System.Drawing.Color.White;
-      this.webBrowser1.Name = "webBrowser1";
-      this.webBrowser1.ZoomFactor = 1D;
-      this.webBrowser1.CoreWebView2InitializationCompleted += this.webBrowser1_CoreWebView2InitializationCompleted;
-      this.webBrowser1.NavigationCompleted += this.webBrowser1_NavigationCompleted;
+      this.webBrowser.AllowExternalDrop = true;
+      resources.ApplyResources(this.webBrowser, "webBrowser");
+      this.webBrowser.CreationProperties = null;
+      this.webBrowser.DefaultBackgroundColor = System.Drawing.Color.White;
+      this.webBrowser.Name = "webBrowser";
+      this.webBrowser.ZoomFactor = 1D;
+      this.webBrowser.CoreWebView2InitializationCompleted += this.webBrowser_CoreWebView2InitializationCompleted;
+      this.webBrowser.NavigationCompleted += this.webBrowser_NavigationCompleted;
       // 
       // DialogOAuth2LoginWebView
       // 
       resources.ApplyResources(this, "$this");
       this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-      this.Controls.Add(this.webBrowser1);
+      this.Controls.Add(this.webBrowser);
       this.MaximizeBox = false;
       this.MinimizeBox = false;
       this.Name = "DialogOAuth2LoginWebView";
       this.ShowInTaskbar = false;
-      ((System.ComponentModel.ISupportInitialize)this.webBrowser1).EndInit();
+      ((System.ComponentModel.ISupportInitialize)this.webBrowser).EndInit();
       this.ResumeLayout(false);
     }
 
     #endregion
 
-    private Microsoft.Web.WebView2.WinForms.WebView2 webBrowser1;
+    private Microsoft.Web.WebView2.WinForms.WebView2 webBrowser;
   }
 }

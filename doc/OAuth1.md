@@ -97,7 +97,7 @@ TinyOAuth tinyOAuth = InitTinyOAuth(consumerApiKey, consumerApiKeySecret);
 var authProvider = new XOAuth1AuthenticationProvider(tinyOAuth, accessToken, accessTokenSecret);
 var adapter = new HttpClientRequestAdapter(authProvider);
 
-XClient xClient = new XClient(adapter);
+XClient client = new XClient(adapter);
 ```
 
 Now you can make API requests:

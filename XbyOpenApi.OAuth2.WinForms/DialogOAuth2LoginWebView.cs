@@ -101,9 +101,9 @@ namespace XbyOpenApi.OAuth2.WinForms
     {
       base.OnLoad(e);
 
-      string strAuthorizeUrl = XClientOAuth2Util.GetAuthorizeUrl(clientID, this.realRedirectURL, this.scopes, this.fetchRefreshToken);
+      string authorizeUrl = XClientOAuth2Util.GetAuthorizeUrl(clientID, this.realRedirectURL, this.scopes, this.fetchRefreshToken);
 
-      this.webBrowser1.Source = new Uri(strAuthorizeUrl);
+      this.webBrowser.Source = new Uri(authorizeUrl);
     }
     #endregion
 
@@ -115,9 +115,9 @@ namespace XbyOpenApi.OAuth2.WinForms
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    private void webBrowser1_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
+    private void webBrowser_NavigationCompleted(object sender, CoreWebView2NavigationCompletedEventArgs e)
     {
-      if (this.webBrowser1.Source.AbsoluteUri.StartsWith(realRedirectURL))
+      if (this.webBrowser.Source.AbsoluteUri.StartsWith(realRedirectURL))
       {
         //The redirect url contains "state=xxx" (this is the state parameter that was set when building the authorization url.
 
@@ -126,7 +126,7 @@ namespace XbyOpenApi.OAuth2.WinForms
 
         //In Case of success, it contains a parameter "code".
 
-        NameValueCollection queryArgs = HttpUtility.ParseQueryString(this.webBrowser1.Source.Query);
+        NameValueCollection queryArgs = HttpUtility.ParseQueryString(this.webBrowser.Source.Query);
 
         if (queryArgs["error"] != null)
         {
@@ -142,7 +142,7 @@ namespace XbyOpenApi.OAuth2.WinForms
           string? code = queryArgs["code"];
           if (code == null)
           {
-            MessageBox.Show(this, "Error - response did not contain 'code': " + this.webBrowser1.Source.OriginalString);
+            MessageBox.Show(this, "Error - response did not contain 'code': " + this.webBrowser.Source.OriginalString);
             return;
           }
 
@@ -164,14 +164,14 @@ namespace XbyOpenApi.OAuth2.WinForms
     /// </summary>
     /// <param name="sender"></param>
     /// <param name="e"></param>
-    private void webBrowser1_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
+    private void webBrowser_CoreWebView2InitializationCompleted(object sender, CoreWebView2InitializationCompletedEventArgs e)
     {
       //Reset navigation options:
-      this.webBrowser1.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
-      this.webBrowser1.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
+      this.webBrowser.CoreWebView2.Settings.AreDefaultContextMenusEnabled = false;
+      this.webBrowser.CoreWebView2.Settings.AreBrowserAcceleratorKeysEnabled = false;
 
       
-      this.webBrowser1.CoreWebView2.CookieManager.DeleteAllCookies();
+      this.webBrowser.CoreWebView2.CookieManager.DeleteAllCookies();
 
     }
     #endregion
