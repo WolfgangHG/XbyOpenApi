@@ -39,14 +39,6 @@ namespace XbyOpenApi.Core.Client.Models
       if (ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
       var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
       var result = new global::XbyOpenApi.Core.Client.Models.RulesRequestSummary();
-      if ("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-      {
-        result.RulesRequestSummaryMember1 = new global::XbyOpenApi.Core.Client.Models.RulesRequestSummaryMember1();
-      }
-      else if ("".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
-      {
-        result.RulesRequestSummaryMember2 = new global::XbyOpenApi.Core.Client.Models.RulesRequestSummaryMember2();
-      }
       return result;
     }
     /// <summary>

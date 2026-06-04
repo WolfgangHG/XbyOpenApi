@@ -40,7 +40,7 @@ namespace XbyOpenApi.Core.Client.Two.Lists.Item
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public ListsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/lists/{id}{?expansions,list%2Efields,user%2Efields}", pathParameters)
+    public ListsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/lists/{id}", pathParameters)
     {
     }
     /// <summary>
@@ -48,7 +48,7 @@ namespace XbyOpenApi.Core.Client.Two.Lists.Item
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public ListsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/lists/{id}{?expansions,list%2Efields,user%2Efields}", rawUrl)
+    public ListsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/lists/{id}", rawUrl)
     {
     }
     /// <summary>
@@ -155,7 +155,7 @@ namespace XbyOpenApi.Core.Client.Two.Lists.Item
     public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Lists.Item.ListsItemRequestBuilder.ListsItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+      var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/2/lists/{id}{?expansions,list%2Efields,user%2Efields}", PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;

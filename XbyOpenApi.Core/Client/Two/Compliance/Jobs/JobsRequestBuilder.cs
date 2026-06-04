@@ -35,7 +35,7 @@ namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public JobsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/compliance/jobs?type={type}{&compliance_job%2Efields,status*}", pathParameters)
+    public JobsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
     {
     }
     /// <summary>
@@ -43,7 +43,7 @@ namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public JobsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/compliance/jobs?type={type}{&compliance_job%2Efields,status*}", rawUrl)
+    public JobsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
     {
     }
     /// <summary>
@@ -108,7 +108,7 @@ namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs
     public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+      var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/2/compliance/jobs?type={type}{&compliance_job%2Efields,status*}", PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;

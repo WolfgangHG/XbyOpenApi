@@ -35,7 +35,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Following
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public FollowingRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/following{?expansions,max_results*,pagination_token*,tweet%2Efields,user%2Efields}", pathParameters)
+    public FollowingRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
     {
     }
     /// <summary>
@@ -43,7 +43,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Following
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public FollowingRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/following{?expansions,max_results*,pagination_token*,tweet%2Efields,user%2Efields}", rawUrl)
+    public FollowingRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
     {
     }
     /// <summary>
@@ -108,7 +108,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Following
     public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Following.FollowingRequestBuilder.FollowingRequestBuilderGetQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+      var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/2/users/{%2Did}/following{?expansions,max_results*,pagination_token*,tweet%2Efields,user%2Efields}", PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;
@@ -129,7 +129,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Following
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-      var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+      var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/2/users/{%2Did}/following", PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

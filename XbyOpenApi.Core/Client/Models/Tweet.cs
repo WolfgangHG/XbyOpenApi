@@ -120,6 +120,14 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Lang { get; set; }
 #endif
+    /// <summary>The matched media notes for the post.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public global::XbyOpenApi.Core.Client.Models.Tweet_matched_media_notes? MatchedMediaNotes { get; set; }
+#nullable restore
+#else
+    public global::XbyOpenApi.Core.Client.Models.Tweet_matched_media_notes MatchedMediaNotes { get; set; }
+#endif
     /// <summary>Nonpublic engagement metrics for the Tweet at the time of the request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -127,6 +135,14 @@ namespace XbyOpenApi.Core.Client.Models
 #nullable restore
 #else
     public global::XbyOpenApi.Core.Client.Models.Tweet_non_public_metrics NonPublicMetrics { get; set; }
+#endif
+    /// <summary>The note request suggestions for the post.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public global::XbyOpenApi.Core.Client.Models.Tweet_note_request_suggestions? NoteRequestSuggestions { get; set; }
+#nullable restore
+#else
+    public global::XbyOpenApi.Core.Client.Models.Tweet_note_request_suggestions NoteRequestSuggestions { get; set; }
 #endif
     /// <summary>The full-content of the Tweet, including text beyond 280 characters.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -144,6 +160,8 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public global::XbyOpenApi.Core.Client.Models.Tweet_organic_metrics OrganicMetrics { get; set; }
 #endif
+    /// <summary>Indicates if this Post is a paid partnership, i.e. it has been disclosed by the author as containing paid promotion.</summary>
+    public bool? PaidPartnership { get; set; }
     /// <summary>Indicates if this Tweet contains URLs marked as sensitive, for example content suitable for mature audiences.</summary>
     public bool? PossiblySensitive { get; set; }
     /// <summary>Promoted nonpublic engagement metrics for the Tweet at the time of the request.</summary>
@@ -267,9 +285,12 @@ namespace XbyOpenApi.Core.Client.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "in_reply_to_user_id", n => { InReplyToUserId = n.GetStringValue(); } },
                 { "lang", n => { Lang = n.GetStringValue(); } },
+                { "matched_media_notes", n => { MatchedMediaNotes = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.Tweet_matched_media_notes>(global::XbyOpenApi.Core.Client.Models.Tweet_matched_media_notes.CreateFromDiscriminatorValue); } },
                 { "non_public_metrics", n => { NonPublicMetrics = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.Tweet_non_public_metrics>(global::XbyOpenApi.Core.Client.Models.Tweet_non_public_metrics.CreateFromDiscriminatorValue); } },
+                { "note_request_suggestions", n => { NoteRequestSuggestions = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.Tweet_note_request_suggestions>(global::XbyOpenApi.Core.Client.Models.Tweet_note_request_suggestions.CreateFromDiscriminatorValue); } },
                 { "note_tweet", n => { NoteTweet = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.Tweet_note_tweet>(global::XbyOpenApi.Core.Client.Models.Tweet_note_tweet.CreateFromDiscriminatorValue); } },
                 { "organic_metrics", n => { OrganicMetrics = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.Tweet_organic_metrics>(global::XbyOpenApi.Core.Client.Models.Tweet_organic_metrics.CreateFromDiscriminatorValue); } },
+                { "paid_partnership", n => { PaidPartnership = n.GetBoolValue(); } },
                 { "possibly_sensitive", n => { PossiblySensitive = n.GetBoolValue(); } },
                 { "promoted_metrics", n => { PromotedMetrics = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.Tweet_promoted_metrics>(global::XbyOpenApi.Core.Client.Models.Tweet_promoted_metrics.CreateFromDiscriminatorValue); } },
                 { "public_metrics", n => { PublicMetrics = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.Tweet_public_metrics>(global::XbyOpenApi.Core.Client.Models.Tweet_public_metrics.CreateFromDiscriminatorValue); } },
@@ -305,9 +326,12 @@ namespace XbyOpenApi.Core.Client.Models
       writer.WriteStringValue("id", Id);
       writer.WriteStringValue("in_reply_to_user_id", InReplyToUserId);
       writer.WriteStringValue("lang", Lang);
+      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.Tweet_matched_media_notes>("matched_media_notes", MatchedMediaNotes);
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.Tweet_non_public_metrics>("non_public_metrics", NonPublicMetrics);
+      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.Tweet_note_request_suggestions>("note_request_suggestions", NoteRequestSuggestions);
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.Tweet_note_tweet>("note_tweet", NoteTweet);
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.Tweet_organic_metrics>("organic_metrics", OrganicMetrics);
+      writer.WriteBoolValue("paid_partnership", PaidPartnership);
       writer.WriteBoolValue("possibly_sensitive", PossiblySensitive);
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.Tweet_promoted_metrics>("promoted_metrics", PromotedMetrics);
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.Tweet_public_metrics>("public_metrics", PublicMetrics);

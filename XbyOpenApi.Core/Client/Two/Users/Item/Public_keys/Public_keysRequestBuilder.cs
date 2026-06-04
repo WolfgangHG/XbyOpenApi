@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Public_keys
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public Public_keysRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/public_keys{?public_key%2Efields}", pathParameters)
+    public Public_keysRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
     {
     }
     /// <summary>
@@ -30,7 +30,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Public_keys
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public Public_keysRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/public_keys{?public_key%2Efields}", rawUrl)
+    public Public_keysRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
     {
     }
     /// <summary>
@@ -95,7 +95,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Public_keys
     public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Public_keys.Public_keysRequestBuilder.Public_keysRequestBuilderGetQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+      var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/2/users/{%2Did}/public_keys{?public_key%2Efields}", PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;
@@ -116,7 +116,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Public_keys
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-      var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
+      var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/2/users/{%2Did}/public_keys", PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);

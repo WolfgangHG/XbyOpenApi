@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
-using XbyOpenApi.Core.Client.Two.Account_activity.Replay;
 using XbyOpenApi.Core.Client.Two.Account_activity.Subscriptions;
 using XbyOpenApi.Core.Client.Two.Account_activity.Webhooks;
 namespace XbyOpenApi.Core.Client.Two.Account_activity
@@ -17,11 +16,6 @@ namespace XbyOpenApi.Core.Client.Two.Account_activity
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
   public partial class Account_activityRequestBuilder : BaseRequestBuilder
   {
-    /// <summary>The replay property</summary>
-    public global::XbyOpenApi.Core.Client.Two.Account_activity.Replay.ReplayRequestBuilder Replay
-    {
-      get => new global::XbyOpenApi.Core.Client.Two.Account_activity.Replay.ReplayRequestBuilder(PathParameters, RequestAdapter);
-    }
     /// <summary>The subscriptions property</summary>
     public global::XbyOpenApi.Core.Client.Two.Account_activity.Subscriptions.SubscriptionsRequestBuilder Subscriptions
     {

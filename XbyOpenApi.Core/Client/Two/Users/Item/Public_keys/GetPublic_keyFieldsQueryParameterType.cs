@@ -8,6 +8,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Public_keys
   public enum GetPublic_keyFieldsQueryParameterType
 #pragma warning restore CS1591
   {
+    [EnumMember(Value = "identity_public_key_signature")]
+#pragma warning disable CS1591
+    Identity_public_key_signature,
+#pragma warning restore CS1591
     [EnumMember(Value = "juicebox_config")]
 #pragma warning disable CS1591
     Juicebox_config,

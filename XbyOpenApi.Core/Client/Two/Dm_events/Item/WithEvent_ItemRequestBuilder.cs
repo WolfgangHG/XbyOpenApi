@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Two.Dm_events.Item
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public WithEvent_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/dm_events/{event_id}{?dm_event%2Efields,expansions,media%2Efields,tweet%2Efields,user%2Efields}", pathParameters)
+    public WithEvent_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
     {
     }
     /// <summary>
@@ -30,7 +30,7 @@ namespace XbyOpenApi.Core.Client.Two.Dm_events.Item
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public WithEvent_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/dm_events/{event_id}{?dm_event%2Efields,expansions,media%2Efields,tweet%2Efields,user%2Efields}", rawUrl)
+    public WithEvent_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
     {
     }
     /// <summary>
@@ -93,7 +93,7 @@ namespace XbyOpenApi.Core.Client.Two.Dm_events.Item
     public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+      var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/2/dm_events/{event_id}", PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;
@@ -112,7 +112,7 @@ namespace XbyOpenApi.Core.Client.Two.Dm_events.Item
     public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Dm_events.Item.WithEvent_ItemRequestBuilder.WithEvent_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+      var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/2/dm_events/{event_id}{?dm_event%2Efields,expansions,media%2Efields,tweet%2Efields,user%2Efields}", PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;

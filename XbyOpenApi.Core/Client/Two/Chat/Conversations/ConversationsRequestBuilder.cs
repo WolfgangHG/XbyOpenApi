@@ -25,7 +25,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations
       get => new global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Group.GroupRequestBuilder(PathParameters, RequestAdapter);
     }
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.chat.conversations.item collection</summary>
-    /// <param name="position">The recipient&apos;s user ID for a 1:1 conversation, or a group conversation ID (prefixed with &apos;g&apos;).</param>
+    /// <param name="position">The conversation ID. For 1:1 conversations, use the recipient user ID or dash-separated canonical ID. For group conversations, use the group ID (prefixed with &apos;g&apos;).</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.ConversationsItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.ConversationsItemRequestBuilder this[string position]
     {

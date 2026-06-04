@@ -39,6 +39,14 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string PostId { get; set; }
 #endif
+    /// <summary>The scoring status of a Community Note.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public global::XbyOpenApi.Core.Client.Models.NoteScoringStatus? ScoringStatus { get; set; }
+#nullable restore
+#else
+    public global::XbyOpenApi.Core.Client.Models.NoteScoringStatus ScoringStatus { get; set; }
+#endif
     /// <summary>Community Note rating status</summary>
     public global::XbyOpenApi.Core.Client.Models.NoteRatingStatus? Status { get; set; }
     /// <summary>The evaluation result of a community note.</summary>
@@ -77,6 +85,7 @@ namespace XbyOpenApi.Core.Client.Models
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "info", n => { Info = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.NoteInfo>(global::XbyOpenApi.Core.Client.Models.NoteInfo.CreateFromDiscriminatorValue); } },
                 { "post_id", n => { PostId = n.GetStringValue(); } },
+                { "scoring_status", n => { ScoringStatus = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.NoteScoringStatus>(global::XbyOpenApi.Core.Client.Models.NoteScoringStatus.CreateFromDiscriminatorValue); } },
                 { "status", n => { Status = n.GetEnumValue<global::XbyOpenApi.Core.Client.Models.NoteRatingStatus>(); } },
                 { "test_result", n => { TestResult = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.NoteTestResult>(global::XbyOpenApi.Core.Client.Models.NoteTestResult.CreateFromDiscriminatorValue); } },
             };
@@ -91,6 +100,7 @@ namespace XbyOpenApi.Core.Client.Models
       writer.WriteStringValue("id", Id);
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.NoteInfo>("info", Info);
       writer.WriteStringValue("post_id", PostId);
+      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.NoteScoringStatus>("scoring_status", ScoringStatus);
       writer.WriteEnumValue<global::XbyOpenApi.Core.Client.Models.NoteRatingStatus>("status", Status);
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.NoteTestResult>("test_result", TestResult);
       writer.WriteAdditionalData(AdditionalData);

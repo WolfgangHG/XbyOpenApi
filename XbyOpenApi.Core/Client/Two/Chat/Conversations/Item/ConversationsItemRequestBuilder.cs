@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System;
 using XbyOpenApi.Core.Client.Models;
+using XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Events;
 using XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Keys;
 using XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Members;
 using XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Messages;
@@ -22,6 +23,11 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
   public partial class ConversationsItemRequestBuilder : BaseRequestBuilder
   {
+    /// <summary>The events property</summary>
+    public global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Events.EventsRequestBuilder Events
+    {
+      get => new global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Events.EventsRequestBuilder(PathParameters, RequestAdapter);
+    }
     /// <summary>The keys property</summary>
     public global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Keys.KeysRequestBuilder Keys
     {
@@ -52,7 +58,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public ConversationsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/chat/conversations/{id}{?chat_message_event%2Efields,max_results*,pagination_token*}", pathParameters)
+    public ConversationsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/chat/conversations/{id}{?chat_conversation%2Efields,expansions,user%2Efields}", pathParameters)
     {
     }
     /// <summary>
@@ -60,23 +66,23 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public ConversationsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/chat/conversations/{id}{?chat_message_event%2Efields,max_results*,pagination_token*}", rawUrl)
+    public ConversationsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/chat/conversations/{id}{?chat_conversation%2Efields,expansions,user%2Efields}", rawUrl)
     {
     }
     /// <summary>
-    /// Retrieves messages and key change events for a specific Chat conversation with pagination support. For 1:1 conversations, provide the recipient&apos;s user ID; the server constructs the canonical conversation ID from the authenticated user and recipient.
+    /// Returns metadata for a Chat conversation including type, muted status, and group details. Use chat_conversation.fields to select which fields are returned. Use expansions to hydrate member, admin, or participant user objects. Use user.fields to control which profile fields are returned for expanded users.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ChatGetConversationResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ChatGetConversationsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.ChatGetConversationResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.ConversationsItemRequestBuilder.ConversationsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.ChatGetConversationsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.ConversationsItemRequestBuilder.ConversationsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.ChatGetConversationResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.ConversationsItemRequestBuilder.ConversationsItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.ChatGetConversationsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.ConversationsItemRequestBuilder.ConversationsItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -84,10 +90,10 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ChatGetConversationResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ChatGetConversationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ChatGetConversationsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ChatGetConversationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves messages and key change events for a specific Chat conversation with pagination support. For 1:1 conversations, provide the recipient&apos;s user ID; the server constructs the canonical conversation ID from the authenticated user and recipient.
+    /// Returns metadata for a Chat conversation including type, muted status, and group details. Use chat_conversation.fields to select which fields are returned. Use expansions to hydrate member, admin, or participant user objects. Use user.fields to control which profile fields are returned for expanded users.
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -115,33 +121,40 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item
       return new global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.ConversationsItemRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves messages and key change events for a specific Chat conversation with pagination support. For 1:1 conversations, provide the recipient&apos;s user ID; the server constructs the canonical conversation ID from the authenticated user and recipient.
+    /// Returns metadata for a Chat conversation including type, muted status, and group details. Use chat_conversation.fields to select which fields are returned. Use expansions to hydrate member, admin, or participant user objects. Use user.fields to control which profile fields are returned for expanded users.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ConversationsItemRequestBuilderGetQueryParameters
     {
-      /// <summary>A comma separated list of ChatMessageEvent fields to display.</summary>
+      /// <summary>A comma separated list of ChatConversation fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-      [QueryParameter("chat_message_event%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.GetChat_message_eventFieldsQueryParameterType[]? ChatMessageEventFields { get; set; }
+      [QueryParameter("chat_conversation%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.GetChat_conversationFieldsQueryParameterType[]? ChatConversationFields { get; set; }
 #nullable restore
 #else
-      [QueryParameter("chat_message_event%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.GetChat_message_eventFieldsQueryParameterType[] ChatMessageEventFields { get; set; }
+      [QueryParameter("chat_conversation%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.GetChat_conversationFieldsQueryParameterType[] ChatConversationFields { get; set; }
 #endif
-      /// <summary>Maximum number of message events to return.</summary>
-      [QueryParameter("max_results")]
-      public int? MaxResults { get; set; }
-      /// <summary>Token for pagination to retrieve the next page of results.</summary>
+      /// <summary>A comma separated list of fields to expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-      [QueryParameter("pagination_token")]
-      public string? PaginationToken { get; set; }
+      [QueryParameter("expansions")]
+      public global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.GetExpansionsQueryParameterType[]? Expansions { get; set; }
 #nullable restore
 #else
-      [QueryParameter("pagination_token")]
-      public string PaginationToken { get; set; }
+      [QueryParameter("expansions")]
+      public global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.GetExpansionsQueryParameterType[] Expansions { get; set; }
+#endif
+      /// <summary>A comma separated list of User fields to display.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+      [QueryParameter("user%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.GetUserFieldsQueryParameterType[]? UserFields { get; set; }
+#nullable restore
+#else
+      [QueryParameter("user%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.GetUserFieldsQueryParameterType[] UserFields { get; set; }
 #endif
     }
   }

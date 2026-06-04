@@ -16,6 +16,10 @@ namespace XbyOpenApi.Core.Client.Two.Notes.Search.Notes_written
 #pragma warning disable CS1591
     Info,
 #pragma warning restore CS1591
+    [EnumMember(Value = "scoring_status")]
+#pragma warning disable CS1591
+    Scoring_status,
+#pragma warning restore CS1591
     [EnumMember(Value = "status")]
 #pragma warning disable CS1591
     Status,

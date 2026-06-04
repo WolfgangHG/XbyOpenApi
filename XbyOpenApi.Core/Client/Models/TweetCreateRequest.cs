@@ -105,6 +105,15 @@ namespace XbyOpenApi.Core.Client.Models
     public string Text { get; set; }
 #endif
     /// <summary>
+    /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.TweetCreateRequest"/> and sets the default values.
+    /// </summary>
+    public TweetCreateRequest()
+    {
+      ForSuperFollowersOnly = false;
+      Nullcast = false;
+      ShareWithFollowers = false;
+    }
+    /// <summary>
     /// Creates a new instance of the appropriate class based on discriminator value
     /// </summary>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.TweetCreateRequest"/></returns>

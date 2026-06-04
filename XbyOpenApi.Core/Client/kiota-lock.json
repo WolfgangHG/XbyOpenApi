@@ -1,8 +1,8 @@
 {
-  "descriptionHash": "71CE0E713067A07B4E4EE2A3E09253519B000AE142BCD360FEC4DF6C46D41252B7A68D1D5A6850325738487AD0613D09715C477603B4D8F4E5DE14D51FCE289B",
+  "descriptionHash": "9BA3526F5C75ECF70FFCE368CF99F337C7A5F2A89A98A3B3CBFA3DA6F79BE6FC1B6D18C6B0E87F01C12D8104C73557FCA81FE52FA92FAE1689C8C5553184BBC9",
   "descriptionLocation": "https://api.twitter.com/2/openapi.json",
   "lockFileVersion": "1.0.0",
-  "kiotaVersion": "1.30.0",
+  "kiotaVersion": "1.32.1",
   "clientClassName": "XClient",
   "typeAccessModifier": "Public",
   "clientNamespaceName": "XbyOpenApi.Core.Client",

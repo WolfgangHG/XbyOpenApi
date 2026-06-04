@@ -83,7 +83,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public TweetsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets?ids={ids}{&expansions,media%2Efields,place%2Efields,poll%2Efields,tweet%2Efields,user%2Efields}", pathParameters)
+    public TweetsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
     {
     }
     /// <summary>
@@ -91,7 +91,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public TweetsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets?ids={ids}{&expansions,media%2Efields,place%2Efields,poll%2Efields,tweet%2Efields,user%2Efields}", rawUrl)
+    public TweetsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
     {
     }
     /// <summary>
@@ -156,7 +156,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets
     public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.TweetsRequestBuilder.TweetsRequestBuilderGetQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
+      var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/2/tweets?ids={ids}{&expansions,media%2Efields,place%2Efields,poll%2Efields,tweet%2Efields,user%2Efields}", PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;

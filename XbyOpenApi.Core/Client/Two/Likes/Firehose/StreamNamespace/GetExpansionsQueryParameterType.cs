@@ -8,6 +8,10 @@ namespace XbyOpenApi.Core.Client.Two.Likes.Firehose.StreamNamespace
   public enum GetExpansionsQueryParameterType
 #pragma warning restore CS1591
   {
+    [EnumMember(Value = "attachments.media_keys")]
+#pragma warning disable CS1591
+    AttachmentsMedia_keys,
+#pragma warning restore CS1591
     [EnumMember(Value = "liked_tweet_author_id")]
 #pragma warning disable CS1591
     Liked_tweet_author_id,

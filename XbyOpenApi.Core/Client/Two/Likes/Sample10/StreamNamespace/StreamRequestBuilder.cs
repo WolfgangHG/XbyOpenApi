@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Two.Likes.Sample10.StreamNamespace
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public StreamRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/likes/sample10/stream?partition={partition}{&backfill_minutes*,end_time*,expansions,like_with_tweet_author%2Efields,start_time*,tweet%2Efields,user%2Efields}", pathParameters)
+    public StreamRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/likes/sample10/stream?partition={partition}{&backfill_minutes*,end_time*,expansions,like_with_tweet_author%2Efields,media%2Efields,start_time*,tweet%2Efields,user%2Efields}", pathParameters)
     {
     }
     /// <summary>
@@ -30,7 +30,7 @@ namespace XbyOpenApi.Core.Client.Two.Likes.Sample10.StreamNamespace
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public StreamRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/likes/sample10/stream?partition={partition}{&backfill_minutes*,end_time*,expansions,like_with_tweet_author%2Efields,start_time*,tweet%2Efields,user%2Efields}", rawUrl)
+    public StreamRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/likes/sample10/stream?partition={partition}{&backfill_minutes*,end_time*,expansions,like_with_tweet_author%2Efields,media%2Efields,start_time*,tweet%2Efields,user%2Efields}", rawUrl)
     {
     }
     /// <summary>
@@ -115,6 +115,16 @@ namespace XbyOpenApi.Core.Client.Two.Likes.Sample10.StreamNamespace
 #else
       [QueryParameter("like_with_tweet_author%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Likes.Sample10.StreamNamespace.GetLike_with_tweet_authorFieldsQueryParameterType[] LikeWithTweetAuthorFields { get; set; }
+#endif
+      /// <summary>A comma separated list of Media fields to display.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+      [QueryParameter("media%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Likes.Sample10.StreamNamespace.GetMediaFieldsQueryParameterType[]? MediaFields { get; set; }
+#nullable restore
+#else
+      [QueryParameter("media%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Likes.Sample10.StreamNamespace.GetMediaFieldsQueryParameterType[] MediaFields { get; set; }
 #endif
       /// <summary>The partition number.</summary>
       [QueryParameter("partition")]

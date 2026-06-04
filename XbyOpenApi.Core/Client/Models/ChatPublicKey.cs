@@ -15,6 +15,14 @@ namespace XbyOpenApi.Core.Client.Models
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
+    /// <summary>DER-encoded signature proving the signing key is bound to the identity key (base64 encoded).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? IdentityPublicKeySignature { get; set; }
+#nullable restore
+#else
+    public string IdentityPublicKeySignature { get; set; }
+#endif
     /// <summary>Key recovery configuration for Juicebox-based key storage.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -72,6 +80,7 @@ namespace XbyOpenApi.Core.Client.Models
     {
       return new Dictionary<string, Action<IParseNode>>
             {
+                { "identity_public_key_signature", n => { IdentityPublicKeySignature = n.GetStringValue(); } },
                 { "juicebox_config", n => { JuiceboxConfig = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.ChatJuiceboxConfig>(global::XbyOpenApi.Core.Client.Models.ChatJuiceboxConfig.CreateFromDiscriminatorValue); } },
                 { "public_key", n => { PublicKey = n.GetStringValue(); } },
                 { "signing_public_key", n => { SigningPublicKey = n.GetStringValue(); } },
@@ -85,6 +94,7 @@ namespace XbyOpenApi.Core.Client.Models
     public virtual void Serialize(ISerializationWriter writer)
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+      writer.WriteStringValue("identity_public_key_signature", IdentityPublicKeySignature);
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.ChatJuiceboxConfig>("juicebox_config", JuiceboxConfig);
       writer.WriteStringValue("public_key", PublicKey);
       writer.WriteStringValue("signing_public_key", SigningPublicKey);

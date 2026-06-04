@@ -37,6 +37,13 @@ namespace XbyOpenApi.Core.Client.Models
     /// <summary>Whether this media is shared or not.</summary>
     public bool? Shared { get; set; }
     /// <summary>
+    /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.MediaUploadRequestOneShot"/> and sets the default values.
+    /// </summary>
+    public MediaUploadRequestOneShot()
+    {
+      Shared = false;
+    }
+    /// <summary>
     /// Creates a new instance of the appropriate class based on discriminator value
     /// </summary>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.MediaUploadRequestOneShot"/></returns>

@@ -72,6 +72,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Me
 #pragma warning disable CS1591
     Lang,
 #pragma warning restore CS1591
+    [EnumMember(Value = "matched_media_notes")]
+#pragma warning disable CS1591
+    Matched_media_notes,
+#pragma warning restore CS1591
     [EnumMember(Value = "media_metadata")]
 #pragma warning disable CS1591
     Media_metadata,
@@ -80,6 +84,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Me
 #pragma warning disable CS1591
     Non_public_metrics,
 #pragma warning restore CS1591
+    [EnumMember(Value = "note_request_suggestions")]
+#pragma warning disable CS1591
+    Note_request_suggestions,
+#pragma warning restore CS1591
     [EnumMember(Value = "note_tweet")]
 #pragma warning disable CS1591
     Note_tweet,
@@ -87,6 +95,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Me
     [EnumMember(Value = "organic_metrics")]
 #pragma warning disable CS1591
     Organic_metrics,
+#pragma warning restore CS1591
+    [EnumMember(Value = "paid_partnership")]
+#pragma warning disable CS1591
+    Paid_partnership,
 #pragma warning restore CS1591
     [EnumMember(Value = "possibly_sensitive")]
 #pragma warning disable CS1591

@@ -8,6 +8,10 @@ namespace XbyOpenApi.Core.Client.Two.Likes.Sample10.StreamNamespace
   public enum GetLike_with_tweet_authorFieldsQueryParameterType
 #pragma warning restore CS1591
   {
+    [EnumMember(Value = "attachments_media_keys")]
+#pragma warning disable CS1591
+    Attachments_media_keys,
+#pragma warning restore CS1591
     [EnumMember(Value = "created_at")]
 #pragma warning disable CS1591
     Created_at,
