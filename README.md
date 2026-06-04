@@ -15,7 +15,8 @@ Here comes this sample into play. You can use the sample code to implement your 
 from the sample.
 
 
-I have only a free access X account, so if there are questions, maybe I cannot help.
+When I created this project, I had only a free access X account and thus could test only a few API calls. But
+in spring 2026, the free access does not seem to exist anymore, so I had to pay 5 bucks. I don't know how long I am willing to do this....
 
 # Table of Contents
 
