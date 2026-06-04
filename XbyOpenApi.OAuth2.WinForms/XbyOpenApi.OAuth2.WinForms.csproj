@@ -38,6 +38,14 @@ There was a conflict between "WindowsBase, Version=4.0.0.0, Culture=neutral, Pub
   </PropertyGroup>
 
   <ItemGroup>
+    <!--Make the assembly CLS compliant -->
+    <AssemblyAttribute Include="System.CLSCompliant">
+      <_Parameter1>true</_Parameter1>
+      <_Parameter1_TypeName>System.Boolean</_Parameter1_TypeName>
+    </AssemblyAttribute>
+  </ItemGroup>
+  
+  <ItemGroup>
     <!-- Required for "HttpUtility" -->
     <Reference Condition=" '$(TargetFramework)' == 'net48' " Include="System.Web" />
   </ItemGroup>

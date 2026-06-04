@@ -15,6 +15,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!--Make the assembly CLS compliant -->
+    <AssemblyAttribute Include="System.CLSCompliant">
+      <_Parameter1>true</_Parameter1>
+      <_Parameter1_TypeName>System.Boolean</_Parameter1_TypeName>
+    </AssemblyAttribute>
+  </ItemGroup>
+  
+  <ItemGroup>
     <ProjectReference Include="..\XbyOpenApi.Core\XbyOpenApi.Core.csproj" />
   </ItemGroup>
 

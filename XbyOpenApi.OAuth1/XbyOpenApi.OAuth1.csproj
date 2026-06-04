@@ -15,6 +15,15 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <!--Make the assembly CLS compliant - not possible here because TinyOAuth1 is not CLS compliant.
+    <AssemblyAttribute Include="System.CLSCompliant">
+      <_Parameter1>true</_Parameter1>
+      <_Parameter1_TypeName>System.Boolean</_Parameter1_TypeName>
+    </AssemblyAttribute>
+    -->
+  </ItemGroup>
+  
+  <ItemGroup>
     <PackageReference Include="TinyOAuth1" />
   </ItemGroup>
 

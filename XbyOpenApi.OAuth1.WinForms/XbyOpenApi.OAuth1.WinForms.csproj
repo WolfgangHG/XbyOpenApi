@@ -35,6 +35,15 @@ There was a conflict between "WindowsBase, Version=4.0.0.0, Culture=neutral, Pub
   </PropertyGroup>
 
   <ItemGroup>
+    <!--Make the assembly CLS compliant - not possible here because TinyOAuth1 is not CLS compliant.
+    <AssemblyAttribute Include="System.CLSCompliant">
+      <_Parameter1>true</_Parameter1>
+      <_Parameter1_TypeName>System.Boolean</_Parameter1_TypeName>
+    </AssemblyAttribute>
+    -->
+  </ItemGroup>
+  
+  <ItemGroup>
     <ProjectReference Include="..\XbyOpenApi.OAuth1\XbyOpenApi.OAuth1.csproj" />
   </ItemGroup>
 
