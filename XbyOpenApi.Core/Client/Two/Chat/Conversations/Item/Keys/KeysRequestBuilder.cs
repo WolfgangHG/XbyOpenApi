@@ -34,20 +34,20 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Keys
     {
     }
     /// <summary>
-    /// Initializes encryption keys for a Chat conversation. This is the first stepbefore sending messages in a new 1:1 conversation.For 1:1 conversations, provide the recipient&apos;s user ID as the conversation_id.The server constructs the canonical conversation ID from the authenticated userand recipient.The request body must contain the conversation key version and participant keys(the conversation key encrypted for each participant using their public key).**Workflow (1:1 conversation):**1. Generate a conversation key using the SDK2. Encrypt the key for both participants using their public keys3. Call this endpoint to register the keys4. Send messages using `POST /chat/conversations/{id}/messages`**Authentication:**- Requires OAuth 1.0a User Context or OAuth 2.0 User Context- Required scopes: `tweet.read`, `users.read`, `dm.write`
+    /// Adds (initializes or rotates) the encryption keys for a Chat conversation. Call this before sending messages in a new 1:1 conversation, and again with a newer key version to rotate the conversation key. For 1:1 conversations, provide the recipient&apos;s user ID as the conversation id; the server constructs the canonical conversation ID from the authenticated user and recipient. The request body must contain the conversation key version and participant keys (the conversation key encrypted for each participant using their public key).
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ChatInitializeConversationKeysResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.AddConversationKeysResponse"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.ChatInitializeConversationKeysResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.ChatInitializeConversationKeysRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.AddConversationKeysResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.AddConversationKeysRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.ChatInitializeConversationKeysResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.ChatInitializeConversationKeysRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.AddConversationKeysResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.AddConversationKeysRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -56,21 +56,21 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Keys
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ChatInitializeConversationKeysResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ChatInitializeConversationKeysResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.AddConversationKeysResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.AddConversationKeysResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Initializes encryption keys for a Chat conversation. This is the first stepbefore sending messages in a new 1:1 conversation.For 1:1 conversations, provide the recipient&apos;s user ID as the conversation_id.The server constructs the canonical conversation ID from the authenticated userand recipient.The request body must contain the conversation key version and participant keys(the conversation key encrypted for each participant using their public key).**Workflow (1:1 conversation):**1. Generate a conversation key using the SDK2. Encrypt the key for both participants using their public keys3. Call this endpoint to register the keys4. Send messages using `POST /chat/conversations/{id}/messages`**Authentication:**- Requires OAuth 1.0a User Context or OAuth 2.0 User Context- Required scopes: `tweet.read`, `users.read`, `dm.write`
+    /// Adds (initializes or rotates) the encryption keys for a Chat conversation. Call this before sending messages in a new 1:1 conversation, and again with a newer key version to rotate the conversation key. For 1:1 conversations, provide the recipient&apos;s user ID as the conversation id; the server constructs the canonical conversation ID from the authenticated user and recipient. The request body must contain the conversation key version and participant keys (the conversation key encrypted for each participant using their public key).
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.ChatInitializeConversationKeysRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.AddConversationKeysRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
     {
 #nullable restore
 #else
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.ChatInitializeConversationKeysRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.AddConversationKeysRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

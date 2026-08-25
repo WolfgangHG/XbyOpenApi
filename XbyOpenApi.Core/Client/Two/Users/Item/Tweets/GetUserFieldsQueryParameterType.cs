@@ -8,10 +8,6 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Tweets
   public enum GetUserFieldsQueryParameterType
 #pragma warning restore CS1591
   {
-    [EnumMember(Value = "affiliation")]
-#pragma warning disable CS1591
-    Affiliation,
-#pragma warning restore CS1591
     [EnumMember(Value = "confirmed_email")]
 #pragma warning disable CS1591
     Confirmed_email,
@@ -44,10 +40,6 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Tweets
 #pragma warning disable CS1591
     Location,
 #pragma warning restore CS1591
-    [EnumMember(Value = "most_recent_tweet_id")]
-#pragma warning disable CS1591
-    Most_recent_tweet_id,
-#pragma warning restore CS1591
     [EnumMember(Value = "name")]
 #pragma warning disable CS1591
     Name,
@@ -55,10 +47,6 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Tweets
     [EnumMember(Value = "parody")]
 #pragma warning disable CS1591
     Parody,
-#pragma warning restore CS1591
-    [EnumMember(Value = "pinned_tweet_id")]
-#pragma warning disable CS1591
-    Pinned_tweet_id,
 #pragma warning restore CS1591
     [EnumMember(Value = "profile_banner_url")]
 #pragma warning disable CS1591
@@ -79,6 +67,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Tweets
     [EnumMember(Value = "receives_your_dm")]
 #pragma warning disable CS1591
     Receives_your_dm,
+#pragma warning restore CS1591
+    [EnumMember(Value = "subscribes_to_you")]
+#pragma warning disable CS1591
+    Subscribes_to_you,
 #pragma warning restore CS1591
     [EnumMember(Value = "subscription")]
 #pragma warning disable CS1591

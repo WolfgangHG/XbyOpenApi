@@ -36,17 +36,17 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions.Item
     /// <summary>
     /// Deletes a subscription for an X activity event
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionDeleteResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.DeleteActivitySubscriptionResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionDeleteResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.DeleteActivitySubscriptionResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionDeleteResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.DeleteActivitySubscriptionResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -54,23 +54,23 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions.Item
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionDeleteResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.DeleteActivitySubscriptionResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.DeleteActivitySubscriptionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Updates a subscription for an X activity event
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionUpdateResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.UpdateActivitySubscriptionResponse"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionUpdateResponse?> PutAsync(global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.UpdateActivitySubscriptionResponse?> PutAsync(global::XbyOpenApi.Core.Client.Models.UpdateActivitySubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionUpdateResponse> PutAsync(global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.UpdateActivitySubscriptionResponse> PutAsync(global::XbyOpenApi.Core.Client.Models.UpdateActivitySubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -79,7 +79,7 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions.Item
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionUpdateResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionUpdateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.UpdateActivitySubscriptionResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.UpdateActivitySubscriptionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Deletes a subscription for an X activity event
@@ -108,11 +108,11 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions.Item
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public RequestInformation ToPutRequestInformation(global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+    public RequestInformation ToPutRequestInformation(global::XbyOpenApi.Core.Client.Models.UpdateActivitySubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
     {
 #nullable restore
 #else
-    public RequestInformation ToPutRequestInformation(global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+    public RequestInformation ToPutRequestInformation(global::XbyOpenApi.Core.Client.Models.UpdateActivitySubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

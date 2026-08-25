@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Two.Dm_events.Item
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public WithEvent_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
+    public WithEvent_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/dm_events/{event_id}{?dm_event%2Efields,expansions,media%2Efields,post%2Efields,user%2Efields}", pathParameters)
     {
     }
     /// <summary>
@@ -30,23 +30,23 @@ namespace XbyOpenApi.Core.Client.Two.Dm_events.Item
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public WithEvent_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
+    public WithEvent_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/dm_events/{event_id}{?dm_event%2Efields,expansions,media%2Efields,post%2Efields,user%2Efields}", rawUrl)
     {
     }
     /// <summary>
     /// Deletes a specific direct message event by its ID, if owned by the authenticated user.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.DeleteDmResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.DeleteDirectMessagesEventsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.DeleteDmResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.DeleteDirectMessagesEventsResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.DeleteDmResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.DeleteDirectMessagesEventsResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -54,22 +54,22 @@ namespace XbyOpenApi.Core.Client.Two.Dm_events.Item
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.DeleteDmResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.DeleteDmResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.DeleteDirectMessagesEventsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.DeleteDirectMessagesEventsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves details of a specific direct message event by its ID.
+    /// Get Direct Messages Events by ID
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2DmEventsEventIdResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetDirectMessagesEventsByIdResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2DmEventsEventIdResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Dm_events.Item.WithEvent_ItemRequestBuilder.WithEvent_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetDirectMessagesEventsByIdResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Dm_events.Item.WithEvent_ItemRequestBuilder.WithEvent_ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2DmEventsEventIdResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Dm_events.Item.WithEvent_ItemRequestBuilder.WithEvent_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetDirectMessagesEventsByIdResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Dm_events.Item.WithEvent_ItemRequestBuilder.WithEvent_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -77,7 +77,7 @@ namespace XbyOpenApi.Core.Client.Two.Dm_events.Item
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2DmEventsEventIdResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2DmEventsEventIdResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetDirectMessagesEventsByIdResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetDirectMessagesEventsByIdResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Deletes a specific direct message event by its ID, if owned by the authenticated user.
@@ -93,13 +93,13 @@ namespace XbyOpenApi.Core.Client.Two.Dm_events.Item
     public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/2/dm_events/{event_id}", PathParameters);
+      var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;
     }
     /// <summary>
-    /// Retrieves details of a specific direct message event by its ID.
+    /// Get Direct Messages Events by ID
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -112,7 +112,7 @@ namespace XbyOpenApi.Core.Client.Two.Dm_events.Item
     public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Dm_events.Item.WithEvent_ItemRequestBuilder.WithEvent_ItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/2/dm_events/{event_id}{?dm_event%2Efields,expansions,media%2Efields,tweet%2Efields,user%2Efields}", PathParameters);
+      var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;
@@ -127,7 +127,7 @@ namespace XbyOpenApi.Core.Client.Two.Dm_events.Item
       return new global::XbyOpenApi.Core.Client.Two.Dm_events.Item.WithEvent_ItemRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves details of a specific direct message event by its ID.
+    /// Get Direct Messages Events by ID
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithEvent_ItemRequestBuilderGetQueryParameters
@@ -162,15 +162,15 @@ namespace XbyOpenApi.Core.Client.Two.Dm_events.Item
       [QueryParameter("media%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Dm_events.Item.GetMediaFieldsQueryParameterType[] MediaFields { get; set; }
 #endif
-      /// <summary>A comma separated list of Tweet fields to display.</summary>
+      /// <summary>A comma separated list of Post fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Dm_events.Item.GetTweetFieldsQueryParameterType[]? TweetFields { get; set; }
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Dm_events.Item.GetPostFieldsQueryParameterType[]? PostFields { get; set; }
 #nullable restore
 #else
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Dm_events.Item.GetTweetFieldsQueryParameterType[] TweetFields { get; set; }
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Dm_events.Item.GetPostFieldsQueryParameterType[] PostFields { get; set; }
 #endif
       /// <summary>A comma separated list of User fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

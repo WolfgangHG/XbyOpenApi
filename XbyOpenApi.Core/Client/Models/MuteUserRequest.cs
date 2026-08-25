@@ -9,12 +9,10 @@ namespace XbyOpenApi.Core.Client.Models
 {
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
 #pragma warning disable CS1591
-  public partial class MuteUserRequest : IAdditionalDataHolder, IParsable
+  public partial class MuteUserRequest : IParsable
 #pragma warning restore CS1591
   {
-    /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-    public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>Unique identifier of this User. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.</summary>
+    /// <summary>The target_user_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? TargetUserId { get; set; }
@@ -22,13 +20,6 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string TargetUserId { get; set; }
 #endif
-    /// <summary>
-    /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.MuteUserRequest"/> and sets the default values.
-    /// </summary>
-    public MuteUserRequest()
-    {
-      AdditionalData = new Dictionary<string, object>();
-    }
     /// <summary>
     /// Creates a new instance of the appropriate class based on discriminator value
     /// </summary>
@@ -58,7 +49,6 @@ namespace XbyOpenApi.Core.Client.Models
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
       writer.WriteStringValue("target_user_id", TargetUserId);
-      writer.WriteAdditionalData(AdditionalData);
     }
   }
 }

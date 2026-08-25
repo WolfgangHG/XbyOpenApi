@@ -28,7 +28,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.By
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public ByRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/by?usernames={usernames}{&expansions,tweet%2Efields,user%2Efields}", pathParameters)
+    public ByRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/by?usernames={usernames}{&expansions,post%2Efields,user%2Efields}", pathParameters)
     {
     }
     /// <summary>
@@ -36,23 +36,23 @@ namespace XbyOpenApi.Core.Client.Two.Users.By
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public ByRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/by?usernames={usernames}{&expansions,tweet%2Efields,user%2Efields}", rawUrl)
+    public ByRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/by?usernames={usernames}{&expansions,post%2Efields,user%2Efields}", rawUrl)
     {
     }
     /// <summary>
-    /// Retrieves details of multiple Users by their usernames.
+    /// Get Users by Usernames
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2UsersByResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetUsersByUsernamesResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersByResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.By.ByRequestBuilder.ByRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersByUsernamesResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.By.ByRequestBuilder.ByRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersByResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.By.ByRequestBuilder.ByRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersByUsernamesResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.By.ByRequestBuilder.ByRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -60,10 +60,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.By
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2UsersByResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2UsersByResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetUsersByUsernamesResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetUsersByUsernamesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves details of multiple Users by their usernames.
+    /// Get Users by Usernames
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -91,7 +91,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.By
       return new global::XbyOpenApi.Core.Client.Two.Users.By.ByRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves details of multiple Users by their usernames.
+    /// Get Users by Usernames
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ByRequestBuilderGetQueryParameters
@@ -106,15 +106,15 @@ namespace XbyOpenApi.Core.Client.Two.Users.By
       [QueryParameter("expansions")]
       public global::XbyOpenApi.Core.Client.Two.Users.By.GetExpansionsQueryParameterType[] Expansions { get; set; }
 #endif
-      /// <summary>A comma separated list of Tweet fields to display.</summary>
+      /// <summary>A comma separated list of Post fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Users.By.GetTweetFieldsQueryParameterType[]? TweetFields { get; set; }
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Users.By.GetPostFieldsQueryParameterType[]? PostFields { get; set; }
 #nullable restore
 #else
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Users.By.GetTweetFieldsQueryParameterType[] TweetFields { get; set; }
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Users.By.GetPostFieldsQueryParameterType[] PostFields { get; set; }
 #endif
       /// <summary>A comma separated list of User fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -126,7 +126,6 @@ namespace XbyOpenApi.Core.Client.Two.Users.By
       [QueryParameter("user%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Users.By.GetUserFieldsQueryParameterType[] UserFields { get; set; }
 #endif
-      /// <summary>A list of usernames, comma-separated.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("usernames")]

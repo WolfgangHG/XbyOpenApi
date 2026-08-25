@@ -19,7 +19,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists
   public partial class Pinned_listsRequestBuilder : BaseRequestBuilder
   {
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.users.item.pinned_lists.item collection</summary>
-    /// <param name="position">The ID of the List to unpin.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists.Item.WithList_ItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists.Item.WithList_ItemRequestBuilder this[string position]
     {
@@ -35,7 +35,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public Pinned_listsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
+    public Pinned_listsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/pinned_lists{?expansions,list%2Efields,user%2Efields}", pathParameters)
     {
     }
     /// <summary>
@@ -43,23 +43,23 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public Pinned_listsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
+    public Pinned_listsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/pinned_lists{?expansions,list%2Efields,user%2Efields}", rawUrl)
     {
     }
     /// <summary>
-    /// Retrieves a list of Lists pinned by the authenticated user.
+    /// Get Users Pinned Lists
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2UsersIdPinnedListsResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetUsersPinnedListsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersIdPinnedListsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists.Pinned_listsRequestBuilder.Pinned_listsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersPinnedListsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists.Pinned_listsRequestBuilder.Pinned_listsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersIdPinnedListsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists.Pinned_listsRequestBuilder.Pinned_listsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersPinnedListsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists.Pinned_listsRequestBuilder.Pinned_listsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -67,23 +67,23 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2UsersIdPinnedListsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2UsersIdPinnedListsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetUsersPinnedListsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetUsersPinnedListsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Causes the authenticated user to pin a specific List by its ID.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ListPinnedResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.PinListResponse"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.ListPinnedResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.ListPinnedRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.PinListResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.PinListRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.ListPinnedResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.ListPinnedRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.PinListResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.PinListRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -92,10 +92,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ListPinnedResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ListPinnedResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.PinListResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.PinListResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves a list of Lists pinned by the authenticated user.
+    /// Get Users Pinned Lists
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -108,7 +108,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists
     public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists.Pinned_listsRequestBuilder.Pinned_listsRequestBuilderGetQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/2/users/{%2Did}/pinned_lists{?expansions,list%2Efields,user%2Efields}", PathParameters);
+      var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;
@@ -121,15 +121,15 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.ListPinnedRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.PinListRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
     {
 #nullable restore
 #else
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.ListPinnedRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.PinListRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-      var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/2/users/{%2Did}/pinned_lists", PathParameters);
+      var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -145,7 +145,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists
       return new global::XbyOpenApi.Core.Client.Two.Users.Item.Pinned_lists.Pinned_listsRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves a list of Lists pinned by the authenticated user.
+    /// Get Users Pinned Lists
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Pinned_listsRequestBuilderGetQueryParameters

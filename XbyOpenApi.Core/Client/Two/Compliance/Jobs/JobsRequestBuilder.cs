@@ -19,7 +19,7 @@ namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs
   public partial class JobsRequestBuilder : BaseRequestBuilder
   {
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.compliance.jobs.item collection</summary>
-    /// <param name="position">The ID of the Compliance Job to retrieve.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.JobsItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.JobsItemRequestBuilder this[string position]
     {
@@ -35,7 +35,7 @@ namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public JobsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
+    public JobsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/compliance/jobs{?compliance_job%2Efields,status*}", pathParameters)
     {
     }
     /// <summary>
@@ -43,23 +43,23 @@ namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public JobsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
+    public JobsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/compliance/jobs{?compliance_job%2Efields,status*}", rawUrl)
     {
     }
     /// <summary>
     /// Retrieves a list of Compliance Jobs filtered by job type and optional status.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2ComplianceJobsResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetComplianceJobsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2ComplianceJobsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetComplianceJobsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2ComplianceJobsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetComplianceJobsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.JobsRequestBuilder.JobsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -67,23 +67,23 @@ namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2ComplianceJobsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2ComplianceJobsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetComplianceJobsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetComplianceJobsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Creates a new Compliance Job for the specified job type.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.CreateComplianceJobResponse"/></returns>
-    /// <param name="body">A request to create a new batch compliance job.</param>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.CreateComplianceJobsResponse"/></returns>
+    /// <param name="body">The request body</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.CreateComplianceJobResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateComplianceJobRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.CreateComplianceJobsResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateComplianceJobsRequest body, Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.JobsRequestBuilder.JobsRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.CreateComplianceJobResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateComplianceJobRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.CreateComplianceJobsResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateComplianceJobsRequest body, Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.JobsRequestBuilder.JobsRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -92,7 +92,7 @@ namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.CreateComplianceJobResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.CreateComplianceJobResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.CreateComplianceJobsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.CreateComplianceJobsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Retrieves a list of Compliance Jobs filtered by job type and optional status.
@@ -117,19 +117,19 @@ namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs
     /// Creates a new Compliance Job for the specified job type.
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
-    /// <param name="body">A request to create a new batch compliance job.</param>
+    /// <param name="body">The request body</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateComplianceJobRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateComplianceJobsRequest body, Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.JobsRequestBuilder.JobsRequestBuilderPostQueryParameters>>? requestConfiguration = default)
     {
 #nullable restore
 #else
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateComplianceJobRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateComplianceJobsRequest body, Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.JobsRequestBuilder.JobsRequestBuilderPostQueryParameters>> requestConfiguration = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-      var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/2/compliance/jobs", PathParameters);
+      var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -160,12 +160,27 @@ namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs
       [QueryParameter("compliance_job%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.GetCompliance_jobFieldsQueryParameterType[] ComplianceJobFields { get; set; }
 #endif
-      /// <summary>Status of Compliance Job to list.</summary>
       [QueryParameter("status")]
       public global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.GetStatusQueryParameterType? Status { get; set; }
-      /// <summary>Type of Compliance Job to list.</summary>
       [QueryParameter("type")]
       public global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.GetTypeQueryParameterType? Type { get; set; }
+    }
+    /// <summary>
+    /// Creates a new Compliance Job for the specified job type.
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    public partial class JobsRequestBuilderPostQueryParameters
+    {
+      /// <summary>A comma separated list of ComplianceJob fields to display.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+      [QueryParameter("compliance_job%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.PostCompliance_jobFieldsQueryParameterType[]? ComplianceJobFields { get; set; }
+#nullable restore
+#else
+      [QueryParameter("compliance_job%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.PostCompliance_jobFieldsQueryParameterType[] ComplianceJobFields { get; set; }
+#endif
     }
   }
 }

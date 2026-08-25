@@ -7,15 +7,12 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// Request body for finalizing a Chat media upload.
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-  public partial class ChatMediaUploadFinalizeRequest : IAdditionalDataHolder, IParsable
+#pragma warning disable CS1591
+  public partial class ChatMediaUploadFinalizeRequest : IParsable
+#pragma warning restore CS1591
   {
-    /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-    public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>XChat conversation identifier for the upload.</summary>
+    /// <summary>The XChat conversation the upload belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? ConversationId { get; set; }
@@ -23,7 +20,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string ConversationId { get; set; }
 #endif
-    /// <summary>Media hash key returned from initialize.</summary>
+    /// <summary>The media hash key returned by the initialize step.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? MediaHashKey { get; set; }
@@ -39,7 +36,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string MessageId { get; set; }
 #endif
-    /// <summary>Total number of uploaded parts as a numeric string.</summary>
+    /// <summary>Total number of uploaded parts, as a numeric string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? NumParts { get; set; }
@@ -47,7 +44,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string NumParts { get; set; }
 #endif
-    /// <summary>Optional TTL for the media in milliseconds.</summary>
+    /// <summary>Optional TTL for the media in milliseconds, as a numeric string.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? TtlMsec { get; set; }
@@ -55,13 +52,6 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string TtlMsec { get; set; }
 #endif
-    /// <summary>
-    /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.ChatMediaUploadFinalizeRequest"/> and sets the default values.
-    /// </summary>
-    public ChatMediaUploadFinalizeRequest()
-    {
-      AdditionalData = new Dictionary<string, object>();
-    }
     /// <summary>
     /// Creates a new instance of the appropriate class based on discriminator value
     /// </summary>
@@ -99,7 +89,6 @@ namespace XbyOpenApi.Core.Client.Models
       writer.WriteStringValue("message_id", MessageId);
       writer.WriteStringValue("num_parts", NumParts);
       writer.WriteStringValue("ttl_msec", TtlMsec);
-      writer.WriteAdditionalData(AdditionalData);
     }
   }
 }

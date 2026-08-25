@@ -16,7 +16,7 @@ namespace XbyOpenApi.Core.Client.Two.Account_activity.Webhooks
   public partial class WebhooksRequestBuilder : BaseRequestBuilder
   {
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.account_activity.webhooks.item collection</summary>
-    /// <param name="position">The webhook ID to check subscription against.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Account_activity.Webhooks.Item.WithWebhook_ItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Account_activity.Webhooks.Item.WithWebhook_ItemRequestBuilder this[string position]
     {

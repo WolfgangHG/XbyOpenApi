@@ -36,18 +36,18 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Members
     /// <summary>
     /// Adds one or more members to an existing encrypted Chat group conversation, rotating the conversation key.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ChatAddGroupMembersResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.AddChatGroupMembersResponse"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.ChatAddGroupMembersResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.ChatAddGroupMembersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.AddChatGroupMembersResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.AddChatGroupMembersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.ChatAddGroupMembersResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.ChatAddGroupMembersRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.AddChatGroupMembersResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.AddChatGroupMembersRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -56,7 +56,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Members
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ChatAddGroupMembersResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ChatAddGroupMembersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.AddChatGroupMembersResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.AddChatGroupMembersResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Adds one or more members to an existing encrypted Chat group conversation, rotating the conversation key.
@@ -66,11 +66,11 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Members
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.ChatAddGroupMembersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.AddChatGroupMembersRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
     {
 #nullable restore
 #else
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.ChatAddGroupMembersRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.AddChatGroupMembersRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

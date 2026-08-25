@@ -8,17 +8,17 @@ namespace XbyOpenApi.Core.Client.Two.Users.Me
   public enum GetExpansionsQueryParameterType
 #pragma warning restore CS1591
   {
-    [EnumMember(Value = "affiliation.user_id")]
+    [EnumMember(Value = "affiliation")]
 #pragma warning disable CS1591
-    AffiliationUser_id,
+    Affiliation,
 #pragma warning restore CS1591
-    [EnumMember(Value = "most_recent_tweet_id")]
+    [EnumMember(Value = "most_recent_post_id")]
 #pragma warning disable CS1591
-    Most_recent_tweet_id,
+    Most_recent_post_id,
 #pragma warning restore CS1591
-    [EnumMember(Value = "pinned_tweet_id")]
+    [EnumMember(Value = "pinned_post_id")]
 #pragma warning disable CS1591
-    Pinned_tweet_id,
+    Pinned_post_id,
 #pragma warning restore CS1591
   }
 }

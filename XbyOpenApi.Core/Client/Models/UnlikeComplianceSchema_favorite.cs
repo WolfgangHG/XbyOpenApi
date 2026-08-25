@@ -14,7 +14,7 @@ namespace XbyOpenApi.Core.Client.Models
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>Unique identifier of this Tweet. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.</summary>
+    /// <summary>Unique identifier of a Post</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Id { get; set; }
@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Id { get; set; }
 #endif
-    /// <summary>Unique identifier of this User. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.</summary>
+    /// <summary>Unique identifier of a User</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? UserId { get; set; }

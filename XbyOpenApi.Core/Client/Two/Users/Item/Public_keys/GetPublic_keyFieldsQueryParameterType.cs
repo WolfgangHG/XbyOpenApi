@@ -20,13 +20,13 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Public_keys
 #pragma warning disable CS1591
     Public_key,
 #pragma warning restore CS1591
+    [EnumMember(Value = "public_key_version")]
+#pragma warning disable CS1591
+    Public_key_version,
+#pragma warning restore CS1591
     [EnumMember(Value = "signing_public_key")]
 #pragma warning disable CS1591
     Signing_public_key,
-#pragma warning restore CS1591
-    [EnumMember(Value = "version")]
-#pragma warning disable CS1591
-    Version,
 #pragma warning restore CS1591
   }
 }

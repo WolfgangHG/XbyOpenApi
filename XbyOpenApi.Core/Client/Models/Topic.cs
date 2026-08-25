@@ -7,15 +7,14 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// The topic of a Space, as selected by its creator.
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+#pragma warning disable CS1591
   public partial class Topic : IAdditionalDataHolder, IParsable
+#pragma warning restore CS1591
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>The description of the given topic.</summary>
+    /// <summary>The description property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Description { get; set; }
@@ -23,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Description { get; set; }
 #endif
-    /// <summary>Unique identifier of this Topic.</summary>
+    /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Id { get; set; }
@@ -31,7 +30,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Id { get; set; }
 #endif
-    /// <summary>The name of the given topic.</summary>
+    /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Name { get; set; }

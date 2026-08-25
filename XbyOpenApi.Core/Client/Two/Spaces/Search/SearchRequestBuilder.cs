@@ -36,17 +36,17 @@ namespace XbyOpenApi.Core.Client.Two.Spaces.Search
     /// <summary>
     /// Retrieves a list of Spaces matching the specified search query.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2SpacesSearchResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.SearchSpacesResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2SpacesSearchResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Spaces.Search.SearchRequestBuilder.SearchRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.SearchSpacesResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Spaces.Search.SearchRequestBuilder.SearchRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2SpacesSearchResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Spaces.Search.SearchRequestBuilder.SearchRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.SearchSpacesResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Spaces.Search.SearchRequestBuilder.SearchRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace XbyOpenApi.Core.Client.Two.Spaces.Search
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2SpacesSearchResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2SpacesSearchResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.SearchSpacesResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.SearchSpacesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Retrieves a list of Spaces matching the specified search query.
@@ -100,10 +100,8 @@ namespace XbyOpenApi.Core.Client.Two.Spaces.Search
       [QueryParameter("expansions")]
       public global::XbyOpenApi.Core.Client.Two.Spaces.Search.GetExpansionsQueryParameterType[] Expansions { get; set; }
 #endif
-      /// <summary>The number of results to return.</summary>
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
-      /// <summary>The search query.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("query")]
@@ -123,7 +121,6 @@ namespace XbyOpenApi.Core.Client.Two.Spaces.Search
       [QueryParameter("space%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Spaces.Search.GetSpaceFieldsQueryParameterType[] SpaceFields { get; set; }
 #endif
-      /// <summary>The state of Spaces to search for.</summary>
       [QueryParameter("state")]
       public global::XbyOpenApi.Core.Client.Two.Spaces.Search.GetStateQueryParameterType? State { get; set; }
       /// <summary>A comma separated list of Topic fields to display.</summary>

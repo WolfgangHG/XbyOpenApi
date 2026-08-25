@@ -36,17 +36,17 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Compliance.StreamNamespace
     /// <summary>
     /// Streams all compliance data related to Posts.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.TweetComplianceStreamResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.StreamPostsComplianceResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.TweetComplianceStreamResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Compliance.StreamNamespace.StreamRequestBuilder.StreamRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.StreamPostsComplianceResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Compliance.StreamNamespace.StreamRequestBuilder.StreamRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.TweetComplianceStreamResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Compliance.StreamNamespace.StreamRequestBuilder.StreamRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.StreamPostsComplianceResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Compliance.StreamNamespace.StreamRequestBuilder.StreamRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Compliance.StreamNamespace
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.TweetComplianceStreamResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.TweetComplianceStreamResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.StreamPostsComplianceResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.StreamPostsComplianceResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Streams all compliance data related to Posts.
@@ -93,7 +93,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Compliance.StreamNamespace
       /// <summary>The number of minutes of backfill requested.</summary>
       [QueryParameter("backfill_minutes")]
       public int? BackfillMinutes { get; set; }
-      /// <summary>YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Post Compliance events will be provided.</summary>
+      /// <summary>YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp from which the Post Compliance events will be provided.</summary>
       [QueryParameter("end_time")]
       public DateTimeOffset? EndTime { get; set; }
       /// <summary>The partition number.</summary>

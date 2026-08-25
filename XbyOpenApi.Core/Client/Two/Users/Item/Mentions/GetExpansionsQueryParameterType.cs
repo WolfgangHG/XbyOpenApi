@@ -32,9 +32,9 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Mentions
 #pragma warning disable CS1591
     Author_id,
 #pragma warning restore CS1591
-    [EnumMember(Value = "edit_history_tweet_ids")]
+    [EnumMember(Value = "edit_history_post_ids")]
 #pragma warning disable CS1591
-    Edit_history_tweet_ids,
+    Edit_history_post_ids,
 #pragma warning restore CS1591
     [EnumMember(Value = "entities.mentions.username")]
 #pragma warning disable CS1591
@@ -48,21 +48,13 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Mentions
 #pragma warning disable CS1591
     In_reply_to_user_id,
 #pragma warning restore CS1591
-    [EnumMember(Value = "entities.note.mentions.username")]
+    [EnumMember(Value = "referenced_posts")]
 #pragma warning disable CS1591
-    EntitiesNoteMentionsUsername,
+    Referenced_posts,
 #pragma warning restore CS1591
-    [EnumMember(Value = "referenced_tweets.id")]
+    [EnumMember(Value = "username")]
 #pragma warning disable CS1591
-    Referenced_tweetsId,
-#pragma warning restore CS1591
-    [EnumMember(Value = "referenced_tweets.id.attachments.media_keys")]
-#pragma warning disable CS1591
-    Referenced_tweetsIdAttachmentsMedia_keys,
-#pragma warning restore CS1591
-    [EnumMember(Value = "referenced_tweets.id.author_id")]
-#pragma warning disable CS1591
-    Referenced_tweetsIdAuthor_id,
+    Username,
 #pragma warning restore CS1591
   }
 }

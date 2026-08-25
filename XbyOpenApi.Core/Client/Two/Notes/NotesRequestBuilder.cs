@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Threading;
 using System;
 using XbyOpenApi.Core.Client.Models;
+using XbyOpenApi.Core.Client.Two.Notes.Evaluate;
 using XbyOpenApi.Core.Client.Two.Notes.Item;
 using XbyOpenApi.Core.Client.Two.Notes.Search;
 namespace XbyOpenApi.Core.Client.Two.Notes
@@ -19,13 +20,18 @@ namespace XbyOpenApi.Core.Client.Two.Notes
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
   public partial class NotesRequestBuilder : BaseRequestBuilder
   {
+    /// <summary>The evaluate property</summary>
+    public global::XbyOpenApi.Core.Client.Two.Notes.Evaluate.EvaluateRequestBuilder Evaluate
+    {
+      get => new global::XbyOpenApi.Core.Client.Two.Notes.Evaluate.EvaluateRequestBuilder(PathParameters, RequestAdapter);
+    }
     /// <summary>The search property</summary>
     public global::XbyOpenApi.Core.Client.Two.Notes.Search.SearchRequestBuilder Search
     {
       get => new global::XbyOpenApi.Core.Client.Two.Notes.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
     }
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.notes.item collection</summary>
-    /// <param name="position">The community note id to delete.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Notes.Item.NotesItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Notes.Item.NotesItemRequestBuilder this[string position]
     {
@@ -53,20 +59,20 @@ namespace XbyOpenApi.Core.Client.Two.Notes
     {
     }
     /// <summary>
-    /// Creates a community note endpoint for LLM use case.
+    /// Create Community Notes
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.CreateNoteResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.CreateCommunityNotesResponse"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.CreateNoteResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateNoteRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.CreateCommunityNotesResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateCommunityNotesRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.CreateNoteResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateNoteRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.CreateCommunityNotesResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateCommunityNotesRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -75,21 +81,21 @@ namespace XbyOpenApi.Core.Client.Two.Notes
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.CreateNoteResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.CreateNoteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.CreateCommunityNotesResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.CreateCommunityNotesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Creates a community note endpoint for LLM use case.
+    /// Create Community Notes
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateNoteRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateCommunityNotesRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
     {
 #nullable restore
 #else
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateNoteRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateCommunityNotesRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

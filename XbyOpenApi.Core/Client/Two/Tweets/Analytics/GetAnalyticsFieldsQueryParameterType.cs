@@ -80,6 +80,10 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Analytics
 #pragma warning disable CS1591
     Timestamp,
 #pragma warning restore CS1591
+    [EnumMember(Value = "timestamped_metrics")]
+#pragma warning disable CS1591
+    Timestamped_metrics,
+#pragma warning restore CS1591
     [EnumMember(Value = "unfollows")]
 #pragma warning disable CS1591
     Unfollows,

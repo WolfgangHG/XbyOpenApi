@@ -7,15 +7,14 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// A Chat conversation resource representing either a direct or group conversation.
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+#pragma warning disable CS1591
   public partial class ChatConversation : IAdditionalDataHolder, IParsable
+#pragma warning restore CS1591
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>User IDs of group admins. Only present for group conversations.</summary>
+    /// <summary>The admin_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public List<string>? AdminIds { get; set; }
@@ -23,15 +22,9 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public List<string> AdminIds { get; set; }
 #endif
-    /// <summary>ISO 8601 timestamp when the group was created. Only present for group conversations.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-    public string? CreatedAt { get; set; }
-#nullable restore
-#else
-    public string CreatedAt { get; set; }
-#endif
-    /// <summary>URL for the group avatar. Only present for group conversations.</summary>
+    /// <summary>The created_at property</summary>
+    public DateTimeOffset? CreatedAt { get; set; }
+    /// <summary>The group_avatar_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? GroupAvatarUrl { get; set; }
@@ -39,7 +32,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string GroupAvatarUrl { get; set; }
 #endif
-    /// <summary>Encrypted group name. Only present for group conversations.</summary>
+    /// <summary>The group_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? GroupName { get; set; }
@@ -47,7 +40,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string GroupName { get; set; }
 #endif
-    /// <summary>The unique identifier for this conversation.</summary>
+    /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Id { get; set; }
@@ -55,9 +48,9 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Id { get; set; }
 #endif
-    /// <summary>Whether notifications are muted for this conversation.</summary>
+    /// <summary>The is_muted property</summary>
     public bool? IsMuted { get; set; }
-    /// <summary>User IDs of group members. Only present for group conversations.</summary>
+    /// <summary>The member_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public List<string>? MemberIds { get; set; }
@@ -65,15 +58,9 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public List<string> MemberIds { get; set; }
 #endif
-    /// <summary>Message time-to-live in milliseconds.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-    public string? MessageTtlMsec { get; set; }
-#nullable restore
-#else
-    public string MessageTtlMsec { get; set; }
-#endif
-    /// <summary>Array of user IDs who are participants in this conversation.</summary>
+    /// <summary>The message_ttl_ms property</summary>
+    public int? MessageTtlMs { get; set; }
+    /// <summary>The participant_ids property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public List<string>? ParticipantIds { get; set; }
@@ -81,20 +68,20 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public List<string> ParticipantIds { get; set; }
 #endif
-    /// <summary>Whether screen capture blocking is enabled for this conversation.</summary>
+    /// <summary>The screen_capture_blocking_enabled property</summary>
     public bool? ScreenCaptureBlockingEnabled { get; set; }
-    /// <summary>Whether screen capture detection is enabled for this conversation.</summary>
+    /// <summary>The screen_capture_detection_enabled property</summary>
     public bool? ScreenCaptureDetectionEnabled { get; set; }
-    /// <summary>The type of conversation: &apos;direct&apos; or &apos;group&apos;.</summary>
-    public global::XbyOpenApi.Core.Client.Models.ChatConversation_type? Type { get; set; }
-    /// <summary>ISO 8601 timestamp when the group was last updated. Only present for group conversations.</summary>
+    /// <summary>The type property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public string? UpdatedAt { get; set; }
+    public string? Type { get; set; }
 #nullable restore
 #else
-    public string UpdatedAt { get; set; }
+    public string Type { get; set; }
 #endif
+    /// <summary>The updated_at property</summary>
+    public DateTimeOffset? UpdatedAt { get; set; }
     /// <summary>
     /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.ChatConversation"/> and sets the default values.
     /// </summary>
@@ -121,18 +108,18 @@ namespace XbyOpenApi.Core.Client.Models
       return new Dictionary<string, Action<IParseNode>>
             {
                 { "admin_ids", n => { AdminIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "group_avatar_url", n => { GroupAvatarUrl = n.GetStringValue(); } },
                 { "group_name", n => { GroupName = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_muted", n => { IsMuted = n.GetBoolValue(); } },
                 { "member_ids", n => { MemberIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-                { "message_ttl_msec", n => { MessageTtlMsec = n.GetStringValue(); } },
+                { "message_ttl_ms", n => { MessageTtlMs = n.GetIntValue(); } },
                 { "participant_ids", n => { ParticipantIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "screen_capture_blocking_enabled", n => { ScreenCaptureBlockingEnabled = n.GetBoolValue(); } },
                 { "screen_capture_detection_enabled", n => { ScreenCaptureDetectionEnabled = n.GetBoolValue(); } },
-                { "type", n => { Type = n.GetEnumValue<global::XbyOpenApi.Core.Client.Models.ChatConversation_type>(); } },
-                { "updated_at", n => { UpdatedAt = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
     }
     /// <summary>
@@ -143,18 +130,18 @@ namespace XbyOpenApi.Core.Client.Models
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
       writer.WriteCollectionOfPrimitiveValues<string>("admin_ids", AdminIds);
-      writer.WriteStringValue("created_at", CreatedAt);
+      writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
       writer.WriteStringValue("group_avatar_url", GroupAvatarUrl);
       writer.WriteStringValue("group_name", GroupName);
       writer.WriteStringValue("id", Id);
       writer.WriteBoolValue("is_muted", IsMuted);
       writer.WriteCollectionOfPrimitiveValues<string>("member_ids", MemberIds);
-      writer.WriteStringValue("message_ttl_msec", MessageTtlMsec);
+      writer.WriteIntValue("message_ttl_ms", MessageTtlMs);
       writer.WriteCollectionOfPrimitiveValues<string>("participant_ids", ParticipantIds);
       writer.WriteBoolValue("screen_capture_blocking_enabled", ScreenCaptureBlockingEnabled);
       writer.WriteBoolValue("screen_capture_detection_enabled", ScreenCaptureDetectionEnabled);
-      writer.WriteEnumValue<global::XbyOpenApi.Core.Client.Models.ChatConversation_type>("type", Type);
-      writer.WriteStringValue("updated_at", UpdatedAt);
+      writer.WriteStringValue("type", Type);
+      writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
       writer.WriteAdditionalData(AdditionalData);
     }
   }

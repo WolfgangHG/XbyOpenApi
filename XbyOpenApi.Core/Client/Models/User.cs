@@ -7,29 +7,36 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// The X User object.
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+#pragma warning disable CS1591
   public partial class User : IAdditionalDataHolder, IParsable
+#pragma warning restore CS1591
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
     /// <summary>Metadata about a user&apos;s affiliation.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public global::XbyOpenApi.Core.Client.Models.User_affiliation? Affiliation { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.UserAffiliation? Affiliation { get; set; }
 #nullable restore
 #else
-    public global::XbyOpenApi.Core.Client.Models.User_affiliation Affiliation { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.UserAffiliation Affiliation { get; set; }
+#endif
+    /// <summary>The confirmed_email property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? ConfirmedEmail { get; set; }
+#nullable restore
+#else
+    public string ConfirmedEmail { get; set; }
 #endif
     /// <summary>Returns detailed information about the relationship between two users.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public List<global::XbyOpenApi.Core.Client.Models.User_connection_status?>? ConnectionStatus { get; set; }
+    public List<global::XbyOpenApi.Core.Client.Models.StreamObject>? ConnectionStatus { get; set; }
 #nullable restore
 #else
-    public List<global::XbyOpenApi.Core.Client.Models.User_connection_status?> ConnectionStatus { get; set; }
+    public List<global::XbyOpenApi.Core.Client.Models.StreamObject> ConnectionStatus { get; set; }
 #endif
     /// <summary>Creation time of this User.</summary>
     public DateTimeOffset? CreatedAt { get; set; }
@@ -44,12 +51,12 @@ namespace XbyOpenApi.Core.Client.Models
     /// <summary>A list of metadata found in the User&apos;s profile description.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public global::XbyOpenApi.Core.Client.Models.User_entities? Entities { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.UserEntities? Entities { get; set; }
 #nullable restore
 #else
-    public global::XbyOpenApi.Core.Client.Models.User_entities Entities { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.UserEntities Entities { get; set; }
 #endif
-    /// <summary>Unique identifier of this User. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.</summary>
+    /// <summary>Unique identifier of this User.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Id { get; set; }
@@ -57,7 +64,9 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Id { get; set; }
 #endif
-    /// <summary>The location specified in the User&apos;s profile, if the User provided one. As this is a freeform value, it may not indicate a valid location, but it may be fuzzily evaluated when performing searches with location queries.</summary>
+    /// <summary>Indicates if this User has completed identity verification.</summary>
+    public bool? IsIdentityVerified { get; set; }
+    /// <summary>The location specified in the User&apos;s profile, if the User provided one. As this is a freeform value, it may not indicate a valid location.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Location { get; set; }
@@ -65,13 +74,13 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Location { get; set; }
 #endif
-    /// <summary>Unique identifier of this Tweet. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.</summary>
+    /// <summary>Unique identifier of this User&apos;s most recent Post.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public string? MostRecentTweetId { get; set; }
+    public string? MostRecentPostId { get; set; }
 #nullable restore
 #else
-    public string MostRecentTweetId { get; set; }
+    public string MostRecentPostId { get; set; }
 #endif
     /// <summary>The friendly name of this User, as shown on their profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -81,13 +90,15 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Name { get; set; }
 #endif
-    /// <summary>Unique identifier of this Tweet. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.</summary>
+    /// <summary>Indicates if this User is a parody account.</summary>
+    public bool? Parody { get; set; }
+    /// <summary>Unique identifier of this User&apos;s pinned Post.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public string? PinnedTweetId { get; set; }
+    public string? PinnedPostId { get; set; }
 #nullable restore
 #else
-    public string PinnedTweetId { get; set; }
+    public string PinnedPostId { get; set; }
 #endif
     /// <summary>The URL to the profile banner for this User.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -110,15 +121,31 @@ namespace XbyOpenApi.Core.Client.Models
     /// <summary>A list of metrics for this User.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public global::XbyOpenApi.Core.Client.Models.User_public_metrics? PublicMetrics { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.UserPublicMetrics? PublicMetrics { get; set; }
 #nullable restore
 #else
-    public global::XbyOpenApi.Core.Client.Models.User_public_metrics PublicMetrics { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.UserPublicMetrics PublicMetrics { get; set; }
 #endif
-    /// <summary>Indicates if you can send a DM to this User</summary>
+    /// <summary>Indicates if you can send a DM to this User.</summary>
     public bool? ReceivesYourDm { get; set; }
-    /// <summary>The X Blue subscription type of the user, eg: Basic, Premium, PremiumPlus or None.</summary>
-    public global::XbyOpenApi.Core.Client.Models.User_subscription_type? SubscriptionType { get; set; }
+    /// <summary>Indicates if this User subscribes to you.</summary>
+    public bool? SubscribesToYou { get; set; }
+    /// <summary>The subscription relationship between this User and you.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public global::XbyOpenApi.Core.Client.Models.UserSubscription? Subscription { get; set; }
+#nullable restore
+#else
+    public global::XbyOpenApi.Core.Client.Models.UserSubscription Subscription { get; set; }
+#endif
+    /// <summary>The X Blue subscription type of the user, e.g.: Basic, Premium, PremiumPlus or None.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? SubscriptionType { get; set; }
+#nullable restore
+#else
+    public string SubscriptionType { get; set; }
+#endif
     /// <summary>The URL specified in the User&apos;s profile.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -127,7 +154,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Url { get; set; }
 #endif
-    /// <summary>The X handle (screen name) of this user.</summary>
+    /// <summary>The X handle (screen name) of this User.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Username { get; set; }
@@ -135,11 +162,19 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Username { get; set; }
 #endif
-    /// <summary>Indicate if this User is a verified X User.</summary>
+    /// <summary>Indicates if this User is a verified X User.</summary>
     public bool? Verified { get; set; }
-    /// <summary>The X Blue verified type of the user, eg: blue, government, business or none.</summary>
-    public global::XbyOpenApi.Core.Client.Models.User_verified_type? VerifiedType { get; set; }
-    /// <summary>Indicates withholding details for [withheld content](https://help.twitter.com/en/rules-and-policies/tweet-withheld-by-country).</summary>
+    /// <summary>The number of verified followers of this User.</summary>
+    public int? VerifiedFollowersCount { get; set; }
+    /// <summary>The X Blue verified type of the user, e.g.: blue, government, business or none.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? VerifiedType { get; set; }
+#nullable restore
+#else
+    public string VerifiedType { get; set; }
+#endif
+    /// <summary>Withholding details for withheld content.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public global::XbyOpenApi.Core.Client.Models.UserWithheld? Withheld { get; set; }
@@ -172,26 +207,32 @@ namespace XbyOpenApi.Core.Client.Models
     {
       return new Dictionary<string, Action<IParseNode>>
             {
-                { "affiliation", n => { Affiliation = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.User_affiliation>(global::XbyOpenApi.Core.Client.Models.User_affiliation.CreateFromDiscriminatorValue); } },
-                { "connection_status", n => { ConnectionStatus = n.GetCollectionOfEnumValues<global::XbyOpenApi.Core.Client.Models.User_connection_status>()?.AsList(); } },
+                { "affiliation", n => { Affiliation = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.UserAffiliation>(global::XbyOpenApi.Core.Client.Models.UserAffiliation.CreateFromDiscriminatorValue); } },
+                { "confirmed_email", n => { ConfirmedEmail = n.GetStringValue(); } },
+                { "connection_status", n => { ConnectionStatus = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.StreamObject>(global::XbyOpenApi.Core.Client.Models.StreamObject.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
-                { "entities", n => { Entities = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.User_entities>(global::XbyOpenApi.Core.Client.Models.User_entities.CreateFromDiscriminatorValue); } },
+                { "entities", n => { Entities = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.UserEntities>(global::XbyOpenApi.Core.Client.Models.UserEntities.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "is_identity_verified", n => { IsIdentityVerified = n.GetBoolValue(); } },
                 { "location", n => { Location = n.GetStringValue(); } },
-                { "most_recent_tweet_id", n => { MostRecentTweetId = n.GetStringValue(); } },
+                { "most_recent_post_id", n => { MostRecentPostId = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "pinned_tweet_id", n => { PinnedTweetId = n.GetStringValue(); } },
+                { "parody", n => { Parody = n.GetBoolValue(); } },
+                { "pinned_post_id", n => { PinnedPostId = n.GetStringValue(); } },
                 { "profile_banner_url", n => { ProfileBannerUrl = n.GetStringValue(); } },
                 { "profile_image_url", n => { ProfileImageUrl = n.GetStringValue(); } },
                 { "protected", n => { Protected = n.GetBoolValue(); } },
-                { "public_metrics", n => { PublicMetrics = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.User_public_metrics>(global::XbyOpenApi.Core.Client.Models.User_public_metrics.CreateFromDiscriminatorValue); } },
+                { "public_metrics", n => { PublicMetrics = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.UserPublicMetrics>(global::XbyOpenApi.Core.Client.Models.UserPublicMetrics.CreateFromDiscriminatorValue); } },
                 { "receives_your_dm", n => { ReceivesYourDm = n.GetBoolValue(); } },
-                { "subscription_type", n => { SubscriptionType = n.GetEnumValue<global::XbyOpenApi.Core.Client.Models.User_subscription_type>(); } },
+                { "subscribes_to_you", n => { SubscribesToYou = n.GetBoolValue(); } },
+                { "subscription", n => { Subscription = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.UserSubscription>(global::XbyOpenApi.Core.Client.Models.UserSubscription.CreateFromDiscriminatorValue); } },
+                { "subscription_type", n => { SubscriptionType = n.GetStringValue(); } },
                 { "url", n => { Url = n.GetStringValue(); } },
                 { "username", n => { Username = n.GetStringValue(); } },
                 { "verified", n => { Verified = n.GetBoolValue(); } },
-                { "verified_type", n => { VerifiedType = n.GetEnumValue<global::XbyOpenApi.Core.Client.Models.User_verified_type>(); } },
+                { "verified_followers_count", n => { VerifiedFollowersCount = n.GetIntValue(); } },
+                { "verified_type", n => { VerifiedType = n.GetStringValue(); } },
                 { "withheld", n => { Withheld = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.UserWithheld>(global::XbyOpenApi.Core.Client.Models.UserWithheld.CreateFromDiscriminatorValue); } },
             };
     }
@@ -202,26 +243,32 @@ namespace XbyOpenApi.Core.Client.Models
     public virtual void Serialize(ISerializationWriter writer)
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.User_affiliation>("affiliation", Affiliation);
-      writer.WriteCollectionOfEnumValues<global::XbyOpenApi.Core.Client.Models.User_connection_status>("connection_status", ConnectionStatus);
+      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.UserAffiliation>("affiliation", Affiliation);
+      writer.WriteStringValue("confirmed_email", ConfirmedEmail);
+      writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.StreamObject>("connection_status", ConnectionStatus);
       writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
       writer.WriteStringValue("description", Description);
-      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.User_entities>("entities", Entities);
+      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.UserEntities>("entities", Entities);
       writer.WriteStringValue("id", Id);
+      writer.WriteBoolValue("is_identity_verified", IsIdentityVerified);
       writer.WriteStringValue("location", Location);
-      writer.WriteStringValue("most_recent_tweet_id", MostRecentTweetId);
+      writer.WriteStringValue("most_recent_post_id", MostRecentPostId);
       writer.WriteStringValue("name", Name);
-      writer.WriteStringValue("pinned_tweet_id", PinnedTweetId);
+      writer.WriteBoolValue("parody", Parody);
+      writer.WriteStringValue("pinned_post_id", PinnedPostId);
       writer.WriteStringValue("profile_banner_url", ProfileBannerUrl);
       writer.WriteStringValue("profile_image_url", ProfileImageUrl);
       writer.WriteBoolValue("protected", Protected);
-      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.User_public_metrics>("public_metrics", PublicMetrics);
+      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.UserPublicMetrics>("public_metrics", PublicMetrics);
       writer.WriteBoolValue("receives_your_dm", ReceivesYourDm);
-      writer.WriteEnumValue<global::XbyOpenApi.Core.Client.Models.User_subscription_type>("subscription_type", SubscriptionType);
+      writer.WriteBoolValue("subscribes_to_you", SubscribesToYou);
+      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.UserSubscription>("subscription", Subscription);
+      writer.WriteStringValue("subscription_type", SubscriptionType);
       writer.WriteStringValue("url", Url);
       writer.WriteStringValue("username", Username);
       writer.WriteBoolValue("verified", Verified);
-      writer.WriteEnumValue<global::XbyOpenApi.Core.Client.Models.User_verified_type>("verified_type", VerifiedType);
+      writer.WriteIntValue("verified_followers_count", VerifiedFollowersCount);
+      writer.WriteStringValue("verified_type", VerifiedType);
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.UserWithheld>("withheld", Withheld);
       writer.WriteAdditionalData(AdditionalData);
     }

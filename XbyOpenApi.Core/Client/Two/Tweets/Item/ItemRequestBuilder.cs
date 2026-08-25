@@ -52,7 +52,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Item
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
+    public ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/{%2Did}{?expansions,media%2Efields,place%2Efields,poll%2Efields,post%2Efields,user%2Efields}", pathParameters)
     {
     }
     /// <summary>
@@ -60,23 +60,23 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Item
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
+    public ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/{%2Did}{?expansions,media%2Efields,place%2Efields,poll%2Efields,post%2Efields,user%2Efields}", rawUrl)
     {
     }
     /// <summary>
-    /// Deletes a specific Post by its ID, if owned by the authenticated user.
+    /// Delete Posts
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.TweetDeleteResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.DeletePostsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.TweetDeleteResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.DeletePostsResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.TweetDeleteResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.DeletePostsResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -84,22 +84,22 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Item
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.TweetDeleteResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.TweetDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.DeletePostsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.DeletePostsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves details of a specific Post by its ID.
+    /// Get Posts by ID
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2TweetsIdResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetPostsByIdResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2TweetsIdResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetPostsByIdResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2TweetsIdResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetPostsByIdResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -107,10 +107,10 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Item
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2TweetsIdResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2TweetsIdResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetPostsByIdResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetPostsByIdResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Deletes a specific Post by its ID, if owned by the authenticated user.
+    /// Delete Posts
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -123,13 +123,13 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Item
     public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/2/tweets/{%2Did}", PathParameters);
+      var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;
     }
     /// <summary>
-    /// Retrieves details of a specific Post by its ID.
+    /// Get Posts by ID
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -142,7 +142,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Item
     public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Item.ItemRequestBuilder.ItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/2/tweets/{%2Did}{?expansions,media%2Efields,place%2Efields,poll%2Efields,tweet%2Efields,user%2Efields}", PathParameters);
+      var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;
@@ -157,7 +157,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Item
       return new global::XbyOpenApi.Core.Client.Two.Tweets.Item.ItemRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves details of a specific Post by its ID.
+    /// Get Posts by ID
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ItemRequestBuilderGetQueryParameters
@@ -202,15 +202,15 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Item
       [QueryParameter("poll%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Tweets.Item.GetPollFieldsQueryParameterType[] PollFields { get; set; }
 #endif
-      /// <summary>A comma separated list of Tweet fields to display.</summary>
+      /// <summary>A comma separated list of Post fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Tweets.Item.GetTweetFieldsQueryParameterType[]? TweetFields { get; set; }
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Tweets.Item.GetPostFieldsQueryParameterType[]? PostFields { get; set; }
 #nullable restore
 #else
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Tweets.Item.GetTweetFieldsQueryParameterType[] TweetFields { get; set; }
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Tweets.Item.GetPostFieldsQueryParameterType[] PostFields { get; set; }
 #endif
       /// <summary>A comma separated list of User fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

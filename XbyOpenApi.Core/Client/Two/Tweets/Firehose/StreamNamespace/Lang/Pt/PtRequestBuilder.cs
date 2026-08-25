@@ -36,17 +36,17 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Firehose.StreamNamespace.Lang.Pt
     /// <summary>
     /// Streams all public Portuguese-language Posts in real-time.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.StreamingTweetResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.StreamPostsFirehosePtResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.StreamingTweetResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Firehose.StreamNamespace.Lang.Pt.PtRequestBuilder.PtRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.StreamPostsFirehosePtResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Firehose.StreamNamespace.Lang.Pt.PtRequestBuilder.PtRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.StreamingTweetResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Firehose.StreamNamespace.Lang.Pt.PtRequestBuilder.PtRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.StreamPostsFirehosePtResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Firehose.StreamNamespace.Lang.Pt.PtRequestBuilder.PtRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Firehose.StreamNamespace.Lang.Pt
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.StreamingTweetResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.StreamingTweetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.StreamPostsFirehosePtResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.StreamPostsFirehosePtResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Streams all public Portuguese-language Posts in real-time.

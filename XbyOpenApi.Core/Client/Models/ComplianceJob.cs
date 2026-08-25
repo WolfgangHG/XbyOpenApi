@@ -14,11 +14,23 @@ namespace XbyOpenApi.Core.Client.Models
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>Creation time of the compliance job.</summary>
-    public DateTimeOffset? CreatedAt { get; set; }
-    /// <summary>Expiration time of the download URL.</summary>
-    public DateTimeOffset? DownloadExpiresAt { get; set; }
-    /// <summary>URL from which the user will retrieve their compliance results.</summary>
+    /// <summary>The created_at property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? CreatedAt { get; set; }
+#nullable restore
+#else
+    public string CreatedAt { get; set; }
+#endif
+    /// <summary>The download_expires_at property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? DownloadExpiresAt { get; set; }
+#nullable restore
+#else
+    public string DownloadExpiresAt { get; set; }
+#endif
+    /// <summary>The download_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? DownloadUrl { get; set; }
@@ -26,7 +38,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string DownloadUrl { get; set; }
 #endif
-    /// <summary>Compliance Job ID.</summary>
+    /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Id { get; set; }
@@ -34,7 +46,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Id { get; set; }
 #endif
-    /// <summary>User-provided name for a compliance job.</summary>
+    /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Name { get; set; }
@@ -42,13 +54,33 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Name { get; set; }
 #endif
-    /// <summary>Status of a compliance job.</summary>
-    public global::XbyOpenApi.Core.Client.Models.ComplianceJobStatus? Status { get; set; }
-    /// <summary>Type of compliance job to list.</summary>
-    public global::XbyOpenApi.Core.Client.Models.ComplianceJobType? Type { get; set; }
-    /// <summary>Expiration time of the upload URL.</summary>
-    public DateTimeOffset? UploadExpiresAt { get; set; }
-    /// <summary>URL to which the user will upload their Tweet or user IDs.</summary>
+    /// <summary>The resumable property</summary>
+    public bool? Resumable { get; set; }
+    /// <summary>The status property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? Status { get; set; }
+#nullable restore
+#else
+    public string Status { get; set; }
+#endif
+    /// <summary>The type property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? Type { get; set; }
+#nullable restore
+#else
+    public string Type { get; set; }
+#endif
+    /// <summary>The upload_expires_at property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? UploadExpiresAt { get; set; }
+#nullable restore
+#else
+    public string UploadExpiresAt { get; set; }
+#endif
+    /// <summary>The upload_url property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? UploadUrl { get; set; }
@@ -81,14 +113,15 @@ namespace XbyOpenApi.Core.Client.Models
     {
       return new Dictionary<string, Action<IParseNode>>
             {
-                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
-                { "download_expires_at", n => { DownloadExpiresAt = n.GetDateTimeOffsetValue(); } },
+                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
+                { "download_expires_at", n => { DownloadExpiresAt = n.GetStringValue(); } },
                 { "download_url", n => { DownloadUrl = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetEnumValue<global::XbyOpenApi.Core.Client.Models.ComplianceJobStatus>(); } },
-                { "type", n => { Type = n.GetEnumValue<global::XbyOpenApi.Core.Client.Models.ComplianceJobType>(); } },
-                { "upload_expires_at", n => { UploadExpiresAt = n.GetDateTimeOffsetValue(); } },
+                { "resumable", n => { Resumable = n.GetBoolValue(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetStringValue(); } },
+                { "upload_expires_at", n => { UploadExpiresAt = n.GetStringValue(); } },
                 { "upload_url", n => { UploadUrl = n.GetStringValue(); } },
             };
     }
@@ -99,14 +132,15 @@ namespace XbyOpenApi.Core.Client.Models
     public virtual void Serialize(ISerializationWriter writer)
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-      writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
-      writer.WriteDateTimeOffsetValue("download_expires_at", DownloadExpiresAt);
+      writer.WriteStringValue("created_at", CreatedAt);
+      writer.WriteStringValue("download_expires_at", DownloadExpiresAt);
       writer.WriteStringValue("download_url", DownloadUrl);
       writer.WriteStringValue("id", Id);
       writer.WriteStringValue("name", Name);
-      writer.WriteEnumValue<global::XbyOpenApi.Core.Client.Models.ComplianceJobStatus>("status", Status);
-      writer.WriteEnumValue<global::XbyOpenApi.Core.Client.Models.ComplianceJobType>("type", Type);
-      writer.WriteDateTimeOffsetValue("upload_expires_at", UploadExpiresAt);
+      writer.WriteBoolValue("resumable", Resumable);
+      writer.WriteStringValue("status", Status);
+      writer.WriteStringValue("type", Type);
+      writer.WriteStringValue("upload_expires_at", UploadExpiresAt);
       writer.WriteStringValue("upload_url", UploadUrl);
       writer.WriteAdditionalData(AdditionalData);
     }

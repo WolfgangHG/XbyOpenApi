@@ -25,7 +25,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks
       get => new global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.Folders.FoldersRequestBuilder(PathParameters, RequestAdapter);
     }
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.users.item.bookmarks.item collection</summary>
-    /// <param name="position">The ID of the Post that the source User is removing from bookmarks.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.Item.WithTweet_ItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.Item.WithTweet_ItemRequestBuilder this[string position]
     {
@@ -41,7 +41,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public BookmarksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
+    public BookmarksRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/bookmarks{?expansions,max_results*,media%2Efields,pagination_token*,place%2Efields,poll%2Efields,post%2Efields,user%2Efields}", pathParameters)
     {
     }
     /// <summary>
@@ -49,23 +49,23 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public BookmarksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
+    public BookmarksRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/bookmarks{?expansions,max_results*,media%2Efields,pagination_token*,place%2Efields,poll%2Efields,post%2Efields,user%2Efields}", rawUrl)
     {
     }
     /// <summary>
-    /// Retrieves a list of Posts bookmarked by the authenticated user.
+    /// Get Users Bookmarks
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2UsersIdBookmarksResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetUsersBookmarksResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersIdBookmarksResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.BookmarksRequestBuilder.BookmarksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersBookmarksResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.BookmarksRequestBuilder.BookmarksRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersIdBookmarksResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.BookmarksRequestBuilder.BookmarksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersBookmarksResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.BookmarksRequestBuilder.BookmarksRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -73,23 +73,23 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2UsersIdBookmarksResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2UsersIdBookmarksResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetUsersBookmarksResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetUsersBookmarksResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Adds a post to the authenticated user’s bookmarks.
+    /// Create Users Bookmark
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.BookmarkMutationResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponse"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.BookmarkMutationResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.BookmarkAddRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.BookmarkMutationResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.BookmarkAddRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -98,10 +98,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.BookmarkMutationResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.BookmarkMutationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves a list of Posts bookmarked by the authenticated user.
+    /// Get Users Bookmarks
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,28 +114,28 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks
     public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.BookmarksRequestBuilder.BookmarksRequestBuilderGetQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/2/users/{%2Did}/bookmarks{?expansions,max_results*,media%2Efields,pagination_token*,place%2Efields,poll%2Efields,tweet%2Efields,user%2Efields}", PathParameters);
+      var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;
     }
     /// <summary>
-    /// Adds a post to the authenticated user’s bookmarks.
+    /// Create Users Bookmark
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.BookmarkAddRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
     {
 #nullable restore
 #else
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.BookmarkAddRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-      var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/2/users/{%2Did}/bookmarks", PathParameters);
+      var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -151,7 +151,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks
       return new global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.BookmarksRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves a list of Posts bookmarked by the authenticated user.
+    /// Get Users Bookmarks
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BookmarksRequestBuilderGetQueryParameters
@@ -166,7 +166,6 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks
       [QueryParameter("expansions")]
       public global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.GetExpansionsQueryParameterType[] Expansions { get; set; }
 #endif
-      /// <summary>The maximum number of results.</summary>
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
       /// <summary>A comma separated list of Media fields to display.</summary>
@@ -179,7 +178,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks
       [QueryParameter("media%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.GetMediaFieldsQueryParameterType[] MediaFields { get; set; }
 #endif
-      /// <summary>This parameter is used to get the next &apos;page&apos; of results.</summary>
+      /// <summary>A base32hex-encoded pagination token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("pagination_token")]
@@ -209,15 +208,15 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks
       [QueryParameter("poll%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.GetPollFieldsQueryParameterType[] PollFields { get; set; }
 #endif
-      /// <summary>A comma separated list of Tweet fields to display.</summary>
+      /// <summary>A comma separated list of Post fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.GetTweetFieldsQueryParameterType[]? TweetFields { get; set; }
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.GetPostFieldsQueryParameterType[]? PostFields { get; set; }
 #nullable restore
 #else
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.GetTweetFieldsQueryParameterType[] TweetFields { get; set; }
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.GetPostFieldsQueryParameterType[] PostFields { get; set; }
 #endif
       /// <summary>A comma separated list of User fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

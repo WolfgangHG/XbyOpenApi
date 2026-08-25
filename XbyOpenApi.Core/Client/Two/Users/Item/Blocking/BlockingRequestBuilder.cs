@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Blocking
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public BlockingRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/blocking{?expansions,max_results*,pagination_token*,tweet%2Efields,user%2Efields}", pathParameters)
+    public BlockingRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/blocking{?expansions,max_results*,pagination_token*,post%2Efields,user%2Efields}", pathParameters)
     {
     }
     /// <summary>
@@ -30,23 +30,23 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Blocking
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public BlockingRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/blocking{?expansions,max_results*,pagination_token*,tweet%2Efields,user%2Efields}", rawUrl)
+    public BlockingRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/blocking{?expansions,max_results*,pagination_token*,post%2Efields,user%2Efields}", rawUrl)
     {
     }
     /// <summary>
-    /// Retrieves a list of Users blocked by the specified User ID.
+    /// Get Users Blocking
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2UsersIdBlockingResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetUsersBlockingResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersIdBlockingResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Blocking.BlockingRequestBuilder.BlockingRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersBlockingResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Blocking.BlockingRequestBuilder.BlockingRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersIdBlockingResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Blocking.BlockingRequestBuilder.BlockingRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersBlockingResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Blocking.BlockingRequestBuilder.BlockingRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,10 +54,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Blocking
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2UsersIdBlockingResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2UsersIdBlockingResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetUsersBlockingResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetUsersBlockingResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves a list of Users blocked by the specified User ID.
+    /// Get Users Blocking
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Blocking
       return new global::XbyOpenApi.Core.Client.Two.Users.Item.Blocking.BlockingRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves a list of Users blocked by the specified User ID.
+    /// Get Users Blocking
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class BlockingRequestBuilderGetQueryParameters
@@ -100,10 +100,8 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Blocking
       [QueryParameter("expansions")]
       public global::XbyOpenApi.Core.Client.Two.Users.Item.Blocking.GetExpansionsQueryParameterType[] Expansions { get; set; }
 #endif
-      /// <summary>The maximum number of results.</summary>
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
-      /// <summary>This parameter is used to get a specified &apos;page&apos; of results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("pagination_token")]
@@ -113,15 +111,15 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Blocking
       [QueryParameter("pagination_token")]
       public string PaginationToken { get; set; }
 #endif
-      /// <summary>A comma separated list of Tweet fields to display.</summary>
+      /// <summary>A comma separated list of Post fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Users.Item.Blocking.GetTweetFieldsQueryParameterType[]? TweetFields { get; set; }
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Users.Item.Blocking.GetPostFieldsQueryParameterType[]? PostFields { get; set; }
 #nullable restore
 #else
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Users.Item.Blocking.GetTweetFieldsQueryParameterType[] TweetFields { get; set; }
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Users.Item.Blocking.GetPostFieldsQueryParameterType[] PostFields { get; set; }
 #endif
       /// <summary>A comma separated list of User fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

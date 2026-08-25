@@ -19,7 +19,7 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions
   public partial class SubscriptionsRequestBuilder : BaseRequestBuilder
   {
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.activity.subscriptions.item collection</summary>
-    /// <param name="position">The ID of the subscription to delete.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Activity.Subscriptions.Item.WithSubscription_ItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Activity.Subscriptions.Item.WithSubscription_ItemRequestBuilder this[string position]
     {
@@ -35,7 +35,7 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public SubscriptionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
+    public SubscriptionsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/activity/subscriptions{?max_results*,pagination_token*}", pathParameters)
     {
     }
     /// <summary>
@@ -43,23 +43,23 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public SubscriptionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
+    public SubscriptionsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/activity/subscriptions{?max_results*,pagination_token*}", rawUrl)
     {
     }
     /// <summary>
     /// Deletes multiple subscriptions for X activity events by their IDs
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionDeleteResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.DeleteActivitySubscriptionsByIdsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionDeleteResponse?> DeleteAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Activity.Subscriptions.SubscriptionsRequestBuilder.SubscriptionsRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.DeleteActivitySubscriptionsByIdsResponse?> DeleteAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Activity.Subscriptions.SubscriptionsRequestBuilder.SubscriptionsRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionDeleteResponse> DeleteAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Activity.Subscriptions.SubscriptionsRequestBuilder.SubscriptionsRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.DeleteActivitySubscriptionsByIdsResponse> DeleteAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Activity.Subscriptions.SubscriptionsRequestBuilder.SubscriptionsRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -67,22 +67,22 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionDeleteResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.DeleteActivitySubscriptionsByIdsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.DeleteActivitySubscriptionsByIdsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Get a list of active subscriptions for XAA
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionGetResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetActivitySubscriptionsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionGetResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Activity.Subscriptions.SubscriptionsRequestBuilder.SubscriptionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetActivitySubscriptionsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Activity.Subscriptions.SubscriptionsRequestBuilder.SubscriptionsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionGetResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Activity.Subscriptions.SubscriptionsRequestBuilder.SubscriptionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetActivitySubscriptionsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Activity.Subscriptions.SubscriptionsRequestBuilder.SubscriptionsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -90,23 +90,23 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionGetResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetActivitySubscriptionsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetActivitySubscriptionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Creates a subscription for an X activity event
+    /// Creates a subscription for an X activity event. OAuth2 user-context tokens must hold the scope matching the requested event_type: dm.read for chat.* and dm.* events, like.read for like.* events, mute.read for mute.* events, block.read for block.* events, and tweet.read for all other event types. Mute and block subscriptions are actor-only: filter.user_id must identify the authenticated user and direction is not supported.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionCreateResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionResponse"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionCreateResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionCreateResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -115,7 +115,7 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionCreateResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionCreateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Deletes multiple subscriptions for X activity events by their IDs
@@ -150,28 +150,28 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions
     public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Activity.Subscriptions.SubscriptionsRequestBuilder.SubscriptionsRequestBuilderGetQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/2/activity/subscriptions{?max_results*,pagination_token*}", PathParameters);
+      var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;
     }
     /// <summary>
-    /// Creates a subscription for an X activity event
+    /// Creates a subscription for an X activity event. OAuth2 user-context tokens must hold the scope matching the requested event_type: dm.read for chat.* and dm.* events, like.read for like.* events, mute.read for mute.* events, block.read for block.* events, and tweet.read for all other event types. Mute and block subscriptions are actor-only: filter.user_id must identify the authenticated user and direction is not supported.
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
     {
 #nullable restore
 #else
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.ActivitySubscriptionCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-      var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/2/activity/subscriptions", PathParameters);
+      var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -192,7 +192,6 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SubscriptionsRequestBuilderDeleteQueryParameters
     {
-      /// <summary>Comma-separated list of subscription IDs to delete.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("ids")]
@@ -209,10 +208,9 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SubscriptionsRequestBuilderGetQueryParameters
     {
-      /// <summary>The maximum number of results to return per page. Defaults to 1000 when unspecified; use pagination_token (from response meta.next_token) to fetch additional pages.</summary>
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
-      /// <summary>This parameter is used to get the next &apos;page&apos; of results.</summary>
+      /// <summary>A base32hex-encoded pagination token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("pagination_token")]

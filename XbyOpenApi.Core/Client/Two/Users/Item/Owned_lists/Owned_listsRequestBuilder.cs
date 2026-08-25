@@ -34,19 +34,19 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Owned_lists
     {
     }
     /// <summary>
-    /// Retrieves a list of Lists owned by a specific User by their ID.
+    /// Get Users Owned Lists
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2UsersIdOwnedListsResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetUsersOwnedListsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersIdOwnedListsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Owned_lists.Owned_listsRequestBuilder.Owned_listsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersOwnedListsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Owned_lists.Owned_listsRequestBuilder.Owned_listsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersIdOwnedListsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Owned_lists.Owned_listsRequestBuilder.Owned_listsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersOwnedListsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Owned_lists.Owned_listsRequestBuilder.Owned_listsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,10 +54,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Owned_lists
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2UsersIdOwnedListsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2UsersIdOwnedListsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetUsersOwnedListsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetUsersOwnedListsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves a list of Lists owned by a specific User by their ID.
+    /// Get Users Owned Lists
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Owned_lists
       return new global::XbyOpenApi.Core.Client.Two.Users.Item.Owned_lists.Owned_listsRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves a list of Lists owned by a specific User by their ID.
+    /// Get Users Owned Lists
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Owned_listsRequestBuilderGetQueryParameters
@@ -110,10 +110,9 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Owned_lists
       [QueryParameter("list%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Users.Item.Owned_lists.GetListFieldsQueryParameterType[] ListFields { get; set; }
 #endif
-      /// <summary>The maximum number of results.</summary>
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
-      /// <summary>This parameter is used to get a specified &apos;page&apos; of results.</summary>
+      /// <summary>A 64-bit signed integer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("pagination_token")]

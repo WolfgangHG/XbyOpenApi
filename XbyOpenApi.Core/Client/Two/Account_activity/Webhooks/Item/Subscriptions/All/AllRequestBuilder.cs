@@ -40,19 +40,19 @@ namespace XbyOpenApi.Core.Client.Two.Account_activity.Webhooks.Item.Subscription
     {
     }
     /// <summary>
-    /// Checks a user’s Account Activity subscription for a given webhook.
+    /// Validate Account Activity Subscription
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.SubscriptionsGetResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ValidateAccountActivitySubscriptionResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.SubscriptionsGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.ValidateAccountActivitySubscriptionResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.SubscriptionsGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.ValidateAccountActivitySubscriptionResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -60,23 +60,23 @@ namespace XbyOpenApi.Core.Client.Two.Account_activity.Webhooks.Item.Subscription
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.SubscriptionsGetResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.SubscriptionsGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ValidateAccountActivitySubscriptionResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ValidateAccountActivitySubscriptionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Creates an Account Activity subscription for the user and the given webhook.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.SubscriptionsCreateResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.CreateAccountActivitySubscriptionResponse"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.SubscriptionsCreateResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.SubscriptionsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.CreateAccountActivitySubscriptionResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateAccountActivitySubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.SubscriptionsCreateResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.SubscriptionsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.CreateAccountActivitySubscriptionResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateAccountActivitySubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -85,10 +85,10 @@ namespace XbyOpenApi.Core.Client.Two.Account_activity.Webhooks.Item.Subscription
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.SubscriptionsCreateResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.SubscriptionsCreateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.CreateAccountActivitySubscriptionResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.CreateAccountActivitySubscriptionResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Checks a user’s Account Activity subscription for a given webhook.
+    /// Validate Account Activity Subscription
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -114,11 +114,11 @@ namespace XbyOpenApi.Core.Client.Two.Account_activity.Webhooks.Item.Subscription
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.SubscriptionsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateAccountActivitySubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
     {
 #nullable restore
 #else
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.SubscriptionsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateAccountActivitySubscriptionRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

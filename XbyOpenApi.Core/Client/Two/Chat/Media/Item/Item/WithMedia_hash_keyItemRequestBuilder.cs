@@ -34,7 +34,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Media.Item.Item
     {
     }
     /// <summary>
-    /// Downloads encrypted media bytes from an XChat conversation. The response body contains raw binary bytes. For 1:1 conversations, provide the recipient&apos;s user ID; the server constructs the canonical conversation ID from the authenticated user and recipient.
+    /// Downloads encrypted media bytes from an XChat conversation. The response body contains raw binary bytes.
     /// </summary>
     /// <returns>A <see cref="Stream"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
@@ -57,7 +57,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Media.Item.Item
       return await RequestAdapter.SendPrimitiveAsync<Stream>(requestInfo, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Downloads encrypted media bytes from an XChat conversation. The response body contains raw binary bytes. For 1:1 conversations, provide the recipient&apos;s user ID; the server constructs the canonical conversation ID from the authenticated user and recipient.
+    /// Downloads encrypted media bytes from an XChat conversation. The response body contains raw binary bytes.
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>

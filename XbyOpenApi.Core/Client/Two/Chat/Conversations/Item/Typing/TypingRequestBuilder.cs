@@ -36,17 +36,17 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Typing
     /// <summary>
     /// Sends a typing indicator to a specific Chat conversation on behalf of the authenticated user. For 1:1 conversations, provide the recipient&apos;s user ID; the server constructs the canonical conversation ID from the authenticated user and recipient.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ChatSendTypingIndicatorResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.SendChatTypingIndicatorResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.ChatSendTypingIndicatorResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.SendChatTypingIndicatorResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.ChatSendTypingIndicatorResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.SendChatTypingIndicatorResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToPostRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Typing
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ChatSendTypingIndicatorResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ChatSendTypingIndicatorResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.SendChatTypingIndicatorResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.SendChatTypingIndicatorResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Sends a typing indicator to a specific Chat conversation on behalf of the authenticated user. For 1:1 conversations, provide the recipient&apos;s user ID; the server constructs the canonical conversation ID from the authenticated user and recipient.

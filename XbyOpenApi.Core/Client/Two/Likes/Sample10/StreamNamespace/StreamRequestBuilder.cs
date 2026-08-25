@@ -36,17 +36,17 @@ namespace XbyOpenApi.Core.Client.Two.Likes.Sample10.StreamNamespace
     /// <summary>
     /// Streams a 10% sample of public Likes in real-time.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.StreamingLikeResponseV2"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.StreamLikesSample10Response"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.StreamingLikeResponseV2?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Likes.Sample10.StreamNamespace.StreamRequestBuilder.StreamRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.StreamLikesSample10Response?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Likes.Sample10.StreamNamespace.StreamRequestBuilder.StreamRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.StreamingLikeResponseV2> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Likes.Sample10.StreamNamespace.StreamRequestBuilder.StreamRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.StreamLikesSample10Response> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Likes.Sample10.StreamNamespace.StreamRequestBuilder.StreamRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace XbyOpenApi.Core.Client.Two.Likes.Sample10.StreamNamespace
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.StreamingLikeResponseV2>(requestInfo, global::XbyOpenApi.Core.Client.Models.StreamingLikeResponseV2.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.StreamLikesSample10Response>(requestInfo, global::XbyOpenApi.Core.Client.Models.StreamLikesSample10Response.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Streams a 10% sample of public Likes in real-time.

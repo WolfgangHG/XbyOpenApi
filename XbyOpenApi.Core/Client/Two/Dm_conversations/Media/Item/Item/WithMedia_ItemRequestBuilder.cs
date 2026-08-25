@@ -16,7 +16,7 @@ namespace XbyOpenApi.Core.Client.Two.Dm_conversations.Media.Item.Item
   public partial class WithMedia_ItemRequestBuilder : BaseRequestBuilder
   {
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.dm_conversations.media.item.item.item collection</summary>
-    /// <param name="position">The resource identifier of the media file, including file extension (e.g. &apos;hVJQTwig.jpg&apos;).</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Dm_conversations.Media.Item.Item.Item.WithResource_ItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Dm_conversations.Media.Item.Item.Item.WithResource_ItemRequestBuilder this[string position]
     {

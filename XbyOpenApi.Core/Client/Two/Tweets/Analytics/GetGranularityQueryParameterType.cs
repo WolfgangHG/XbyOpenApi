@@ -12,13 +12,13 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Analytics
 #pragma warning disable CS1591
     Hourly,
 #pragma warning restore CS1591
-    [EnumMember(Value = "daily")]
-#pragma warning disable CS1591
-    Daily,
-#pragma warning restore CS1591
     [EnumMember(Value = "weekly")]
 #pragma warning disable CS1591
     Weekly,
+#pragma warning restore CS1591
+    [EnumMember(Value = "daily")]
+#pragma warning disable CS1591
+    Daily,
 #pragma warning restore CS1591
     [EnumMember(Value = "total")]
 #pragma warning disable CS1591

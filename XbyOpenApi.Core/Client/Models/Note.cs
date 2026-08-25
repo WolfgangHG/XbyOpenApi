@@ -7,15 +7,14 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// A X Community Note is a note on a Post.
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+#pragma warning disable CS1591
   public partial class Note : IAdditionalDataHolder, IParsable
+#pragma warning restore CS1591
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>The unique identifier of this Community Note.</summary>
+    /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Id { get; set; }
@@ -23,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Id { get; set; }
 #endif
-    /// <summary>A X Community Note is a note on a Post.</summary>
+    /// <summary>Details about the Community Note&apos;s content, classification and source.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public global::XbyOpenApi.Core.Client.Models.NoteInfo? Info { get; set; }
@@ -31,15 +30,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public global::XbyOpenApi.Core.Client.Models.NoteInfo Info { get; set; }
 #endif
-    /// <summary>Unique identifier of this Tweet. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-    public string? PostId { get; set; }
-#nullable restore
-#else
-    public string PostId { get; set; }
-#endif
-    /// <summary>The scoring status of a Community Note.</summary>
+    /// <summary>Per-model scoring breakdown for the Community Note.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public global::XbyOpenApi.Core.Client.Models.NoteScoringStatus? ScoringStatus { get; set; }
@@ -47,9 +38,15 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public global::XbyOpenApi.Core.Client.Models.NoteScoringStatus ScoringStatus { get; set; }
 #endif
-    /// <summary>Community Note rating status</summary>
-    public global::XbyOpenApi.Core.Client.Models.NoteRatingStatus? Status { get; set; }
-    /// <summary>The evaluation result of a community note.</summary>
+    /// <summary>The status property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? Status { get; set; }
+#nullable restore
+#else
+    public string Status { get; set; }
+#endif
+    /// <summary>AI evaluation results for the Community Note (returned in test mode).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public global::XbyOpenApi.Core.Client.Models.NoteTestResult? TestResult { get; set; }
@@ -84,9 +81,8 @@ namespace XbyOpenApi.Core.Client.Models
             {
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "info", n => { Info = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.NoteInfo>(global::XbyOpenApi.Core.Client.Models.NoteInfo.CreateFromDiscriminatorValue); } },
-                { "post_id", n => { PostId = n.GetStringValue(); } },
                 { "scoring_status", n => { ScoringStatus = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.NoteScoringStatus>(global::XbyOpenApi.Core.Client.Models.NoteScoringStatus.CreateFromDiscriminatorValue); } },
-                { "status", n => { Status = n.GetEnumValue<global::XbyOpenApi.Core.Client.Models.NoteRatingStatus>(); } },
+                { "status", n => { Status = n.GetStringValue(); } },
                 { "test_result", n => { TestResult = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.NoteTestResult>(global::XbyOpenApi.Core.Client.Models.NoteTestResult.CreateFromDiscriminatorValue); } },
             };
     }
@@ -99,9 +95,8 @@ namespace XbyOpenApi.Core.Client.Models
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
       writer.WriteStringValue("id", Id);
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.NoteInfo>("info", Info);
-      writer.WriteStringValue("post_id", PostId);
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.NoteScoringStatus>("scoring_status", ScoringStatus);
-      writer.WriteEnumValue<global::XbyOpenApi.Core.Client.Models.NoteRatingStatus>("status", Status);
+      writer.WriteStringValue("status", Status);
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.NoteTestResult>("test_result", TestResult);
       writer.WriteAdditionalData(AdditionalData);
     }

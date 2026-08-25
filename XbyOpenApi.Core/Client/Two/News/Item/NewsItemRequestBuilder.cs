@@ -36,17 +36,17 @@ namespace XbyOpenApi.Core.Client.Two.News.Item
     /// <summary>
     /// Retrieves news story by its ID.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2NewsIdResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetNewsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2NewsIdResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.News.Item.NewsItemRequestBuilder.NewsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetNewsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.News.Item.NewsItemRequestBuilder.NewsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2NewsIdResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.News.Item.NewsItemRequestBuilder.NewsItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetNewsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.News.Item.NewsItemRequestBuilder.NewsItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace XbyOpenApi.Core.Client.Two.News.Item
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2NewsIdResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2NewsIdResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetNewsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetNewsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Retrieves news story by its ID.

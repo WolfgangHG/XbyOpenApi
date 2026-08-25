@@ -14,38 +14,6 @@ namespace XbyOpenApi.Core.Client.Models
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>The entities property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-    public global::XbyOpenApi.Core.Client.Models.News_contexts_entities? Entities { get; set; }
-#nullable restore
-#else
-    public global::XbyOpenApi.Core.Client.Models.News_contexts_entities Entities { get; set; }
-#endif
-    /// <summary>The finance property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-    public global::XbyOpenApi.Core.Client.Models.News_contexts_finance? Finance { get; set; }
-#nullable restore
-#else
-    public global::XbyOpenApi.Core.Client.Models.News_contexts_finance Finance { get; set; }
-#endif
-    /// <summary>The sports property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-    public global::XbyOpenApi.Core.Client.Models.News_contexts_sports? Sports { get; set; }
-#nullable restore
-#else
-    public global::XbyOpenApi.Core.Client.Models.News_contexts_sports Sports { get; set; }
-#endif
-    /// <summary>The topics property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-    public List<string>? Topics { get; set; }
-#nullable restore
-#else
-    public List<string> Topics { get; set; }
-#endif
     /// <summary>
     /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.News_contexts"/> and sets the default values.
     /// </summary>
@@ -70,12 +38,8 @@ namespace XbyOpenApi.Core.Client.Models
     public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
     {
       return new Dictionary<string, Action<IParseNode>>
-            {
-                { "entities", n => { Entities = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.News_contexts_entities>(global::XbyOpenApi.Core.Client.Models.News_contexts_entities.CreateFromDiscriminatorValue); } },
-                { "finance", n => { Finance = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.News_contexts_finance>(global::XbyOpenApi.Core.Client.Models.News_contexts_finance.CreateFromDiscriminatorValue); } },
-                { "sports", n => { Sports = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.News_contexts_sports>(global::XbyOpenApi.Core.Client.Models.News_contexts_sports.CreateFromDiscriminatorValue); } },
-                { "topics", n => { Topics = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-            };
+      {
+      };
     }
     /// <summary>
     /// Serializes information the current object
@@ -84,10 +48,6 @@ namespace XbyOpenApi.Core.Client.Models
     public virtual void Serialize(ISerializationWriter writer)
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.News_contexts_entities>("entities", Entities);
-      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.News_contexts_finance>("finance", Finance);
-      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.News_contexts_sports>("sports", Sports);
-      writer.WriteCollectionOfPrimitiveValues<string>("topics", Topics);
       writer.WriteAdditionalData(AdditionalData);
     }
   }

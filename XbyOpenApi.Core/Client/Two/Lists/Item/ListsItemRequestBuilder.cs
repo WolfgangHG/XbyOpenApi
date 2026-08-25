@@ -40,7 +40,7 @@ namespace XbyOpenApi.Core.Client.Two.Lists.Item
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public ListsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/lists/{id}", pathParameters)
+    public ListsItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/lists/{id}{?expansions,list%2Efields,user%2Efields}", pathParameters)
     {
     }
     /// <summary>
@@ -48,23 +48,23 @@ namespace XbyOpenApi.Core.Client.Two.Lists.Item
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public ListsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/lists/{id}", rawUrl)
+    public ListsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/lists/{id}{?expansions,list%2Efields,user%2Efields}", rawUrl)
     {
     }
     /// <summary>
     /// Deletes a specific List owned by the authenticated user by its ID.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ListDeleteResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.DeleteListsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.ListDeleteResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.DeleteListsResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.ListDeleteResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.DeleteListsResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -72,22 +72,22 @@ namespace XbyOpenApi.Core.Client.Two.Lists.Item
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ListDeleteResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ListDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.DeleteListsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.DeleteListsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves details of a specific List by its ID.
+    /// Get Lists by ID
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2ListsIdResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetListsByIdResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2ListsIdResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Lists.Item.ListsItemRequestBuilder.ListsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetListsByIdResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Lists.Item.ListsItemRequestBuilder.ListsItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2ListsIdResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Lists.Item.ListsItemRequestBuilder.ListsItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetListsByIdResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Lists.Item.ListsItemRequestBuilder.ListsItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -95,23 +95,23 @@ namespace XbyOpenApi.Core.Client.Two.Lists.Item
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2ListsIdResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2ListsIdResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetListsByIdResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetListsByIdResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Updates the details of a specific List owned by the authenticated user by its ID.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ListUpdateResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.UpdateListsResponse"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.ListUpdateResponse?> PutAsync(global::XbyOpenApi.Core.Client.Models.ListUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.UpdateListsResponse?> PutAsync(global::XbyOpenApi.Core.Client.Models.UpdateListsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.ListUpdateResponse> PutAsync(global::XbyOpenApi.Core.Client.Models.ListUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.UpdateListsResponse> PutAsync(global::XbyOpenApi.Core.Client.Models.UpdateListsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -120,7 +120,7 @@ namespace XbyOpenApi.Core.Client.Two.Lists.Item
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ListUpdateResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ListUpdateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.UpdateListsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.UpdateListsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Deletes a specific List owned by the authenticated user by its ID.
@@ -142,7 +142,7 @@ namespace XbyOpenApi.Core.Client.Two.Lists.Item
       return requestInfo;
     }
     /// <summary>
-    /// Retrieves details of a specific List by its ID.
+    /// Get Lists by ID
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -155,7 +155,7 @@ namespace XbyOpenApi.Core.Client.Two.Lists.Item
     public RequestInformation ToGetRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Lists.Item.ListsItemRequestBuilder.ListsItemRequestBuilderGetQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.GET, "{+baseurl}/2/lists/{id}{?expansions,list%2Efields,user%2Efields}", PathParameters);
+      var requestInfo = new RequestInformation(Method.GET, UrlTemplate, PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;
@@ -168,11 +168,11 @@ namespace XbyOpenApi.Core.Client.Two.Lists.Item
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public RequestInformation ToPutRequestInformation(global::XbyOpenApi.Core.Client.Models.ListUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+    public RequestInformation ToPutRequestInformation(global::XbyOpenApi.Core.Client.Models.UpdateListsRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
     {
 #nullable restore
 #else
-    public RequestInformation ToPutRequestInformation(global::XbyOpenApi.Core.Client.Models.ListUpdateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+    public RequestInformation ToPutRequestInformation(global::XbyOpenApi.Core.Client.Models.UpdateListsRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -192,7 +192,7 @@ namespace XbyOpenApi.Core.Client.Two.Lists.Item
       return new global::XbyOpenApi.Core.Client.Two.Lists.Item.ListsItemRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves details of a specific List by its ID.
+    /// Get Lists by ID
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ListsItemRequestBuilderGetQueryParameters

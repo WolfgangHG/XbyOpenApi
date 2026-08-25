@@ -34,19 +34,19 @@ namespace XbyOpenApi.Core.Client.Two.Trends.By.Woeid.Item
     {
     }
     /// <summary>
-    /// Retrieves trending topics for a specific location identified by its WOEID.
+    /// Get Trends by Woeid
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2TrendsByWoeidWoeidResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetTrendsByWoeidResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2TrendsByWoeidWoeidResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Trends.By.Woeid.Item.WithWoeItemRequestBuilder.WithWoeItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetTrendsByWoeidResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Trends.By.Woeid.Item.WithWoeItemRequestBuilder.WithWoeItemRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2TrendsByWoeidWoeidResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Trends.By.Woeid.Item.WithWoeItemRequestBuilder.WithWoeItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetTrendsByWoeidResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Trends.By.Woeid.Item.WithWoeItemRequestBuilder.WithWoeItemRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,10 +54,10 @@ namespace XbyOpenApi.Core.Client.Two.Trends.By.Woeid.Item
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2TrendsByWoeidWoeidResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2TrendsByWoeidWoeidResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetTrendsByWoeidResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetTrendsByWoeidResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves trending topics for a specific location identified by its WOEID.
+    /// Get Trends by Woeid
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,12 +85,11 @@ namespace XbyOpenApi.Core.Client.Two.Trends.By.Woeid.Item
       return new global::XbyOpenApi.Core.Client.Two.Trends.By.Woeid.Item.WithWoeItemRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves trending topics for a specific location identified by its WOEID.
+    /// Get Trends by Woeid
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithWoeItemRequestBuilderGetQueryParameters
     {
-      /// <summary>The maximum number of results.</summary>
       [QueryParameter("max_trends")]
       public int? MaxTrends { get; set; }
       /// <summary>A comma separated list of Trend fields to display.</summary>

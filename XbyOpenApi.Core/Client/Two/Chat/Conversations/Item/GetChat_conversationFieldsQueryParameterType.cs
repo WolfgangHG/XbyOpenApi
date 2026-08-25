@@ -8,10 +8,6 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item
   public enum GetChat_conversationFieldsQueryParameterType
 #pragma warning restore CS1591
   {
-    [EnumMember(Value = "admin_ids")]
-#pragma warning disable CS1591
-    Admin_ids,
-#pragma warning restore CS1591
     [EnumMember(Value = "created_at")]
 #pragma warning disable CS1591
     Created_at,
@@ -32,17 +28,9 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item
 #pragma warning disable CS1591
     Is_muted,
 #pragma warning restore CS1591
-    [EnumMember(Value = "member_ids")]
+    [EnumMember(Value = "message_ttl_ms")]
 #pragma warning disable CS1591
-    Member_ids,
-#pragma warning restore CS1591
-    [EnumMember(Value = "message_ttl_msec")]
-#pragma warning disable CS1591
-    Message_ttl_msec,
-#pragma warning restore CS1591
-    [EnumMember(Value = "participant_ids")]
-#pragma warning disable CS1591
-    Participant_ids,
+    Message_ttl_ms,
 #pragma warning restore CS1591
     [EnumMember(Value = "screen_capture_blocking_enabled")]
 #pragma warning disable CS1591

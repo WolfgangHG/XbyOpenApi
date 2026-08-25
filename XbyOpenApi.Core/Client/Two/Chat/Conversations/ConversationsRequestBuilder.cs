@@ -25,7 +25,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations
       get => new global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Group.GroupRequestBuilder(PathParameters, RequestAdapter);
     }
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.chat.conversations.item collection</summary>
-    /// <param name="position">The conversation ID. For 1:1 conversations, use the recipient user ID or dash-separated canonical ID. For group conversations, use the group ID (prefixed with &apos;g&apos;).</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.ConversationsItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.ConversationsItemRequestBuilder this[string position]
     {
@@ -55,17 +55,17 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations
     /// <summary>
     /// Retrieves a list of Chat conversations for the authenticated user&apos;s inbox.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ChatGetConversationsResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetChatConversationsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.ChatGetConversationsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Chat.Conversations.ConversationsRequestBuilder.ConversationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetChatConversationsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Chat.Conversations.ConversationsRequestBuilder.ConversationsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.ChatGetConversationsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Chat.Conversations.ConversationsRequestBuilder.ConversationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetChatConversationsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Chat.Conversations.ConversationsRequestBuilder.ConversationsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -73,7 +73,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ChatGetConversationsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ChatGetConversationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetChatConversationsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetChatConversationsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Retrieves a list of Chat conversations for the authenticated user&apos;s inbox.
@@ -129,10 +129,8 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations
       [QueryParameter("expansions")]
       public global::XbyOpenApi.Core.Client.Two.Chat.Conversations.GetExpansionsQueryParameterType[] Expansions { get; set; }
 #endif
-      /// <summary>Maximum number of conversations to return.</summary>
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
-      /// <summary>Token for pagination to retrieve the next page of results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("pagination_token")]

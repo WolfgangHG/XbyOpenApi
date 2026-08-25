@@ -16,7 +16,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.By.Username
   public partial class UsernameRequestBuilder : BaseRequestBuilder
   {
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.users.by.username.item collection</summary>
-    /// <param name="position">A username.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Users.By.Username.Item.WithUsernameItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Users.By.Username.Item.WithUsernameItemRequestBuilder this[string position]
     {

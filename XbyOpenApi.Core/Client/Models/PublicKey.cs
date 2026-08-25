@@ -7,15 +7,14 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// Public key information for Chat encryption
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+#pragma warning disable CS1591
   public partial class PublicKey : IAdditionalDataHolder, IParsable
+#pragma warning restore CS1591
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>DER-encoded signature proving the signing key is bound to the identity key (base64 encoded).</summary>
+    /// <summary>The identity_public_key_signature property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? IdentityPublicKeySignature { get; set; }
@@ -23,7 +22,15 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string IdentityPublicKeySignature { get; set; }
 #endif
-    /// <summary>Identity public key (base64 encoded).</summary>
+    /// <summary>The juicebox_config property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public global::XbyOpenApi.Core.Client.Models.PublicKey_juicebox_config? JuiceboxConfig { get; set; }
+#nullable restore
+#else
+    public global::XbyOpenApi.Core.Client.Models.PublicKey_juicebox_config JuiceboxConfig { get; set; }
+#endif
+    /// <summary>The public_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? PublicKeyProp { get; set; }
@@ -31,29 +38,21 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string PublicKeyProp { get; set; }
 #endif
-    /// <summary>Signing public key (base64 encoded).</summary>
+    /// <summary>The public_key_version property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? PublicKeyVersion { get; set; }
+#nullable restore
+#else
+    public string PublicKeyVersion { get; set; }
+#endif
+    /// <summary>The signing_public_key property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? SigningPublicKey { get; set; }
 #nullable restore
 #else
     public string SigningPublicKey { get; set; }
-#endif
-    /// <summary>Juicebox configuration.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-    public global::XbyOpenApi.Core.Client.Models.PublicKey_token_map? TokenMap { get; set; }
-#nullable restore
-#else
-    public global::XbyOpenApi.Core.Client.Models.PublicKey_token_map TokenMap { get; set; }
-#endif
-    /// <summary>Public key version.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-    public string? Version { get; set; }
-#nullable restore
-#else
-    public string Version { get; set; }
 #endif
     /// <summary>
     /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.PublicKey"/> and sets the default values.
@@ -81,10 +80,10 @@ namespace XbyOpenApi.Core.Client.Models
       return new Dictionary<string, Action<IParseNode>>
             {
                 { "identity_public_key_signature", n => { IdentityPublicKeySignature = n.GetStringValue(); } },
+                { "juicebox_config", n => { JuiceboxConfig = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.PublicKey_juicebox_config>(global::XbyOpenApi.Core.Client.Models.PublicKey_juicebox_config.CreateFromDiscriminatorValue); } },
                 { "public_key", n => { PublicKeyProp = n.GetStringValue(); } },
+                { "public_key_version", n => { PublicKeyVersion = n.GetStringValue(); } },
                 { "signing_public_key", n => { SigningPublicKey = n.GetStringValue(); } },
-                { "token_map", n => { TokenMap = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.PublicKey_token_map>(global::XbyOpenApi.Core.Client.Models.PublicKey_token_map.CreateFromDiscriminatorValue); } },
-                { "version", n => { Version = n.GetStringValue(); } },
             };
     }
     /// <summary>
@@ -95,10 +94,10 @@ namespace XbyOpenApi.Core.Client.Models
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
       writer.WriteStringValue("identity_public_key_signature", IdentityPublicKeySignature);
+      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.PublicKey_juicebox_config>("juicebox_config", JuiceboxConfig);
       writer.WriteStringValue("public_key", PublicKeyProp);
+      writer.WriteStringValue("public_key_version", PublicKeyVersion);
       writer.WriteStringValue("signing_public_key", SigningPublicKey);
-      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.PublicKey_token_map>("token_map", TokenMap);
-      writer.WriteStringValue("version", Version);
       writer.WriteAdditionalData(AdditionalData);
     }
   }

@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Two.Account_activity.Webhooks.Item.Subscription
       get => new global::XbyOpenApi.Core.Client.Two.Account_activity.Webhooks.Item.Subscriptions.All.AllRequestBuilder(PathParameters, RequestAdapter);
     }
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.account_activity.webhooks.item.subscriptions.item collection</summary>
-    /// <param name="position">User ID to unsubscribe from.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Account_activity.Webhooks.Item.Subscriptions.Item.WithUser_ItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Account_activity.Webhooks.Item.Subscriptions.Item.WithUser_ItemRequestBuilder this[string position]
     {

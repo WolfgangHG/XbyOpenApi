@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Recent
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public RecentRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/search/recent?query={query}{&end_time*,expansions,max_results*,media%2Efields,next_token*,pagination_token*,place%2Efields,poll%2Efields,since_id*,sort_order*,start_time*,tweet%2Efields,until_id*,user%2Efields}", pathParameters)
+    public RecentRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/search/recent?query={query}{&end_time*,expansions,max_results*,media%2Efields,next_token*,pagination_token*,place%2Efields,poll%2Efields,post%2Efields,since_id*,sort_order*,start_time*,until_id*,user%2Efields}", pathParameters)
     {
     }
     /// <summary>
@@ -30,23 +30,23 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Recent
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public RecentRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/search/recent?query={query}{&end_time*,expansions,max_results*,media%2Efields,next_token*,pagination_token*,place%2Efields,poll%2Efields,since_id*,sort_order*,start_time*,tweet%2Efields,until_id*,user%2Efields}", rawUrl)
+    public RecentRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/search/recent?query={query}{&end_time*,expansions,max_results*,media%2Efields,next_token*,pagination_token*,place%2Efields,poll%2Efields,post%2Efields,since_id*,sort_order*,start_time*,until_id*,user%2Efields}", rawUrl)
     {
     }
     /// <summary>
-    /// Retrieves Posts from the last 7 days matching a search query.
+    /// At most one of `start_time`, `since_id` may be provided. At most one of `end_time`, `until_id` may be provided. At most one of `pagination_token`, `next_token` may be provided.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2TweetsSearchRecentResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.SearchPostsRecentResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2TweetsSearchRecentResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Search.Recent.RecentRequestBuilder.RecentRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.SearchPostsRecentResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Search.Recent.RecentRequestBuilder.RecentRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2TweetsSearchRecentResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Search.Recent.RecentRequestBuilder.RecentRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.SearchPostsRecentResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Search.Recent.RecentRequestBuilder.RecentRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,10 +54,10 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Recent
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2TweetsSearchRecentResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2TweetsSearchRecentResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.SearchPostsRecentResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.SearchPostsRecentResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves Posts from the last 7 days matching a search query.
+    /// At most one of `start_time`, `since_id` may be provided. At most one of `end_time`, `until_id` may be provided. At most one of `pagination_token`, `next_token` may be provided.
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,12 +85,11 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Recent
       return new global::XbyOpenApi.Core.Client.Two.Tweets.Search.Recent.RecentRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves Posts from the last 7 days matching a search query.
+    /// At most one of `start_time`, `since_id` may be provided. At most one of `end_time`, `until_id` may be provided. At most one of `pagination_token`, `next_token` may be provided.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RecentRequestBuilderGetQueryParameters
     {
-      /// <summary>YYYY-MM-DDTHH:mm:ssZ. The newest, most recent UTC timestamp to which the Posts will be provided. Timestamp is in second granularity and is exclusive (i.e. 12:00:01 excludes the first second of the minute).</summary>
       [QueryParameter("end_time")]
       public DateTimeOffset? EndTime { get; set; }
       /// <summary>A comma separated list of fields to expand.</summary>
@@ -103,7 +102,6 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Recent
       [QueryParameter("expansions")]
       public global::XbyOpenApi.Core.Client.Two.Tweets.Search.Recent.GetExpansionsQueryParameterType[] Expansions { get; set; }
 #endif
-      /// <summary>The maximum number of search results to be returned by a request.</summary>
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
       /// <summary>A comma separated list of Media fields to display.</summary>
@@ -116,7 +114,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Recent
       [QueryParameter("media%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Tweets.Search.Recent.GetMediaFieldsQueryParameterType[] MediaFields { get; set; }
 #endif
-      /// <summary>This parameter is used to get the next &apos;page&apos; of results. The value used with the parameter is pulled directly from the response provided by the API, and should not be modified.</summary>
+      /// <summary>A base32hex-encoded pagination token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("next_token")]
@@ -126,7 +124,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Recent
       [QueryParameter("next_token")]
       public string NextToken { get; set; }
 #endif
-      /// <summary>This parameter is used to get the next &apos;page&apos; of results. The value used with the parameter is pulled directly from the response provided by the API, and should not be modified.</summary>
+      /// <summary>A base32hex-encoded pagination token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("pagination_token")]
@@ -156,7 +154,16 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Recent
       [QueryParameter("poll%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Tweets.Search.Recent.GetPollFieldsQueryParameterType[] PollFields { get; set; }
 #endif
-      /// <summary>One query/rule/filter for matching Posts. Refer to https://t.co/rulelength to identify the max query length.</summary>
+      /// <summary>A comma separated list of Post fields to display.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Tweets.Search.Recent.GetPostFieldsQueryParameterType[]? PostFields { get; set; }
+#nullable restore
+#else
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Tweets.Search.Recent.GetPostFieldsQueryParameterType[] PostFields { get; set; }
+#endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("query")]
@@ -166,7 +173,6 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Recent
       [QueryParameter("query")]
       public string Query { get; set; }
 #endif
-      /// <summary>Returns results with a Post ID greater than (that is, more recent than) the specified ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("since_id")]
@@ -176,23 +182,11 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Recent
       [QueryParameter("since_id")]
       public string SinceId { get; set; }
 #endif
-      /// <summary>This order in which to return results.</summary>
       [QueryParameter("sort_order")]
       public global::XbyOpenApi.Core.Client.Two.Tweets.Search.Recent.GetSort_orderQueryParameterType? SortOrder { get; set; }
-      /// <summary>YYYY-MM-DDTHH:mm:ssZ. The oldest UTC timestamp from which the Posts will be provided. Timestamp is in second granularity and is inclusive (i.e. 12:00:01 includes the first second of the minute).</summary>
+      /// <summary>Must be within the last 7 days.</summary>
       [QueryParameter("start_time")]
       public DateTimeOffset? StartTime { get; set; }
-      /// <summary>A comma separated list of Tweet fields to display.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Tweets.Search.Recent.GetTweetFieldsQueryParameterType[]? TweetFields { get; set; }
-#nullable restore
-#else
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Tweets.Search.Recent.GetTweetFieldsQueryParameterType[] TweetFields { get; set; }
-#endif
-      /// <summary>Returns results with a Post ID less than (that is, older than) the specified ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("until_id")]

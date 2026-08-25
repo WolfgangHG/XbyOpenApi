@@ -7,15 +7,14 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// An Chat message event with extracted envelope fields and the original encoded event.
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+#pragma warning disable CS1591
   public partial class ChatMessageEvent : IAdditionalDataHolder, IParsable
+#pragma warning restore CS1591
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>The conversation ID this message belongs to.</summary>
+    /// <summary>The conversation_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? ConversationId { get; set; }
@@ -23,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string ConversationId { get; set; }
 #endif
-    /// <summary>The conversation token for this message.</summary>
+    /// <summary>The conversation_token property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? ConversationToken { get; set; }
@@ -31,15 +30,9 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string ConversationToken { get; set; }
 #endif
-    /// <summary>The creation timestamp in milliseconds.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-    public string? CreatedAtMsec { get; set; }
-#nullable restore
-#else
-    public string CreatedAtMsec { get; set; }
-#endif
-    /// <summary>Base64-encoded MessageEvent for client decoding.</summary>
+    /// <summary>The created_at property</summary>
+    public DateTimeOffset? CreatedAt { get; set; }
+    /// <summary>The encoded_event property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? EncodedEvent { get; set; }
@@ -47,7 +40,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string EncodedEvent { get; set; }
 #endif
-    /// <summary>The unique identifier for this message event (message_id).</summary>
+    /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Id { get; set; }
@@ -55,39 +48,31 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Id { get; set; }
 #endif
-    /// <summary>Whether the message is from a trusted source.</summary>
+    /// <summary>The is_trusted property</summary>
     public bool? IsTrusted { get; set; }
-    /// <summary>Message event signature for verification.</summary>
+    /// <summary>The message_event_signature property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public global::XbyOpenApi.Core.Client.Models.ChatMessageEventSignature? MessageEventSignature { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.ChatMessageEvent_message_event_signature? MessageEventSignature { get; set; }
 #nullable restore
 #else
-    public global::XbyOpenApi.Core.Client.Models.ChatMessageEventSignature MessageEventSignature { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.ChatMessageEvent_message_event_signature MessageEventSignature { get; set; }
 #endif
-    /// <summary>The sequence ID of the previous message.</summary>
+    /// <summary>The previous_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public string? PreviousSequenceId { get; set; }
+    public string? PreviousId { get; set; }
 #nullable restore
 #else
-    public string PreviousSequenceId { get; set; }
+    public string PreviousId { get; set; }
 #endif
-    /// <summary>The user ID of the message sender.</summary>
+    /// <summary>The sender_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? SenderId { get; set; }
 #nullable restore
 #else
     public string SenderId { get; set; }
-#endif
-    /// <summary>The sequence identifier for ordering messages.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-    public string? SequenceId { get; set; }
-#nullable restore
-#else
-    public string SequenceId { get; set; }
 #endif
     /// <summary>
     /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.ChatMessageEvent"/> and sets the default values.
@@ -116,14 +101,13 @@ namespace XbyOpenApi.Core.Client.Models
             {
                 { "conversation_id", n => { ConversationId = n.GetStringValue(); } },
                 { "conversation_token", n => { ConversationToken = n.GetStringValue(); } },
-                { "created_at_msec", n => { CreatedAtMsec = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "encoded_event", n => { EncodedEvent = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "is_trusted", n => { IsTrusted = n.GetBoolValue(); } },
-                { "message_event_signature", n => { MessageEventSignature = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.ChatMessageEventSignature>(global::XbyOpenApi.Core.Client.Models.ChatMessageEventSignature.CreateFromDiscriminatorValue); } },
-                { "previous_sequence_id", n => { PreviousSequenceId = n.GetStringValue(); } },
+                { "message_event_signature", n => { MessageEventSignature = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.ChatMessageEvent_message_event_signature>(global::XbyOpenApi.Core.Client.Models.ChatMessageEvent_message_event_signature.CreateFromDiscriminatorValue); } },
+                { "previous_id", n => { PreviousId = n.GetStringValue(); } },
                 { "sender_id", n => { SenderId = n.GetStringValue(); } },
-                { "sequence_id", n => { SequenceId = n.GetStringValue(); } },
             };
     }
     /// <summary>
@@ -135,14 +119,13 @@ namespace XbyOpenApi.Core.Client.Models
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
       writer.WriteStringValue("conversation_id", ConversationId);
       writer.WriteStringValue("conversation_token", ConversationToken);
-      writer.WriteStringValue("created_at_msec", CreatedAtMsec);
+      writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
       writer.WriteStringValue("encoded_event", EncodedEvent);
       writer.WriteStringValue("id", Id);
       writer.WriteBoolValue("is_trusted", IsTrusted);
-      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.ChatMessageEventSignature>("message_event_signature", MessageEventSignature);
-      writer.WriteStringValue("previous_sequence_id", PreviousSequenceId);
+      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.ChatMessageEvent_message_event_signature>("message_event_signature", MessageEventSignature);
+      writer.WriteStringValue("previous_id", PreviousId);
       writer.WriteStringValue("sender_id", SenderId);
-      writer.WriteStringValue("sequence_id", SequenceId);
       writer.WriteAdditionalData(AdditionalData);
     }
   }

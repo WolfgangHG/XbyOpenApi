@@ -7,21 +7,20 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// A response from getting a media upload request status.
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+#pragma warning disable CS1591
   public partial class MediaUploadResponse : IAdditionalDataHolder, IParsable
+#pragma warning restore CS1591
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
     /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public global::XbyOpenApi.Core.Client.Models.MediaUploadResponse_data? Data { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.MediaUploadResponseData? Data { get; set; }
 #nullable restore
 #else
-    public global::XbyOpenApi.Core.Client.Models.MediaUploadResponse_data Data { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.MediaUploadResponseData Data { get; set; }
 #endif
     /// <summary>The errors property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -56,7 +55,7 @@ namespace XbyOpenApi.Core.Client.Models
     {
       return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.MediaUploadResponse_data>(global::XbyOpenApi.Core.Client.Models.MediaUploadResponse_data.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.MediaUploadResponseData>(global::XbyOpenApi.Core.Client.Models.MediaUploadResponseData.CreateFromDiscriminatorValue); } },
                 { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Problem>(global::XbyOpenApi.Core.Client.Models.Problem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
     }
@@ -67,7 +66,7 @@ namespace XbyOpenApi.Core.Client.Models
     public virtual void Serialize(ISerializationWriter writer)
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.MediaUploadResponse_data>("data", Data);
+      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.MediaUploadResponseData>("data", Data);
       writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Problem>("errors", Errors);
       writer.WriteAdditionalData(AdditionalData);
     }

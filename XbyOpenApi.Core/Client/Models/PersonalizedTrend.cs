@@ -7,15 +7,14 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// A trend.
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+#pragma warning disable CS1591
   public partial class PersonalizedTrend : IAdditionalDataHolder, IParsable
+#pragma warning restore CS1591
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>Category of this trend.</summary>
+    /// <summary>The category property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Category { get; set; }
@@ -23,9 +22,15 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Category { get; set; }
 #endif
-    /// <summary>Number of posts pertaining to this trend.</summary>
-    public int? PostCount { get; set; }
-    /// <summary>Time since this is trending.</summary>
+    /// <summary>The post_count property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? PostCount { get; set; }
+#nullable restore
+#else
+    public string PostCount { get; set; }
+#endif
+    /// <summary>The trending_since property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? TrendingSince { get; set; }
@@ -33,7 +38,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string TrendingSince { get; set; }
 #endif
-    /// <summary>Name of the trend.</summary>
+    /// <summary>The trend_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? TrendName { get; set; }
@@ -67,7 +72,7 @@ namespace XbyOpenApi.Core.Client.Models
       return new Dictionary<string, Action<IParseNode>>
             {
                 { "category", n => { Category = n.GetStringValue(); } },
-                { "post_count", n => { PostCount = n.GetIntValue(); } },
+                { "post_count", n => { PostCount = n.GetStringValue(); } },
                 { "trend_name", n => { TrendName = n.GetStringValue(); } },
                 { "trending_since", n => { TrendingSince = n.GetStringValue(); } },
             };
@@ -80,7 +85,7 @@ namespace XbyOpenApi.Core.Client.Models
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
       writer.WriteStringValue("category", Category);
-      writer.WriteIntValue("post_count", PostCount);
+      writer.WriteStringValue("post_count", PostCount);
       writer.WriteStringValue("trending_since", TrendingSince);
       writer.WriteStringValue("trend_name", TrendName);
       writer.WriteAdditionalData(AdditionalData);

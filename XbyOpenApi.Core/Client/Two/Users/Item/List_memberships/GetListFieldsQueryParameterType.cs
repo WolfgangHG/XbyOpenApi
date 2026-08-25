@@ -32,10 +32,6 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.List_memberships
 #pragma warning disable CS1591
     Name,
 #pragma warning restore CS1591
-    [EnumMember(Value = "owner_id")]
-#pragma warning disable CS1591
-    Owner_id,
-#pragma warning restore CS1591
     [EnumMember(Value = "private")]
 #pragma warning disable CS1591
     Private,

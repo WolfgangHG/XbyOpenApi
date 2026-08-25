@@ -43,7 +43,7 @@ namespace XbyOpenApi.Core.Client.Two.Media
       get => new global::XbyOpenApi.Core.Client.Two.Media.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
     }
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.media.item collection</summary>
-    /// <param name="position">A single Media Key.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Media.Item.WithMedia_keyItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Media.Item.WithMedia_keyItemRequestBuilder this[string position]
     {
@@ -71,19 +71,19 @@ namespace XbyOpenApi.Core.Client.Two.Media
     {
     }
     /// <summary>
-    /// Retrieves details of Media files by their media keys.
+    /// Get Media by media keys
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2MediaResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetMediaByMediaKeysResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2MediaResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Media.MediaRequestBuilder.MediaRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetMediaByMediaKeysResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Media.MediaRequestBuilder.MediaRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2MediaResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Media.MediaRequestBuilder.MediaRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetMediaByMediaKeysResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Media.MediaRequestBuilder.MediaRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -91,10 +91,10 @@ namespace XbyOpenApi.Core.Client.Two.Media
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2MediaResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2MediaResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetMediaByMediaKeysResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetMediaByMediaKeysResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves details of Media files by their media keys.
+    /// Get Media by media keys
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -122,7 +122,7 @@ namespace XbyOpenApi.Core.Client.Two.Media
       return new global::XbyOpenApi.Core.Client.Two.Media.MediaRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves details of Media files by their media keys.
+    /// Get Media by media keys
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class MediaRequestBuilderGetQueryParameters
@@ -137,7 +137,6 @@ namespace XbyOpenApi.Core.Client.Two.Media
       [QueryParameter("media%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Media.GetMediaFieldsQueryParameterType[] MediaFields { get; set; }
 #endif
-      /// <summary>A comma separated list of Media Keys. Up to 100 are allowed in a single request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("media_keys")]

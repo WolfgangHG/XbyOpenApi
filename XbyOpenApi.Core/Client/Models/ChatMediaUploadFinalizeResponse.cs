@@ -7,21 +7,28 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// Response from finalizing a Chat media upload.
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+#pragma warning disable CS1591
   public partial class ChatMediaUploadFinalizeResponse : IAdditionalDataHolder, IParsable
+#pragma warning restore CS1591
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
     /// <summary>The data property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public global::XbyOpenApi.Core.Client.Models.ChatMediaUploadFinalizeResponse_data? Data { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.ChatMediaUploadFinalizeResponseData? Data { get; set; }
 #nullable restore
 #else
-    public global::XbyOpenApi.Core.Client.Models.ChatMediaUploadFinalizeResponse_data Data { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.ChatMediaUploadFinalizeResponseData Data { get; set; }
+#endif
+    /// <summary>The errors property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public List<global::XbyOpenApi.Core.Client.Models.Problem>? Errors { get; set; }
+#nullable restore
+#else
+    public List<global::XbyOpenApi.Core.Client.Models.Problem> Errors { get; set; }
 #endif
     /// <summary>
     /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.ChatMediaUploadFinalizeResponse"/> and sets the default values.
@@ -48,7 +55,8 @@ namespace XbyOpenApi.Core.Client.Models
     {
       return new Dictionary<string, Action<IParseNode>>
             {
-                { "data", n => { Data = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.ChatMediaUploadFinalizeResponse_data>(global::XbyOpenApi.Core.Client.Models.ChatMediaUploadFinalizeResponse_data.CreateFromDiscriminatorValue); } },
+                { "data", n => { Data = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.ChatMediaUploadFinalizeResponseData>(global::XbyOpenApi.Core.Client.Models.ChatMediaUploadFinalizeResponseData.CreateFromDiscriminatorValue); } },
+                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Problem>(global::XbyOpenApi.Core.Client.Models.Problem.CreateFromDiscriminatorValue)?.AsList(); } },
             };
     }
     /// <summary>
@@ -58,7 +66,8 @@ namespace XbyOpenApi.Core.Client.Models
     public virtual void Serialize(ISerializationWriter writer)
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.ChatMediaUploadFinalizeResponse_data>("data", Data);
+      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.ChatMediaUploadFinalizeResponseData>("data", Data);
+      writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Problem>("errors", Errors);
       writer.WriteAdditionalData(AdditionalData);
     }
   }

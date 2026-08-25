@@ -19,7 +19,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Retweets
   public partial class RetweetsRequestBuilder : BaseRequestBuilder
   {
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.users.item.retweets.item collection</summary>
-    /// <param name="position">The ID of the Post that the User is requesting to unretweet.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Users.Item.Retweets.Item.WithSource_tweet_ItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Users.Item.Retweets.Item.WithSource_tweet_ItemRequestBuilder this[string position]
     {
@@ -49,18 +49,18 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Retweets
     /// <summary>
     /// Causes the authenticated user to repost a specific Post by its ID.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.UsersRetweetsCreateResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.RepostPostResponse"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.UsersRetweetsCreateResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.UsersRetweetsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.RepostPostResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.RepostPostRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.UsersRetweetsCreateResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.UsersRetweetsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.RepostPostResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.RepostPostRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -69,7 +69,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Retweets
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.UsersRetweetsCreateResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.UsersRetweetsCreateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.RepostPostResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.RepostPostResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Causes the authenticated user to repost a specific Post by its ID.
@@ -79,11 +79,11 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Retweets
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.UsersRetweetsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.RepostPostRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
     {
 #nullable restore
 #else
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.UsersRetweetsCreateRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.RepostPostRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

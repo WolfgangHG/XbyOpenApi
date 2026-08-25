@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Two.News
       get => new global::XbyOpenApi.Core.Client.Two.News.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
     }
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.news.item collection</summary>
-    /// <param name="position">The ID of the news story.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.News.Item.NewsItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.News.Item.NewsItemRequestBuilder this[string position]
     {

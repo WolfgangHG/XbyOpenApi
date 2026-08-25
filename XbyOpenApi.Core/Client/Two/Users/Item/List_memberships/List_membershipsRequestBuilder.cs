@@ -34,19 +34,19 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.List_memberships
     {
     }
     /// <summary>
-    /// Retrieves a list of Lists that a specific User is a member of by their ID.
+    /// Get Users List Memberships
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2UsersIdListMembershipsResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetUsersListMembershipsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersIdListMembershipsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.List_memberships.List_membershipsRequestBuilder.List_membershipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersListMembershipsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.List_memberships.List_membershipsRequestBuilder.List_membershipsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersIdListMembershipsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.List_memberships.List_membershipsRequestBuilder.List_membershipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersListMembershipsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.List_memberships.List_membershipsRequestBuilder.List_membershipsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,10 +54,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.List_memberships
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2UsersIdListMembershipsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2UsersIdListMembershipsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetUsersListMembershipsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetUsersListMembershipsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves a list of Lists that a specific User is a member of by their ID.
+    /// Get Users List Memberships
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.List_memberships
       return new global::XbyOpenApi.Core.Client.Two.Users.Item.List_memberships.List_membershipsRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves a list of Lists that a specific User is a member of by their ID.
+    /// Get Users List Memberships
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class List_membershipsRequestBuilderGetQueryParameters
@@ -110,10 +110,8 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.List_memberships
       [QueryParameter("list%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Users.Item.List_memberships.GetListFieldsQueryParameterType[] ListFields { get; set; }
 #endif
-      /// <summary>The maximum number of results.</summary>
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
-      /// <summary>This parameter is used to get a specified &apos;page&apos; of results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("pagination_token")]

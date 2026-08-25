@@ -15,7 +15,7 @@ dotnet format whitespace --include-generated
 
 @echo Now revert the change to XbyOpenApi.Core.csproj and switch back to "netstandard2.0"
 
-@echo Applying workaround for binary data patch
+@echo Applying workaround for wrong property name in api descript (2.167)
 @REM argument "--directory" is required here, as we are in subdir of the root.
 @REM git must be on the path.
 git apply --verbose --directory XbyOpenApi.Core kiota_changes.patch

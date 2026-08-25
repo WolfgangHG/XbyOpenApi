@@ -16,7 +16,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Media.Item
   public partial class MediaItemRequestBuilder : BaseRequestBuilder
   {
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.chat.media.item.item collection</summary>
-    /// <param name="position">The media hash key returned from the upload initialize step.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Chat.Media.Item.Item.WithMedia_hash_keyItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Chat.Media.Item.Item.WithMedia_hash_keyItemRequestBuilder this[string position]
     {

@@ -36,18 +36,18 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Read
     /// <summary>
     /// Marks a specific Chat conversation as read on behalf of the authenticated user. For 1:1 conversations, provide the recipient&apos;s user ID; the server constructs the canonical conversation ID from the authenticated user and recipient.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ChatMarkConversationReadResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.MarkChatConversationReadResponse"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.ChatMarkConversationReadResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.ChatMarkConversationReadRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.MarkChatConversationReadResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.MarkChatConversationReadRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.ChatMarkConversationReadResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.ChatMarkConversationReadRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.MarkChatConversationReadResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.MarkChatConversationReadRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -56,7 +56,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Read
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ChatMarkConversationReadResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ChatMarkConversationReadResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.MarkChatConversationReadResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.MarkChatConversationReadResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Marks a specific Chat conversation as read on behalf of the authenticated user. For 1:1 conversations, provide the recipient&apos;s user ID; the server constructs the canonical conversation ID from the authenticated user and recipient.
@@ -66,11 +66,11 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Read
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.ChatMarkConversationReadRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.MarkChatConversationReadRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
     {
 #nullable restore
 #else
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.ChatMarkConversationReadRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.MarkChatConversationReadRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

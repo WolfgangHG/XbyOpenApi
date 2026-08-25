@@ -14,7 +14,7 @@ namespace XbyOpenApi.Core.Client.Models
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>The contained_within property</summary>
+    /// <summary>A list of unique identifiers of the Places that contain this place.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public List<string>? ContainedWithin { get; set; }
@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public List<string> ContainedWithin { get; set; }
 #endif
-    /// <summary>The full name of the county in which this place exists.</summary>
+    /// <summary>The country property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Country { get; set; }
@@ -30,7 +30,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Country { get; set; }
 #endif
-    /// <summary>A two-letter ISO 3166-1 alpha-2 country code.</summary>
+    /// <summary>The country_code property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? CountryCode { get; set; }
@@ -38,7 +38,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string CountryCode { get; set; }
 #endif
-    /// <summary>The full name of this place.</summary>
+    /// <summary>The full_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? FullName { get; set; }
@@ -46,15 +46,15 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string FullName { get; set; }
 #endif
-    /// <summary>The geo property</summary>
+    /// <summary>The geographic location of this place, expressed as a GeoJSON Feature.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public global::XbyOpenApi.Core.Client.Models.Geo? Geo { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.PlaceGeo? Geo { get; set; }
 #nullable restore
 #else
-    public global::XbyOpenApi.Core.Client.Models.Geo Geo { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.PlaceGeo Geo { get; set; }
 #endif
-    /// <summary>The identifier for this place.</summary>
+    /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Id { get; set; }
@@ -62,7 +62,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Id { get; set; }
 #endif
-    /// <summary>The human readable name of this place.</summary>
+    /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Name { get; set; }
@@ -71,7 +71,13 @@ namespace XbyOpenApi.Core.Client.Models
     public string Name { get; set; }
 #endif
     /// <summary>The place_type property</summary>
-    public global::XbyOpenApi.Core.Client.Models.PlaceType? PlaceType { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? PlaceType { get; set; }
+#nullable restore
+#else
+    public string PlaceType { get; set; }
+#endif
     /// <summary>
     /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.Place"/> and sets the default values.
     /// </summary>
@@ -101,10 +107,10 @@ namespace XbyOpenApi.Core.Client.Models
                 { "country", n => { Country = n.GetStringValue(); } },
                 { "country_code", n => { CountryCode = n.GetStringValue(); } },
                 { "full_name", n => { FullName = n.GetStringValue(); } },
-                { "geo", n => { Geo = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.Geo>(global::XbyOpenApi.Core.Client.Models.Geo.CreateFromDiscriminatorValue); } },
+                { "geo", n => { Geo = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.PlaceGeo>(global::XbyOpenApi.Core.Client.Models.PlaceGeo.CreateFromDiscriminatorValue); } },
                 { "id", n => { Id = n.GetStringValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
-                { "place_type", n => { PlaceType = n.GetEnumValue<global::XbyOpenApi.Core.Client.Models.PlaceType>(); } },
+                { "place_type", n => { PlaceType = n.GetStringValue(); } },
             };
     }
     /// <summary>
@@ -118,10 +124,10 @@ namespace XbyOpenApi.Core.Client.Models
       writer.WriteStringValue("country", Country);
       writer.WriteStringValue("country_code", CountryCode);
       writer.WriteStringValue("full_name", FullName);
-      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.Geo>("geo", Geo);
+      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.PlaceGeo>("geo", Geo);
       writer.WriteStringValue("id", Id);
       writer.WriteStringValue("name", Name);
-      writer.WriteEnumValue<global::XbyOpenApi.Core.Client.Models.PlaceType>("place_type", PlaceType);
+      writer.WriteStringValue("place_type", PlaceType);
       writer.WriteAdditionalData(AdditionalData);
     }
   }

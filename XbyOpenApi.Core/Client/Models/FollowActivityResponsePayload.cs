@@ -12,7 +12,7 @@ namespace XbyOpenApi.Core.Client.Models
   public partial class FollowActivityResponsePayload : IParsable
 #pragma warning restore CS1591
   {
-    /// <summary>The X User object.</summary>
+    /// <summary>The source property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public global::XbyOpenApi.Core.Client.Models.User? Source { get; set; }
@@ -20,7 +20,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public global::XbyOpenApi.Core.Client.Models.User Source { get; set; }
 #endif
-    /// <summary>The X User object.</summary>
+    /// <summary>The target property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public global::XbyOpenApi.Core.Client.Models.User? Target { get; set; }

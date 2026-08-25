@@ -36,18 +36,18 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Media.Upload.Item.Append
     /// <summary>
     /// Appends media data to an XChat upload session.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.MediaUploadAppendResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendResponse"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.MediaUploadAppendResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.MediaUploadAppendResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -56,7 +56,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Media.Upload.Item.Append
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.MediaUploadAppendResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.MediaUploadAppendResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Appends media data to an XChat upload session.

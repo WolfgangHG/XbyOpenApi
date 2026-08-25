@@ -34,19 +34,19 @@ namespace XbyOpenApi.Core.Client.Two.Users.Public_keys
     {
     }
     /// <summary>
-    /// Returns the public keys and Juicebox configuration for the specified users.
+    /// Returns registered public keys for X Chat encryption for the specified users.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2UsersPublicKeysResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetUsersPublicKeysResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersPublicKeysResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Public_keys.Public_keysRequestBuilder.Public_keysRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersPublicKeysResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Public_keys.Public_keysRequestBuilder.Public_keysRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersPublicKeysResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Public_keys.Public_keysRequestBuilder.Public_keysRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersPublicKeysResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Public_keys.Public_keysRequestBuilder.Public_keysRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,10 +54,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Public_keys
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2UsersPublicKeysResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2UsersPublicKeysResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetUsersPublicKeysResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetUsersPublicKeysResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Returns the public keys and Juicebox configuration for the specified users.
+    /// Returns registered public keys for X Chat encryption for the specified users.
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,12 +85,11 @@ namespace XbyOpenApi.Core.Client.Two.Users.Public_keys
       return new global::XbyOpenApi.Core.Client.Two.Users.Public_keys.Public_keysRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Returns the public keys and Juicebox configuration for the specified users.
+    /// Returns registered public keys for X Chat encryption for the specified users.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Public_keysRequestBuilderGetQueryParameters
     {
-      /// <summary>A list of User IDs, comma-separated. You can specify up to 100 IDs.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("ids")]

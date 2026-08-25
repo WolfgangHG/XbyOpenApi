@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Two.Communities
       get => new global::XbyOpenApi.Core.Client.Two.Communities.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
     }
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.communities.item collection</summary>
-    /// <param name="position">The ID of the Community.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Communities.Item.CommunitiesItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Communities.Item.CommunitiesItemRequestBuilder this[string position]
     {

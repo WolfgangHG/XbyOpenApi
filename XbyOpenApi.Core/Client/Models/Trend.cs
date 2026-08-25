@@ -7,15 +7,14 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// A trend.
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+#pragma warning disable CS1591
   public partial class Trend : IAdditionalDataHolder, IParsable
+#pragma warning restore CS1591
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>Name of the trend.</summary>
+    /// <summary>The trend_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? TrendName { get; set; }
@@ -23,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string TrendName { get; set; }
 #endif
-    /// <summary>Number of Posts in this trend.</summary>
+    /// <summary>The tweet_count property</summary>
     public int? TweetCount { get; set; }
     /// <summary>
     /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.Trend"/> and sets the default values.

@@ -8,24 +8,46 @@ using System;
 namespace XbyOpenApi.Core.Client.Models
 {
   /// <summary>
-  /// A X Community Note is a note on a Post.
+  /// Details about the Community Note&apos;s content, classification and source.
   /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-  public partial class NoteInfo : IParsable
+  public partial class NoteInfo : IAdditionalDataHolder, IParsable
   {
-    /// <summary>Community Note classification type.</summary>
-    public global::XbyOpenApi.Core.Client.Models.NoteClassification? Classification { get; set; }
-    /// <summary>Whether the note is a media note.</summary>
-    public bool? IsMediaNote { get; set; }
-    /// <summary>The misleading_tags property</summary>
+    /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+    public IDictionary<string, object> AdditionalData { get; set; }
+    /// <summary>How the noted Post was classified (snake_case).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public List<global::XbyOpenApi.Core.Client.Models.MisleadingTags?>? MisleadingTags { get; set; }
+    public string? Classification { get; set; }
 #nullable restore
 #else
-    public List<global::XbyOpenApi.Core.Client.Models.MisleadingTags?> MisleadingTags { get; set; }
+    public string Classification { get; set; }
 #endif
-    /// <summary>The text summary in the Community Note.</summary>
+    /// <summary>Reasons the noted Post may be misleading (snake_case).</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public List<string>? MisleadingTags { get; set; }
+#nullable restore
+#else
+    public List<string> MisleadingTags { get; set; }
+#endif
+    /// <summary>Unique identifier of the Post this note is about.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? PostId { get; set; }
+#nullable restore
+#else
+    public string PostId { get; set; }
+#endif
+    /// <summary>Current rating status of the note.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? RatingStatus { get; set; }
+#nullable restore
+#else
+    public string RatingStatus { get; set; }
+#endif
+    /// <summary>The text of the Community Note.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Text { get; set; }
@@ -33,8 +55,15 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Text { get; set; }
 #endif
-    /// <summary>Whether the note provided trustworthy links.</summary>
+    /// <summary>Whether the note cites trustworthy sources.</summary>
     public bool? TrustworthySources { get; set; }
+    /// <summary>
+    /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.NoteInfo"/> and sets the default values.
+    /// </summary>
+    public NoteInfo()
+    {
+      AdditionalData = new Dictionary<string, object>();
+    }
     /// <summary>
     /// Creates a new instance of the appropriate class based on discriminator value
     /// </summary>
@@ -53,9 +82,10 @@ namespace XbyOpenApi.Core.Client.Models
     {
       return new Dictionary<string, Action<IParseNode>>
             {
-                { "classification", n => { Classification = n.GetEnumValue<global::XbyOpenApi.Core.Client.Models.NoteClassification>(); } },
-                { "is_media_note", n => { IsMediaNote = n.GetBoolValue(); } },
-                { "misleading_tags", n => { MisleadingTags = n.GetCollectionOfEnumValues<global::XbyOpenApi.Core.Client.Models.MisleadingTags>()?.AsList(); } },
+                { "classification", n => { Classification = n.GetStringValue(); } },
+                { "misleading_tags", n => { MisleadingTags = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
+                { "post_id", n => { PostId = n.GetStringValue(); } },
+                { "rating_status", n => { RatingStatus = n.GetStringValue(); } },
                 { "text", n => { Text = n.GetStringValue(); } },
                 { "trustworthy_sources", n => { TrustworthySources = n.GetBoolValue(); } },
             };
@@ -67,11 +97,13 @@ namespace XbyOpenApi.Core.Client.Models
     public virtual void Serialize(ISerializationWriter writer)
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-      writer.WriteEnumValue<global::XbyOpenApi.Core.Client.Models.NoteClassification>("classification", Classification);
-      writer.WriteBoolValue("is_media_note", IsMediaNote);
-      writer.WriteCollectionOfEnumValues<global::XbyOpenApi.Core.Client.Models.MisleadingTags>("misleading_tags", MisleadingTags);
+      writer.WriteStringValue("classification", Classification);
+      writer.WriteCollectionOfPrimitiveValues<string>("misleading_tags", MisleadingTags);
+      writer.WriteStringValue("post_id", PostId);
+      writer.WriteStringValue("rating_status", RatingStatus);
       writer.WriteStringValue("text", Text);
       writer.WriteBoolValue("trustworthy_sources", TrustworthySources);
+      writer.WriteAdditionalData(AdditionalData);
     }
   }
 }

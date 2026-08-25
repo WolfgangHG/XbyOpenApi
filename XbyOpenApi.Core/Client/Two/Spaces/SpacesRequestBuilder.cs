@@ -31,7 +31,7 @@ namespace XbyOpenApi.Core.Client.Two.Spaces
       get => new global::XbyOpenApi.Core.Client.Two.Spaces.Search.SearchRequestBuilder(PathParameters, RequestAdapter);
     }
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.spaces.item collection</summary>
-    /// <param name="position">The ID of the Space to be retrieved.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Spaces.Item.SpacesItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Spaces.Item.SpacesItemRequestBuilder this[string position]
     {
@@ -59,19 +59,19 @@ namespace XbyOpenApi.Core.Client.Two.Spaces
     {
     }
     /// <summary>
-    /// Retrieves details of multiple Spaces by their IDs.
+    /// Get Spaces by IDs
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2SpacesResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetSpacesByIdsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2SpacesResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Spaces.SpacesRequestBuilder.SpacesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetSpacesByIdsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Spaces.SpacesRequestBuilder.SpacesRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2SpacesResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Spaces.SpacesRequestBuilder.SpacesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetSpacesByIdsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Spaces.SpacesRequestBuilder.SpacesRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -79,10 +79,10 @@ namespace XbyOpenApi.Core.Client.Two.Spaces
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2SpacesResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2SpacesResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetSpacesByIdsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetSpacesByIdsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves details of multiple Spaces by their IDs.
+    /// Get Spaces by IDs
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -110,7 +110,7 @@ namespace XbyOpenApi.Core.Client.Two.Spaces
       return new global::XbyOpenApi.Core.Client.Two.Spaces.SpacesRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves details of multiple Spaces by their IDs.
+    /// Get Spaces by IDs
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SpacesRequestBuilderGetQueryParameters
@@ -125,7 +125,6 @@ namespace XbyOpenApi.Core.Client.Two.Spaces
       [QueryParameter("expansions")]
       public global::XbyOpenApi.Core.Client.Two.Spaces.GetExpansionsQueryParameterType[] Expansions { get; set; }
 #endif
-      /// <summary>The list of Space IDs to return.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("ids")]

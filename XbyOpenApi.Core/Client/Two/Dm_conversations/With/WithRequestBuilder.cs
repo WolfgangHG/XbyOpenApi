@@ -16,7 +16,7 @@ namespace XbyOpenApi.Core.Client.Two.Dm_conversations.With
   public partial class WithRequestBuilder : BaseRequestBuilder
   {
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.dm_conversations.with.item collection</summary>
-    /// <param name="position">The ID of the participant user for the One to One DM conversation.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Dm_conversations.With.Item.WithParticipant_ItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Dm_conversations.With.Item.WithParticipant_ItemRequestBuilder this[string position]
     {

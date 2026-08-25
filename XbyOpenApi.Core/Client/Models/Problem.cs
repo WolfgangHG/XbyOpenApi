@@ -8,46 +8,83 @@ using System;
 namespace XbyOpenApi.Core.Client.Models
 {
   /// <summary>
-  /// An HTTP Problem Details object, as defined in IETF RFC 7807 (https://tools.ietf.org/html/rfc7807).
+  /// Composed type wrapper for classes <see cref="global::XbyOpenApi.Core.Client.Models.DisallowedResourceProblem"/>, <see cref="global::XbyOpenApi.Core.Client.Models.FieldHydrationFailureProblem"/>, <see cref="global::XbyOpenApi.Core.Client.Models.FieldUnauthorizedProblem"/>, <see cref="global::XbyOpenApi.Core.Client.Models.InternalErrorProblem"/>, <see cref="global::XbyOpenApi.Core.Client.Models.InvalidRequestProblem"/>, <see cref="global::XbyOpenApi.Core.Client.Models.NotAuthorizedForFieldProblem"/>, <see cref="global::XbyOpenApi.Core.Client.Models.NotAuthorizedForResourceProblem"/>, <see cref="global::XbyOpenApi.Core.Client.Models.ResourceNotFoundProblem"/>, <see cref="global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem"/>
   /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-  public partial class Problem : IAdditionalDataHolder, IParsable
+  public partial class Problem : IComposedTypeWrapper, IParsable
   {
-    /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-    public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>The detail property</summary>
+    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.DisallowedResourceProblem"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public string? Detail { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.DisallowedResourceProblem? DisallowedResourceProblem { get; set; }
 #nullable restore
 #else
-    public string Detail { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.DisallowedResourceProblem DisallowedResourceProblem { get; set; }
 #endif
-    /// <summary>The status property</summary>
-    public int? Status { get; set; }
-    /// <summary>The title property</summary>
+    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.FieldHydrationFailureProblem"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public string? Title { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.FieldHydrationFailureProblem? FieldHydrationFailureProblem { get; set; }
 #nullable restore
 #else
-    public string Title { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.FieldHydrationFailureProblem FieldHydrationFailureProblem { get; set; }
 #endif
-    /// <summary>The type property</summary>
+    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.FieldUnauthorizedProblem"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public string? Type { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.FieldUnauthorizedProblem? FieldUnauthorizedProblem { get; set; }
 #nullable restore
 #else
-    public string Type { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.FieldUnauthorizedProblem FieldUnauthorizedProblem { get; set; }
 #endif
-    /// <summary>
-    /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.Problem"/> and sets the default values.
-    /// </summary>
-    public Problem()
-    {
-      AdditionalData = new Dictionary<string, object>();
-    }
+    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.InternalErrorProblem"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public global::XbyOpenApi.Core.Client.Models.InternalErrorProblem? InternalErrorProblem { get; set; }
+#nullable restore
+#else
+    public global::XbyOpenApi.Core.Client.Models.InternalErrorProblem InternalErrorProblem { get; set; }
+#endif
+    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.InvalidRequestProblem"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public global::XbyOpenApi.Core.Client.Models.InvalidRequestProblem? InvalidRequestProblem { get; set; }
+#nullable restore
+#else
+    public global::XbyOpenApi.Core.Client.Models.InvalidRequestProblem InvalidRequestProblem { get; set; }
+#endif
+    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.NotAuthorizedForFieldProblem"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public global::XbyOpenApi.Core.Client.Models.NotAuthorizedForFieldProblem? NotAuthorizedForFieldProblem { get; set; }
+#nullable restore
+#else
+    public global::XbyOpenApi.Core.Client.Models.NotAuthorizedForFieldProblem NotAuthorizedForFieldProblem { get; set; }
+#endif
+    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.NotAuthorizedForResourceProblem"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public global::XbyOpenApi.Core.Client.Models.NotAuthorizedForResourceProblem? NotAuthorizedForResourceProblem { get; set; }
+#nullable restore
+#else
+    public global::XbyOpenApi.Core.Client.Models.NotAuthorizedForResourceProblem NotAuthorizedForResourceProblem { get; set; }
+#endif
+    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.ResourceNotFoundProblem"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public global::XbyOpenApi.Core.Client.Models.ResourceNotFoundProblem? ResourceNotFoundProblem { get; set; }
+#nullable restore
+#else
+    public global::XbyOpenApi.Core.Client.Models.ResourceNotFoundProblem ResourceNotFoundProblem { get; set; }
+#endif
+    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem? ResourceUnavailableProblem { get; set; }
+#nullable restore
+#else
+    public global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem ResourceUnavailableProblem { get; set; }
+#endif
     /// <summary>
     /// Creates a new instance of the appropriate class based on discriminator value
     /// </summary>
@@ -57,28 +94,44 @@ namespace XbyOpenApi.Core.Client.Models
     {
       if (ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
       var mappingValue = parseNode.GetChildNode("type")?.GetStringValue();
-      return mappingValue switch
+      var result = new global::XbyOpenApi.Core.Client.Models.Problem();
+      if ("https://api.x.com/2/problems/disallowed-resource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
       {
-        "about:blank" => new global::XbyOpenApi.Core.Client.Models.GenericProblem(),
-        "https://api.twitter.com/2/problems/client-disconnected" => new global::XbyOpenApi.Core.Client.Models.ClientDisconnectedProblem(),
-        "https://api.twitter.com/2/problems/client-forbidden" => new global::XbyOpenApi.Core.Client.Models.ClientForbiddenProblem(),
-        "https://api.twitter.com/2/problems/conflict" => new global::XbyOpenApi.Core.Client.Models.ConflictProblem(),
-        "https://api.twitter.com/2/problems/disallowed-resource" => new global::XbyOpenApi.Core.Client.Models.DisallowedResourceProblem(),
-        "https://api.twitter.com/2/problems/duplicate-rules" => new global::XbyOpenApi.Core.Client.Models.DuplicateRuleProblem(),
-        "https://api.twitter.com/2/problems/invalid-request" => new global::XbyOpenApi.Core.Client.Models.InvalidRequestProblem(),
-        "https://api.twitter.com/2/problems/invalid-rules" => new global::XbyOpenApi.Core.Client.Models.InvalidRuleProblem(),
-        "https://api.twitter.com/2/problems/noncompliant-rules" => new global::XbyOpenApi.Core.Client.Models.NonCompliantRulesProblem(),
-        "https://api.twitter.com/2/problems/not-authorized-for-field" => new global::XbyOpenApi.Core.Client.Models.FieldUnauthorizedProblem(),
-        "https://api.twitter.com/2/problems/not-authorized-for-resource" => new global::XbyOpenApi.Core.Client.Models.ResourceUnauthorizedProblem(),
-        "https://api.twitter.com/2/problems/operational-disconnect" => new global::XbyOpenApi.Core.Client.Models.OperationalDisconnectProblem(),
-        "https://api.twitter.com/2/problems/resource-not-found" => new global::XbyOpenApi.Core.Client.Models.ResourceNotFoundProblem(),
-        "https://api.twitter.com/2/problems/resource-unavailable" => new global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem(),
-        "https://api.twitter.com/2/problems/rule-cap" => new global::XbyOpenApi.Core.Client.Models.RulesCapProblem(),
-        "https://api.twitter.com/2/problems/streaming-connection" => new global::XbyOpenApi.Core.Client.Models.ConnectionExceptionProblem(),
-        "https://api.twitter.com/2/problems/unsupported-authentication" => new global::XbyOpenApi.Core.Client.Models.UnsupportedAuthenticationProblem(),
-        "https://api.twitter.com/2/problems/usage-capped" => new global::XbyOpenApi.Core.Client.Models.UsageCapExceededProblem(),
-        _ => new global::XbyOpenApi.Core.Client.Models.Problem(),
-      };
+        result.DisallowedResourceProblem = new global::XbyOpenApi.Core.Client.Models.DisallowedResourceProblem();
+      }
+      else if ("https://api.x.com/2/problems/field-hydration-failure".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+      {
+        result.FieldHydrationFailureProblem = new global::XbyOpenApi.Core.Client.Models.FieldHydrationFailureProblem();
+      }
+      else if ("https://api.x.com/2/problems/field-unauthorized".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+      {
+        result.FieldUnauthorizedProblem = new global::XbyOpenApi.Core.Client.Models.FieldUnauthorizedProblem();
+      }
+      else if ("https://api.x.com/2/problems/internal-error".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+      {
+        result.InternalErrorProblem = new global::XbyOpenApi.Core.Client.Models.InternalErrorProblem();
+      }
+      else if ("https://api.x.com/2/problems/invalid-request".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+      {
+        result.InvalidRequestProblem = new global::XbyOpenApi.Core.Client.Models.InvalidRequestProblem();
+      }
+      else if ("https://api.x.com/2/problems/not-authorized-for-field".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+      {
+        result.NotAuthorizedForFieldProblem = new global::XbyOpenApi.Core.Client.Models.NotAuthorizedForFieldProblem();
+      }
+      else if ("https://api.x.com/2/problems/not-authorized-for-resource".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+      {
+        result.NotAuthorizedForResourceProblem = new global::XbyOpenApi.Core.Client.Models.NotAuthorizedForResourceProblem();
+      }
+      else if ("https://api.x.com/2/problems/resource-not-found".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+      {
+        result.ResourceNotFoundProblem = new global::XbyOpenApi.Core.Client.Models.ResourceNotFoundProblem();
+      }
+      else if ("https://api.x.com/2/problems/resource-unavailable".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+      {
+        result.ResourceUnavailableProblem = new global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem();
+      }
+      return result;
     }
     /// <summary>
     /// The deserialization information for the current model
@@ -86,13 +139,43 @@ namespace XbyOpenApi.Core.Client.Models
     /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
     public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
     {
-      return new Dictionary<string, Action<IParseNode>>
-            {
-                { "detail", n => { Detail = n.GetStringValue(); } },
-                { "status", n => { Status = n.GetIntValue(); } },
-                { "title", n => { Title = n.GetStringValue(); } },
-                { "type", n => { Type = n.GetStringValue(); } },
-            };
+      if (DisallowedResourceProblem != null)
+      {
+        return DisallowedResourceProblem.GetFieldDeserializers();
+      }
+      else if (FieldHydrationFailureProblem != null)
+      {
+        return FieldHydrationFailureProblem.GetFieldDeserializers();
+      }
+      else if (FieldUnauthorizedProblem != null)
+      {
+        return FieldUnauthorizedProblem.GetFieldDeserializers();
+      }
+      else if (InternalErrorProblem != null)
+      {
+        return InternalErrorProblem.GetFieldDeserializers();
+      }
+      else if (InvalidRequestProblem != null)
+      {
+        return InvalidRequestProblem.GetFieldDeserializers();
+      }
+      else if (NotAuthorizedForFieldProblem != null)
+      {
+        return NotAuthorizedForFieldProblem.GetFieldDeserializers();
+      }
+      else if (NotAuthorizedForResourceProblem != null)
+      {
+        return NotAuthorizedForResourceProblem.GetFieldDeserializers();
+      }
+      else if (ResourceNotFoundProblem != null)
+      {
+        return ResourceNotFoundProblem.GetFieldDeserializers();
+      }
+      else if (ResourceUnavailableProblem != null)
+      {
+        return ResourceUnavailableProblem.GetFieldDeserializers();
+      }
+      return new Dictionary<string, Action<IParseNode>>();
     }
     /// <summary>
     /// Serializes information the current object
@@ -101,11 +184,42 @@ namespace XbyOpenApi.Core.Client.Models
     public virtual void Serialize(ISerializationWriter writer)
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-      writer.WriteStringValue("detail", Detail);
-      writer.WriteIntValue("status", Status);
-      writer.WriteStringValue("title", Title);
-      writer.WriteStringValue("type", Type);
-      writer.WriteAdditionalData(AdditionalData);
+      if (DisallowedResourceProblem != null)
+      {
+        writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.DisallowedResourceProblem>(null, DisallowedResourceProblem);
+      }
+      else if (FieldHydrationFailureProblem != null)
+      {
+        writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.FieldHydrationFailureProblem>(null, FieldHydrationFailureProblem);
+      }
+      else if (FieldUnauthorizedProblem != null)
+      {
+        writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.FieldUnauthorizedProblem>(null, FieldUnauthorizedProblem);
+      }
+      else if (InternalErrorProblem != null)
+      {
+        writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.InternalErrorProblem>(null, InternalErrorProblem);
+      }
+      else if (InvalidRequestProblem != null)
+      {
+        writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.InvalidRequestProblem>(null, InvalidRequestProblem);
+      }
+      else if (NotAuthorizedForFieldProblem != null)
+      {
+        writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.NotAuthorizedForFieldProblem>(null, NotAuthorizedForFieldProblem);
+      }
+      else if (NotAuthorizedForResourceProblem != null)
+      {
+        writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.NotAuthorizedForResourceProblem>(null, NotAuthorizedForResourceProblem);
+      }
+      else if (ResourceNotFoundProblem != null)
+      {
+        writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.ResourceNotFoundProblem>(null, ResourceNotFoundProblem);
+      }
+      else if (ResourceUnavailableProblem != null)
+      {
+        writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem>(null, ResourceUnavailableProblem);
+      }
     }
   }
 }

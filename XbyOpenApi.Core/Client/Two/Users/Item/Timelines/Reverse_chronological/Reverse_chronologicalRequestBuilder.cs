@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public Reverse_chronologicalRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/timelines/reverse_chronological{?end_time*,exclude,expansions,max_results*,media%2Efields,pagination_token*,place%2Efields,poll%2Efields,since_id*,start_time*,tweet%2Efields,until_id*,user%2Efields}", pathParameters)
+    public Reverse_chronologicalRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/timelines/reverse_chronological{?end_time*,exclude,expansions,max_results*,media%2Efields,pagination_token*,place%2Efields,poll%2Efields,post%2Efields,since_id*,start_time*,until_id*,user%2Efields}", pathParameters)
     {
     }
     /// <summary>
@@ -30,23 +30,23 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public Reverse_chronologicalRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/timelines/reverse_chronological{?end_time*,exclude,expansions,max_results*,media%2Efields,pagination_token*,place%2Efields,poll%2Efields,since_id*,start_time*,tweet%2Efields,until_id*,user%2Efields}", rawUrl)
+    public Reverse_chronologicalRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/users/{%2Did}/timelines/reverse_chronological{?end_time*,exclude,expansions,max_results*,media%2Efields,pagination_token*,place%2Efields,poll%2Efields,post%2Efields,since_id*,start_time*,until_id*,user%2Efields}", rawUrl)
     {
     }
     /// <summary>
-    /// Retrieves a reverse chronological list of Posts in the authenticated User’s Timeline.
+    /// When both are provided, `start_time` must be earlier than `end_time`. When both are provided, `since_id` must be less than `until_id`.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2UsersIdTimelinesReverseChronologicalResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetUsersTimelineResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersIdTimelinesReverseChronologicalResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological.Reverse_chronologicalRequestBuilder.Reverse_chronologicalRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersTimelineResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological.Reverse_chronologicalRequestBuilder.Reverse_chronologicalRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersIdTimelinesReverseChronologicalResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological.Reverse_chronologicalRequestBuilder.Reverse_chronologicalRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetUsersTimelineResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological.Reverse_chronologicalRequestBuilder.Reverse_chronologicalRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,10 +54,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2UsersIdTimelinesReverseChronologicalResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2UsersIdTimelinesReverseChronologicalResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetUsersTimelineResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetUsersTimelineResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves a reverse chronological list of Posts in the authenticated User’s Timeline.
+    /// When both are provided, `start_time` must be earlier than `end_time`. When both are provided, `since_id` must be less than `until_id`.
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,15 +85,14 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological
       return new global::XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological.Reverse_chronologicalRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves a reverse chronological list of Posts in the authenticated User’s Timeline.
+    /// When both are provided, `start_time` must be earlier than `end_time`. When both are provided, `since_id` must be less than `until_id`.
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Reverse_chronologicalRequestBuilderGetQueryParameters
     {
-      /// <summary>YYYY-MM-DDTHH:mm:ssZ. The latest UTC timestamp to which the Posts will be provided. The until_id parameter takes precedence if it is also specified.</summary>
+      /// <summary>Must be on or after 2010-11-06.</summary>
       [QueryParameter("end_time")]
       public DateTimeOffset? EndTime { get; set; }
-      /// <summary>The set of entities to exclude (e.g. &apos;replies&apos; or &apos;retweets&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("exclude")]
@@ -113,7 +112,6 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological
       [QueryParameter("expansions")]
       public global::XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological.GetExpansionsQueryParameterType[] Expansions { get; set; }
 #endif
-      /// <summary>The maximum number of results.</summary>
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
       /// <summary>A comma separated list of Media fields to display.</summary>
@@ -126,7 +124,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological
       [QueryParameter("media%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological.GetMediaFieldsQueryParameterType[] MediaFields { get; set; }
 #endif
-      /// <summary>This parameter is used to get the next &apos;page&apos; of results.</summary>
+      /// <summary>A base32hex-encoded pagination token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("pagination_token")]
@@ -156,7 +154,16 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological
       [QueryParameter("poll%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological.GetPollFieldsQueryParameterType[] PollFields { get; set; }
 #endif
-      /// <summary>The minimum Post ID to be included in the result set. This parameter takes precedence over start_time if both are specified.</summary>
+      /// <summary>A comma separated list of Post fields to display.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological.GetPostFieldsQueryParameterType[]? PostFields { get; set; }
+#nullable restore
+#else
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological.GetPostFieldsQueryParameterType[] PostFields { get; set; }
+#endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("since_id")]
@@ -166,20 +173,9 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological
       [QueryParameter("since_id")]
       public string SinceId { get; set; }
 #endif
-      /// <summary>YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the Posts will be provided. The since_id parameter takes precedence if it is also specified.</summary>
+      /// <summary>Must be on or after 2010-11-06.</summary>
       [QueryParameter("start_time")]
       public DateTimeOffset? StartTime { get; set; }
-      /// <summary>A comma separated list of Tweet fields to display.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological.GetTweetFieldsQueryParameterType[]? TweetFields { get; set; }
-#nullable restore
-#else
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological.GetTweetFieldsQueryParameterType[] TweetFields { get; set; }
-#endif
-      /// <summary>The maximum Post ID to be included in the result set. This parameter takes precedence over end_time if both are specified.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("until_id")]

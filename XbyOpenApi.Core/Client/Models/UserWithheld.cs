@@ -8,14 +8,14 @@ using System;
 namespace XbyOpenApi.Core.Client.Models
 {
   /// <summary>
-  /// Indicates withholding details for [withheld content](https://help.twitter.com/en/rules-and-policies/tweet-withheld-by-country).
+  /// Withholding details for withheld content.
   /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
   public partial class UserWithheld : IAdditionalDataHolder, IParsable
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>Provides a list of countries where this content is not available.</summary>
+    /// <summary>A list of countries (as ISO 3166-1 alpha-2 codes) where this content is withheld.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public List<string>? CountryCodes { get; set; }
@@ -23,7 +23,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public List<string> CountryCodes { get; set; }
 #endif
-    /// <summary>Indicates that the content being withheld is a `user`.</summary>
+    /// <summary>The scope of the withholding. Only present, with the value &quot;user&quot;, when the entire User is withheld.</summary>
     public global::XbyOpenApi.Core.Client.Models.UserWithheld_scope? Scope { get; set; }
     /// <summary>
     /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.UserWithheld"/> and sets the default values.

@@ -16,7 +16,7 @@ namespace XbyOpenApi.Core.Client.Two.Trends.By.Woeid
   public partial class WoeidRequestBuilder : BaseRequestBuilder
   {
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.trends.by.woeid.item collection</summary>
-    /// <param name="position">The WOEID of the place to lookup a trend for.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Trends.By.Woeid.Item.WithWoeItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Trends.By.Woeid.Item.WithWoeItemRequestBuilder this[int position]
     {

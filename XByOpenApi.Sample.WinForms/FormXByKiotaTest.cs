@@ -314,9 +314,9 @@ namespace XByOpenApi.Sample.WinForms
 
       try
       {
-        TweetCreateRequest body = new TweetCreateRequest();
+        CreatePostsRequest body = new CreatePostsRequest();
         body.Text = "Sample post created by Kiota";
-        TweetCreateResponse response = xClient.Two.Tweets.PostAsync(body, conf =>
+        CreatePostsResponse response = xClient.Two.Tweets.PostAsync(body, conf =>
         {
           conf.Options.Add(requestOption);
         }).GetAwaiter().GetResult();
@@ -387,10 +387,10 @@ namespace XByOpenApi.Sample.WinForms
 
         builderMessage.AppendLine("Sending \"Upload media\" request...");
 
-        MediaUploadRequestOneShot mediaUpload = new MediaUploadRequestOneShot();
-        mediaUpload.MediaCategory = MediaCategoryOneShot.Tweet_image;
-        //Property "Media" is modified in my API client:
-        mediaUpload.Media = arrData;
+        MediaUploadRequest mediaUpload = new MediaUploadRequest();
+        mediaUpload.MediaCategory = MediaUploadRequest_media_category.Tweet_image;
+        mediaUpload.Media = new MediaUploadRequest.MediaUploadRequest_media();
+        mediaUpload.Media.Binary = arrData;
 
         mediaResponse = xClient.Two.Media.Upload.PostAsync(mediaUpload, conf =>
         {
@@ -412,12 +412,12 @@ namespace XByOpenApi.Sample.WinForms
         //Create the request option again:
         requestOption = new BodyInspectionHandlerOption { InspectRequestBody = true, InspectResponseBody = true };
 
-        TweetCreateRequest body = new TweetCreateRequest();
+        CreatePostsRequest body = new CreatePostsRequest();
         body.Text = "Sample post created by Kiota";
-        body.Media = new TweetCreateRequest_media();
+        body.Media = new CreatePostsMedia();
         //"Data" cannot be null here, so we use the "null forgiving operator"
         body.Media.MediaIds = new List<string>() { mediaResponse.Data!.Id };
-        TweetCreateResponse response = xClient.Two.Tweets.PostAsync(body, conf =>
+        CreatePostsResponse response = xClient.Two.Tweets.PostAsync(body, conf =>
         {
           conf.Options.Add(requestOption);
         }).GetAwaiter().GetResult();
@@ -478,15 +478,15 @@ namespace XByOpenApi.Sample.WinForms
 
         builderMessage.AppendLine("Sending \"Initialize media upload\" request...");
 
-        MediaUploadConfigRequest mucr = new MediaUploadConfigRequest();
+        InitializeMediaUploadRequest mucr = new InitializeMediaUploadRequest();
         mucr.TotalBytes = arrData.Length;
-        mucr.MediaCategory = MediaCategory.Tweet_image;
+        mucr.MediaCategory = InitializeMediaUploadRequest_media_category.Tweet_image;
 
 
         string plainRerequest;
         string plainResponse;
 
-        MediaUploadResponse mir = xClient.Two.Media.Upload.Initialize.PostAsync(mucr, conf =>
+        InitializeMediaUploadResponse mir = xClient.Two.Media.Upload.Initialize.PostAsync(mucr, conf =>
         {
           conf.Options.Add(requestOption);
 
@@ -506,10 +506,9 @@ namespace XByOpenApi.Sample.WinForms
 
         for (int block = 0; block < blocks; block++)
         {
-          MediaUploadAppendRequest muar = new MediaUploadAppendRequest();
-          muar.MediaUploadAppendRequestMember1 = new MediaUploadAppendRequestMember1();
-          muar.MediaUploadAppendRequestMember1.SegmentIndex = new MediaSegments();
-          muar.MediaUploadAppendRequestMember1.SegmentIndex.Integer = block;
+          AppendMediaUploadRequest muar = new AppendMediaUploadRequest();
+          muar.Media = new AppendMediaUploadRequest.AppendMediaUploadRequest_media ();
+          muar.SegmentIndex = block;
 
           builderMessage.AppendLine();
           builderMessage.AppendLine($"Sending \"Append media chunk {block}\" request...");
@@ -529,7 +528,7 @@ namespace XByOpenApi.Sample.WinForms
           Array.Copy(arrData, block * CHUNK_SIZE, dataInBlock, 0, sizeInBlock);
 
 
-          muar.MediaUploadAppendRequestMember1.Media = dataInBlock;
+          muar.Media.Binary = dataInBlock;
 
           requestOption = new BodyInspectionHandlerOption { InspectRequestBody = true, InspectResponseBody = true };
 
@@ -556,7 +555,7 @@ namespace XByOpenApi.Sample.WinForms
 
         requestOption = new BodyInspectionHandlerOption { InspectRequestBody = true, InspectResponseBody = true };
 
-        MediaUploadResponse mediaResponse = xClient.Two.Media.Upload[mir.Data.Id].Finalize.PostAsync(conf =>
+        FinalizeMediaUploadResponse mediaResponse = xClient.Two.Media.Upload[mir.Data.Id].Finalize.PostAsync(conf =>
         {
           conf.Options.Add(requestOption);
         }).GetAwaiter().GetResult();
@@ -571,15 +570,15 @@ namespace XByOpenApi.Sample.WinForms
         builderMessage.AppendLine();
         builderMessage.AppendLine($"Posting the tweet...");
 
-        TweetCreateRequest body = new TweetCreateRequest();
+        CreatePostsRequest body = new CreatePostsRequest();
         body.Text = "Sample post created by Kiota";
-        body.Media = new TweetCreateRequest_media();
+        body.Media = new CreatePostsMedia();
         //"Data" cannot be null here, so we use the "null forgiving operator"
         body.Media.MediaIds = new List<string>() { mediaResponse.Data!.Id };
 
         requestOption = new BodyInspectionHandlerOption { InspectRequestBody = true, InspectResponseBody = true };
 
-        TweetCreateResponse response = xClient.Two.Tweets.PostAsync(body, conf =>
+        CreatePostsResponse response = xClient.Two.Tweets.PostAsync(body, conf =>
         {
           conf.Options.Add(requestOption);
         }).GetAwaiter().GetResult();
@@ -639,7 +638,7 @@ namespace XByOpenApi.Sample.WinForms
         string tweetId = this.textBoxDeleteTweetId.Text;
         //There is no error message, event a invalid ID results in "success"
         //The Kiota flag "--exclude-backward-compatible" generated a different API.
-        TweetDeleteResponse response = xClient.Two.Tweets[tweetId].DeleteAsync(conf =>
+        DeletePostsResponse response = xClient.Two.Tweets[tweetId].DeleteAsync(conf =>
         {
           conf.Options.Add(requestOption);
         }).GetAwaiter().GetResult();
@@ -691,7 +690,7 @@ namespace XByOpenApi.Sample.WinForms
 
       try
       {
-        Get2UsersMeResponse response = client.Two.Users.Me.GetAsync(conf =>
+        GetUsersMeResponse response = client.Two.Users.Me.GetAsync(conf =>
         {
           conf.Options.Add(requestOption);
         }).GetAwaiter().GetResult();
@@ -1025,7 +1024,47 @@ namespace XByOpenApi.Sample.WinForms
       string strErrors = "";
       foreach (Problem problem in _problems)
       {
-        strErrors += problem.Status + " " + problem.Title + " " + problem.Detail + Environment.NewLine;
+        //Change to twitter api description in 2.167: "Problem" has no more properties, only a discriminator "type" that
+        //fills child properties. So check them all now.
+        //strErrors += problem.Status + " " + problem.Title + " " + problem.Detail + Environment.NewLine;
+        if (problem.DisallowedResourceProblem != null)
+        {
+          strErrors += problem.DisallowedResourceProblem.Status + " " + problem.DisallowedResourceProblem.Type + " " + problem.DisallowedResourceProblem.Title + " " + problem.DisallowedResourceProblem.Detail + Environment.NewLine;
+        }
+        if (problem.FieldHydrationFailureProblem != null)
+        {
+          strErrors += problem.FieldHydrationFailureProblem.Status + " " + problem.FieldHydrationFailureProblem.Type + " " + problem.FieldHydrationFailureProblem.Title + " " + problem.FieldHydrationFailureProblem.Detail + Environment.NewLine;
+        }
+        if (problem.FieldUnauthorizedProblem != null)
+        {
+          strErrors += problem.FieldUnauthorizedProblem.Status + " " + problem.FieldUnauthorizedProblem.Type + " " + problem.FieldUnauthorizedProblem.Title + " " + problem.FieldUnauthorizedProblem.Detail + Environment.NewLine;
+        }
+        if (problem.InternalErrorProblem != null)
+        {
+          strErrors += problem.InternalErrorProblem.Status + " " + problem.InternalErrorProblem.Type + " " + problem.InternalErrorProblem.Title + " " + problem.InternalErrorProblem.Detail + Environment.NewLine;
+        }
+        if (problem.InvalidRequestProblem != null)
+        {
+          strErrors += problem.InvalidRequestProblem.Status + " " + problem.InvalidRequestProblem.Type + " " + problem.InvalidRequestProblem.Title + " " + problem.InvalidRequestProblem.Detail + Environment.NewLine;
+        }
+        if (problem.NotAuthorizedForFieldProblem != null)
+        {
+          strErrors += problem.NotAuthorizedForFieldProblem.Status + " " + problem.NotAuthorizedForFieldProblem.Type + " " + problem.NotAuthorizedForFieldProblem.Title + " " + problem.NotAuthorizedForFieldProblem.Detail + Environment.NewLine;
+        }
+        if (problem.NotAuthorizedForResourceProblem != null)
+        {
+          strErrors += problem.NotAuthorizedForResourceProblem.Status + " " + problem.NotAuthorizedForResourceProblem.Type + " " + problem.NotAuthorizedForResourceProblem.Title + " " + problem.NotAuthorizedForResourceProblem.Detail + Environment.NewLine;
+        }
+        if (problem.ResourceNotFoundProblem != null)
+        {
+          strErrors += problem.ResourceNotFoundProblem.Status + " " + problem.ResourceNotFoundProblem.Type + " " + problem.ResourceNotFoundProblem.Title + " " + problem.ResourceNotFoundProblem.Detail + Environment.NewLine;
+        }
+        if (problem.ResourceUnavailableProblem != null)
+        {
+          strErrors += problem.ResourceUnavailableProblem.Status + " " + problem.ResourceUnavailableProblem.Type + " " + problem.ResourceUnavailableProblem.Title + " " + problem.ResourceUnavailableProblem.Detail + Environment.NewLine;
+        }
+
+        strErrors += problem.ToString();
       }
 
       return strErrors;

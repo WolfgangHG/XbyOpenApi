@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Analytics
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public AnalyticsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/analytics?end_time={end_time}&granularity={granularity}&ids={ids}&start_time={start_time}{&analytics%2Efields}", pathParameters)
+    public AnalyticsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/analytics?end_time={end_time}&ids={ids}&start_time={start_time}{&analytics%2Efields,granularity*}", pathParameters)
     {
     }
     /// <summary>
@@ -30,23 +30,23 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Analytics
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public AnalyticsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/analytics?end_time={end_time}&granularity={granularity}&ids={ids}&start_time={start_time}{&analytics%2Efields}", rawUrl)
+    public AnalyticsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/analytics?end_time={end_time}&ids={ids}&start_time={start_time}{&analytics%2Efields,granularity*}", rawUrl)
     {
     }
     /// <summary>
-    /// Retrieves analytics data for specified Posts within a defined time range.
+    /// Get Posts Analytics
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Analytics"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetPostsAnalyticsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Analytics?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Analytics.AnalyticsRequestBuilder.AnalyticsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetPostsAnalyticsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Analytics.AnalyticsRequestBuilder.AnalyticsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Analytics> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Analytics.AnalyticsRequestBuilder.AnalyticsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetPostsAnalyticsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Analytics.AnalyticsRequestBuilder.AnalyticsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,10 +54,10 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Analytics
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Analytics>(requestInfo, global::XbyOpenApi.Core.Client.Models.Analytics.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetPostsAnalyticsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetPostsAnalyticsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves analytics data for specified Posts within a defined time range.
+    /// Get Posts Analytics
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Analytics
       return new global::XbyOpenApi.Core.Client.Two.Tweets.Analytics.AnalyticsRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves analytics data for specified Posts within a defined time range.
+    /// Get Posts Analytics
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class AnalyticsRequestBuilderGetQueryParameters
@@ -100,13 +100,10 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Analytics
       [QueryParameter("analytics%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Tweets.Analytics.GetAnalyticsFieldsQueryParameterType[] AnalyticsFields { get; set; }
 #endif
-      /// <summary>YYYY-MM-DDTHH:mm:ssZ. The UTC timestamp representing the end of the time range.</summary>
       [QueryParameter("end_time")]
       public DateTimeOffset? EndTime { get; set; }
-      /// <summary>The granularity for the search counts results.</summary>
       [QueryParameter("granularity")]
       public global::XbyOpenApi.Core.Client.Two.Tweets.Analytics.GetGranularityQueryParameterType? Granularity { get; set; }
-      /// <summary>A comma separated list of Post IDs. Up to 100 are allowed in a single request.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("ids")]
@@ -116,7 +113,6 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Analytics
       [QueryParameter("ids")]
       public string[] Ids { get; set; }
 #endif
-      /// <summary>YYYY-MM-DDTHH:mm:ssZ. The UTC timestamp representing the start of the time range.</summary>
       [QueryParameter("start_time")]
       public DateTimeOffset? StartTime { get; set; }
     }

@@ -14,9 +14,9 @@ namespace XbyOpenApi.Core.Client.Models
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>Creation time of the Space.</summary>
+    /// <summary>The created_at property</summary>
     public DateTimeOffset? CreatedAt { get; set; }
-    /// <summary>Unique identifier of this User. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.</summary>
+    /// <summary>The creator_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? CreatorId { get; set; }
@@ -24,9 +24,9 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string CreatorId { get; set; }
 #endif
-    /// <summary>End time of the Space.</summary>
+    /// <summary>The ended_at property</summary>
     public DateTimeOffset? EndedAt { get; set; }
-    /// <summary>The user ids for the hosts of the Space.</summary>
+    /// <summary>A list of unique identifiers of the Users who host this Space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public List<string>? HostIds { get; set; }
@@ -34,7 +34,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public List<string> HostIds { get; set; }
 #endif
-    /// <summary>The unique identifier of this Space.</summary>
+    /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Id { get; set; }
@@ -42,7 +42,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Id { get; set; }
 #endif
-    /// <summary>An array of user ids for people who were invited to a Space.</summary>
+    /// <summary>A list of unique identifiers of the Users invited to this Space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public List<string>? InvitedUserIds { get; set; }
@@ -50,9 +50,9 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public List<string> InvitedUserIds { get; set; }
 #endif
-    /// <summary>Denotes if the Space is a ticketed Space.</summary>
+    /// <summary>The is_ticketed property</summary>
     public bool? IsTicketed { get; set; }
-    /// <summary>The language of the Space.</summary>
+    /// <summary>The lang property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Lang { get; set; }
@@ -60,11 +60,11 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Lang { get; set; }
 #endif
-    /// <summary>The number of participants in a Space.</summary>
+    /// <summary>The participant_count property</summary>
     public int? ParticipantCount { get; set; }
-    /// <summary>A date time stamp for when a Space is scheduled to begin.</summary>
+    /// <summary>The scheduled_start property</summary>
     public DateTimeOffset? ScheduledStart { get; set; }
-    /// <summary>An array of user ids for people who were speakers in a Space.</summary>
+    /// <summary>A list of unique identifiers of the Users who are speakers in this Space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public List<string>? SpeakerIds { get; set; }
@@ -72,13 +72,19 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public List<string> SpeakerIds { get; set; }
 #endif
-    /// <summary>When the Space was started as a date string.</summary>
+    /// <summary>The started_at property</summary>
     public DateTimeOffset? StartedAt { get; set; }
-    /// <summary>The current state of the Space.</summary>
-    public global::XbyOpenApi.Core.Client.Models.Space_state? State { get; set; }
-    /// <summary>The number of people who have either purchased a ticket or set a reminder for this Space.</summary>
+    /// <summary>The state property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? State { get; set; }
+#nullable restore
+#else
+    public string State { get; set; }
+#endif
+    /// <summary>The subscriber_count property</summary>
     public int? SubscriberCount { get; set; }
-    /// <summary>The title of the Space.</summary>
+    /// <summary>The title property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Title { get; set; }
@@ -86,15 +92,15 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Title { get; set; }
 #endif
-    /// <summary>The topics of a Space, as selected by its creator.</summary>
+    /// <summary>A list of unique identifiers of the Topics associated with this Space.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public List<global::XbyOpenApi.Core.Client.Models.Space_topics>? Topics { get; set; }
+    public List<string>? TopicIds { get; set; }
 #nullable restore
 #else
-    public List<global::XbyOpenApi.Core.Client.Models.Space_topics> Topics { get; set; }
+    public List<string> TopicIds { get; set; }
 #endif
-    /// <summary>When the Space was last updated.</summary>
+    /// <summary>The updated_at property</summary>
     public DateTimeOffset? UpdatedAt { get; set; }
     /// <summary>
     /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.Space"/> and sets the default values.
@@ -133,10 +139,10 @@ namespace XbyOpenApi.Core.Client.Models
                 { "scheduled_start", n => { ScheduledStart = n.GetDateTimeOffsetValue(); } },
                 { "speaker_ids", n => { SpeakerIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "started_at", n => { StartedAt = n.GetDateTimeOffsetValue(); } },
-                { "state", n => { State = n.GetEnumValue<global::XbyOpenApi.Core.Client.Models.Space_state>(); } },
+                { "state", n => { State = n.GetStringValue(); } },
                 { "subscriber_count", n => { SubscriberCount = n.GetIntValue(); } },
                 { "title", n => { Title = n.GetStringValue(); } },
-                { "topics", n => { Topics = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Space_topics>(global::XbyOpenApi.Core.Client.Models.Space_topics.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "topic_ids", n => { TopicIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
                 { "updated_at", n => { UpdatedAt = n.GetDateTimeOffsetValue(); } },
             };
     }
@@ -159,10 +165,10 @@ namespace XbyOpenApi.Core.Client.Models
       writer.WriteDateTimeOffsetValue("scheduled_start", ScheduledStart);
       writer.WriteCollectionOfPrimitiveValues<string>("speaker_ids", SpeakerIds);
       writer.WriteDateTimeOffsetValue("started_at", StartedAt);
-      writer.WriteEnumValue<global::XbyOpenApi.Core.Client.Models.Space_state>("state", State);
+      writer.WriteStringValue("state", State);
       writer.WriteIntValue("subscriber_count", SubscriberCount);
       writer.WriteStringValue("title", Title);
-      writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Space_topics>("topics", Topics);
+      writer.WriteCollectionOfPrimitiveValues<string>("topic_ids", TopicIds);
       writer.WriteDateTimeOffsetValue("updated_at", UpdatedAt);
       writer.WriteAdditionalData(AdditionalData);
     }

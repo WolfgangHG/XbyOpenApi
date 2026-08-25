@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
+using XbyOpenApi.Core.Client.Two.Usage.Credits;
 using XbyOpenApi.Core.Client.Two.Usage.Tweets;
 namespace XbyOpenApi.Core.Client.Two.Usage
 {
@@ -15,6 +16,11 @@ namespace XbyOpenApi.Core.Client.Two.Usage
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
   public partial class UsageRequestBuilder : BaseRequestBuilder
   {
+    /// <summary>The credits property</summary>
+    public global::XbyOpenApi.Core.Client.Two.Usage.Credits.CreditsRequestBuilder Credits
+    {
+      get => new global::XbyOpenApi.Core.Client.Two.Usage.Credits.CreditsRequestBuilder(PathParameters, RequestAdapter);
+    }
     /// <summary>The tweets property</summary>
     public global::XbyOpenApi.Core.Client.Two.Usage.Tweets.TweetsRequestBuilder Tweets
     {

@@ -48,6 +48,10 @@ namespace XbyOpenApi.Core.Client.Two.Media.Analytics
 #pragma warning disable CS1591
     Timestamp,
 #pragma warning restore CS1591
+    [EnumMember(Value = "timestamped_metrics")]
+#pragma warning disable CS1591
+    Timestamped_metrics,
+#pragma warning restore CS1591
     [EnumMember(Value = "video_views")]
 #pragma warning disable CS1591
     Video_views,

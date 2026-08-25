@@ -12,25 +12,13 @@ namespace XbyOpenApi.Core.Client.Two.Spaces.Search
 #pragma warning disable CS1591
     Created_at,
 #pragma warning restore CS1591
-    [EnumMember(Value = "creator_id")]
-#pragma warning disable CS1591
-    Creator_id,
-#pragma warning restore CS1591
     [EnumMember(Value = "ended_at")]
 #pragma warning disable CS1591
     Ended_at,
 #pragma warning restore CS1591
-    [EnumMember(Value = "host_ids")]
-#pragma warning disable CS1591
-    Host_ids,
-#pragma warning restore CS1591
     [EnumMember(Value = "id")]
 #pragma warning disable CS1591
     Id,
-#pragma warning restore CS1591
-    [EnumMember(Value = "invited_user_ids")]
-#pragma warning disable CS1591
-    Invited_user_ids,
 #pragma warning restore CS1591
     [EnumMember(Value = "is_ticketed")]
 #pragma warning disable CS1591
@@ -48,10 +36,6 @@ namespace XbyOpenApi.Core.Client.Two.Spaces.Search
 #pragma warning disable CS1591
     Scheduled_start,
 #pragma warning restore CS1591
-    [EnumMember(Value = "speaker_ids")]
-#pragma warning disable CS1591
-    Speaker_ids,
-#pragma warning restore CS1591
     [EnumMember(Value = "started_at")]
 #pragma warning disable CS1591
     Started_at,
@@ -67,10 +51,6 @@ namespace XbyOpenApi.Core.Client.Two.Spaces.Search
     [EnumMember(Value = "title")]
 #pragma warning disable CS1591
     Title,
-#pragma warning restore CS1591
-    [EnumMember(Value = "topic_ids")]
-#pragma warning disable CS1591
-    Topic_ids,
 #pragma warning restore CS1591
     [EnumMember(Value = "updated_at")]
 #pragma warning disable CS1591

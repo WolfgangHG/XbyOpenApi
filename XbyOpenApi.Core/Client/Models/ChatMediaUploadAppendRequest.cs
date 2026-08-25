@@ -7,28 +7,37 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// Composed type wrapper for classes <see cref="global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequestMember1"/>, <see cref="global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequestMember2"/>
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-  public partial class ChatMediaUploadAppendRequest : IComposedTypeWrapper, IParsable
+#pragma warning disable CS1591
+  public partial class ChatMediaUploadAppendRequest : IParsable
+#pragma warning restore CS1591
   {
-    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequestMember1"/></summary>
+    /// <summary>The XChat conversation the upload belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequestMember1? ChatMediaUploadAppendRequestMember1 { get; set; }
+    public string? ConversationId { get; set; }
 #nullable restore
 #else
-    public global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequestMember1 ChatMediaUploadAppendRequestMember1 { get; set; }
+    public string ConversationId { get; set; }
 #endif
-    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequestMember2"/></summary>
+    /// <summary>The media segment bytes: base64-encoded in JSON bodies, raw bytes in multipart bodies.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequestMember2? ChatMediaUploadAppendRequestMember2 { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequest.ChatMediaUploadAppendRequest_media? Media { get; set; }
 #nullable restore
 #else
-    public global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequestMember2 ChatMediaUploadAppendRequestMember2 { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequest.ChatMediaUploadAppendRequest_media Media { get; set; }
 #endif
+    /// <summary>The media hash key returned by the initialize step.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? MediaHashKey { get; set; }
+#nullable restore
+#else
+    public string MediaHashKey { get; set; }
+#endif
+    /// <summary>The index of this segment in the upload sequence.</summary>
+    public int? SegmentIndex { get; set; }
     /// <summary>
     /// Creates a new instance of the appropriate class based on discriminator value
     /// </summary>
@@ -37,10 +46,7 @@ namespace XbyOpenApi.Core.Client.Models
     public static global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequest CreateFromDiscriminatorValue(IParseNode parseNode)
     {
       if (ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-      var result = new global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequest();
-      result.ChatMediaUploadAppendRequestMember1 = new global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequestMember1();
-      result.ChatMediaUploadAppendRequestMember2 = new global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequestMember2();
-      return result;
+      return new global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequest();
     }
     /// <summary>
     /// The deserialization information for the current model
@@ -48,11 +54,13 @@ namespace XbyOpenApi.Core.Client.Models
     /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
     public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
     {
-      if (ChatMediaUploadAppendRequestMember1 != null || ChatMediaUploadAppendRequestMember2 != null)
-      {
-        return ParseNodeHelper.MergeDeserializersForIntersectionWrapper(ChatMediaUploadAppendRequestMember1, ChatMediaUploadAppendRequestMember2);
-      }
-      return new Dictionary<string, Action<IParseNode>>();
+      return new Dictionary<string, Action<IParseNode>>
+            {
+                { "conversation_id", n => { ConversationId = n.GetStringValue(); } },
+                { "media", n => { Media = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequest.ChatMediaUploadAppendRequest_media>(global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequest.ChatMediaUploadAppendRequest_media.CreateFromDiscriminatorValue); } },
+                { "media_hash_key", n => { MediaHashKey = n.GetStringValue(); } },
+                { "segment_index", n => { SegmentIndex = n.GetIntValue(); } },
+            };
     }
     /// <summary>
     /// Serializes information the current object
@@ -61,7 +69,76 @@ namespace XbyOpenApi.Core.Client.Models
     public virtual void Serialize(ISerializationWriter writer)
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequestMember1>(null, ChatMediaUploadAppendRequestMember1, ChatMediaUploadAppendRequestMember2);
+      writer.WriteStringValue("conversation_id", ConversationId);
+      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequest.ChatMediaUploadAppendRequest_media>("media", Media);
+      writer.WriteStringValue("media_hash_key", MediaHashKey);
+      writer.WriteIntValue("segment_index", SegmentIndex);
+    }
+    /// <summary>
+    /// Composed type wrapper for classes <see cref="byte[]"/>, <see cref="byte[]"/>
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    public partial class ChatMediaUploadAppendRequest_media : IComposedTypeWrapper, IParsable
+    {
+      /// <summary>Composed type representation for type <see cref="byte[]"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+      public byte[]? Base64 { get; set; }
+#nullable restore
+#else
+      public byte[] Base64 { get; set; }
+#endif
+      /// <summary>Composed type representation for type <see cref="byte[]"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+      public byte[]? Binary { get; set; }
+#nullable restore
+#else
+      public byte[] Binary { get; set; }
+#endif
+      /// <summary>
+      /// Creates a new instance of the appropriate class based on discriminator value
+      /// </summary>
+      /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequest.ChatMediaUploadAppendRequest_media"/></returns>
+      /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
+      public static global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequest.ChatMediaUploadAppendRequest_media CreateFromDiscriminatorValue(IParseNode parseNode)
+      {
+        if (ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
+        var result = new global::XbyOpenApi.Core.Client.Models.ChatMediaUploadAppendRequest.ChatMediaUploadAppendRequest_media();
+        if (parseNode.GetByteArrayValue() is byte[] base64Value)
+        {
+          result.Base64 = base64Value;
+        }
+        else if (parseNode.GetByteArrayValue() is byte[] binaryValue)
+        {
+          result.Binary = binaryValue;
+        }
+        return result;
+      }
+      /// <summary>
+      /// The deserialization information for the current model
+      /// </summary>
+      /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
+      public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+      {
+        return new Dictionary<string, Action<IParseNode>>();
+      }
+      /// <summary>
+      /// Serializes information the current object
+      /// </summary>
+      /// <param name="writer">Serialization writer to use to serialize this model</param>
+      public virtual void Serialize(ISerializationWriter writer)
+      {
+        if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
+        if (Base64 != null)
+        {
+          writer.WriteByteArrayValue(null, Base64);
+        }
+        else if (Binary != null)
+        {
+          writer.WriteByteArrayValue(null, Binary);
+        }
+      }
     }
   }
 }

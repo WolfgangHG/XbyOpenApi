@@ -31,7 +31,7 @@ namespace XbyOpenApi.Core.Client.Two.Dm_conversations
       get => new global::XbyOpenApi.Core.Client.Two.Dm_conversations.With.WithRequestBuilder(PathParameters, RequestAdapter);
     }
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.dm_conversations.item collection</summary>
-    /// <param name="position">The DM Conversation ID.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Dm_conversations.Item.Dm_conversation_ItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Dm_conversations.Item.Dm_conversation_ItemRequestBuilder this[string position]
     {
@@ -61,18 +61,18 @@ namespace XbyOpenApi.Core.Client.Two.Dm_conversations
     /// <summary>
     /// Initiates a new direct message conversation with specified participants.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.CreateDmEventResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.CreateDirectMessagesConversationResponse"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.CreateDmEventResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateDmConversationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.CreateDirectMessagesConversationResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateDirectMessagesConversationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.CreateDmEventResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateDmConversationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.CreateDirectMessagesConversationResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.CreateDirectMessagesConversationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -81,7 +81,7 @@ namespace XbyOpenApi.Core.Client.Two.Dm_conversations
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.CreateDmEventResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.CreateDmEventResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.CreateDirectMessagesConversationResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.CreateDirectMessagesConversationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Initiates a new direct message conversation with specified participants.
@@ -91,11 +91,11 @@ namespace XbyOpenApi.Core.Client.Two.Dm_conversations
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateDmConversationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateDirectMessagesConversationRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
     {
 #nullable restore
 #else
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateDmConversationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.CreateDirectMessagesConversationRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));

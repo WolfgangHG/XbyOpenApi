@@ -7,19 +7,24 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// Represent a Poll attached to a Tweet.
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+#pragma warning disable CS1591
   public partial class Poll : IAdditionalDataHolder, IParsable
+#pragma warning restore CS1591
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
     /// <summary>The duration_minutes property</summary>
     public int? DurationMinutes { get; set; }
     /// <summary>The end_datetime property</summary>
-    public DateTimeOffset? EndDatetime { get; set; }
-    /// <summary>Unique identifier of this poll.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? EndDatetime { get; set; }
+#nullable restore
+#else
+    public string EndDatetime { get; set; }
+#endif
+    /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Id { get; set; }
@@ -27,16 +32,22 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Id { get; set; }
 #endif
-    /// <summary>The options property</summary>
+    /// <summary>The list of options (choices) available in this poll.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public List<global::XbyOpenApi.Core.Client.Models.PollOption>? Options { get; set; }
+    public List<global::XbyOpenApi.Core.Client.Models.StreamObject>? Options { get; set; }
 #nullable restore
 #else
-    public List<global::XbyOpenApi.Core.Client.Models.PollOption> Options { get; set; }
+    public List<global::XbyOpenApi.Core.Client.Models.StreamObject> Options { get; set; }
 #endif
     /// <summary>The voting_status property</summary>
-    public global::XbyOpenApi.Core.Client.Models.Poll_voting_status? VotingStatus { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? VotingStatus { get; set; }
+#nullable restore
+#else
+    public string VotingStatus { get; set; }
+#endif
     /// <summary>
     /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.Poll"/> and sets the default values.
     /// </summary>
@@ -63,10 +74,10 @@ namespace XbyOpenApi.Core.Client.Models
       return new Dictionary<string, Action<IParseNode>>
             {
                 { "duration_minutes", n => { DurationMinutes = n.GetIntValue(); } },
-                { "end_datetime", n => { EndDatetime = n.GetDateTimeOffsetValue(); } },
+                { "end_datetime", n => { EndDatetime = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
-                { "options", n => { Options = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.PollOption>(global::XbyOpenApi.Core.Client.Models.PollOption.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "voting_status", n => { VotingStatus = n.GetEnumValue<global::XbyOpenApi.Core.Client.Models.Poll_voting_status>(); } },
+                { "options", n => { Options = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.StreamObject>(global::XbyOpenApi.Core.Client.Models.StreamObject.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "voting_status", n => { VotingStatus = n.GetStringValue(); } },
             };
     }
     /// <summary>
@@ -77,10 +88,10 @@ namespace XbyOpenApi.Core.Client.Models
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
       writer.WriteIntValue("duration_minutes", DurationMinutes);
-      writer.WriteDateTimeOffsetValue("end_datetime", EndDatetime);
+      writer.WriteStringValue("end_datetime", EndDatetime);
       writer.WriteStringValue("id", Id);
-      writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.PollOption>("options", Options);
-      writer.WriteEnumValue<global::XbyOpenApi.Core.Client.Models.Poll_voting_status>("voting_status", VotingStatus);
+      writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.StreamObject>("options", Options);
+      writer.WriteStringValue("voting_status", VotingStatus);
       writer.WriteAdditionalData(AdditionalData);
     }
   }

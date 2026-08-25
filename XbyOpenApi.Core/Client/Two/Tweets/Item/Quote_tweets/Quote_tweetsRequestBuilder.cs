@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public Quote_tweetsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/{%2Did}/quote_tweets{?exclude,expansions,max_results*,media%2Efields,pagination_token*,place%2Efields,poll%2Efields,tweet%2Efields,user%2Efields}", pathParameters)
+    public Quote_tweetsRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/{%2Did}/quote_tweets{?exclude,expansions,max_results*,media%2Efields,pagination_token*,place%2Efields,poll%2Efields,post%2Efields,user%2Efields}", pathParameters)
     {
     }
     /// <summary>
@@ -30,23 +30,23 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public Quote_tweetsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/{%2Did}/quote_tweets{?exclude,expansions,max_results*,media%2Efields,pagination_token*,place%2Efields,poll%2Efields,tweet%2Efields,user%2Efields}", rawUrl)
+    public Quote_tweetsRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/{%2Did}/quote_tweets{?exclude,expansions,max_results*,media%2Efields,pagination_token*,place%2Efields,poll%2Efields,post%2Efields,user%2Efields}", rawUrl)
     {
     }
     /// <summary>
-    /// Retrieves a list of Posts that quote a specific Post by its ID.
+    /// Get Posts Quoted Posts
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2TweetsIdQuoteTweetsResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetPostsQuotedPostsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2TweetsIdQuoteTweetsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets.Quote_tweetsRequestBuilder.Quote_tweetsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetPostsQuotedPostsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets.Quote_tweetsRequestBuilder.Quote_tweetsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2TweetsIdQuoteTweetsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets.Quote_tweetsRequestBuilder.Quote_tweetsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetPostsQuotedPostsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets.Quote_tweetsRequestBuilder.Quote_tweetsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,10 +54,10 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2TweetsIdQuoteTweetsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2TweetsIdQuoteTweetsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetPostsQuotedPostsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetPostsQuotedPostsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves a list of Posts that quote a specific Post by its ID.
+    /// Get Posts Quoted Posts
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,12 +85,11 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets
       return new global::XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets.Quote_tweetsRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves a list of Posts that quote a specific Post by its ID.
+    /// Get Posts Quoted Posts
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Quote_tweetsRequestBuilderGetQueryParameters
     {
-      /// <summary>The set of entities to exclude (e.g. &apos;replies&apos; or &apos;retweets&apos;).</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("exclude")]
@@ -110,7 +109,6 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets
       [QueryParameter("expansions")]
       public global::XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets.GetExpansionsQueryParameterType[] Expansions { get; set; }
 #endif
-      /// <summary>The maximum number of results to be returned.</summary>
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
       /// <summary>A comma separated list of Media fields to display.</summary>
@@ -123,7 +121,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets
       [QueryParameter("media%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets.GetMediaFieldsQueryParameterType[] MediaFields { get; set; }
 #endif
-      /// <summary>This parameter is used to get a specified &apos;page&apos; of results.</summary>
+      /// <summary>A base32hex-encoded pagination token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("pagination_token")]
@@ -153,15 +151,15 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets
       [QueryParameter("poll%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets.GetPollFieldsQueryParameterType[] PollFields { get; set; }
 #endif
-      /// <summary>A comma separated list of Tweet fields to display.</summary>
+      /// <summary>A comma separated list of Post fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets.GetTweetFieldsQueryParameterType[]? TweetFields { get; set; }
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets.GetPostFieldsQueryParameterType[]? PostFields { get; set; }
 #nullable restore
 #else
-      [QueryParameter("tweet%2Efields")]
-      public global::XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets.GetTweetFieldsQueryParameterType[] TweetFields { get; set; }
+      [QueryParameter("post%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Tweets.Item.Quote_tweets.GetPostFieldsQueryParameterType[] PostFields { get; set; }
 #endif
       /// <summary>A comma separated list of User fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

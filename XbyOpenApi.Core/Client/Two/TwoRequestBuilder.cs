@@ -8,14 +8,14 @@ using System.Threading.Tasks;
 using System;
 using XbyOpenApi.Core.Client.Two.Account_activity;
 using XbyOpenApi.Core.Client.Two.Activity;
+using XbyOpenApi.Core.Client.Two.Articles;
+using XbyOpenApi.Core.Client.Two.Broadcasts;
 using XbyOpenApi.Core.Client.Two.Chat;
 using XbyOpenApi.Core.Client.Two.Communities;
 using XbyOpenApi.Core.Client.Two.Compliance;
 using XbyOpenApi.Core.Client.Two.Connections;
 using XbyOpenApi.Core.Client.Two.Dm_conversations;
 using XbyOpenApi.Core.Client.Two.Dm_events;
-using XbyOpenApi.Core.Client.Two.Evaluate_note;
-using XbyOpenApi.Core.Client.Two.Insights;
 using XbyOpenApi.Core.Client.Two.Likes;
 using XbyOpenApi.Core.Client.Two.Lists;
 using XbyOpenApi.Core.Client.Two.Media;
@@ -46,6 +46,16 @@ namespace XbyOpenApi.Core.Client.Two
     {
       get => new global::XbyOpenApi.Core.Client.Two.Activity.ActivityRequestBuilder(PathParameters, RequestAdapter);
     }
+    /// <summary>The articles property</summary>
+    public global::XbyOpenApi.Core.Client.Two.Articles.ArticlesRequestBuilder Articles
+    {
+      get => new global::XbyOpenApi.Core.Client.Two.Articles.ArticlesRequestBuilder(PathParameters, RequestAdapter);
+    }
+    /// <summary>The broadcasts property</summary>
+    public global::XbyOpenApi.Core.Client.Two.Broadcasts.BroadcastsRequestBuilder Broadcasts
+    {
+      get => new global::XbyOpenApi.Core.Client.Two.Broadcasts.BroadcastsRequestBuilder(PathParameters, RequestAdapter);
+    }
     /// <summary>The chat property</summary>
     public global::XbyOpenApi.Core.Client.Two.Chat.ChatRequestBuilder Chat
     {
@@ -75,16 +85,6 @@ namespace XbyOpenApi.Core.Client.Two
     public global::XbyOpenApi.Core.Client.Two.Dm_events.Dm_eventsRequestBuilder Dm_events
     {
       get => new global::XbyOpenApi.Core.Client.Two.Dm_events.Dm_eventsRequestBuilder(PathParameters, RequestAdapter);
-    }
-    /// <summary>The evaluate_note property</summary>
-    public global::XbyOpenApi.Core.Client.Two.Evaluate_note.Evaluate_noteRequestBuilder Evaluate_note
-    {
-      get => new global::XbyOpenApi.Core.Client.Two.Evaluate_note.Evaluate_noteRequestBuilder(PathParameters, RequestAdapter);
-    }
-    /// <summary>The insights property</summary>
-    public global::XbyOpenApi.Core.Client.Two.Insights.InsightsRequestBuilder Insights
-    {
-      get => new global::XbyOpenApi.Core.Client.Two.Insights.InsightsRequestBuilder(PathParameters, RequestAdapter);
     }
     /// <summary>The likes property</summary>
     public global::XbyOpenApi.Core.Client.Two.Likes.LikesRequestBuilder Likes

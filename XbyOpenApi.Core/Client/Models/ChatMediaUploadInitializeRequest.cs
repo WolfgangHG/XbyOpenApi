@@ -7,15 +7,12 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// Request body for initializing a Chat media upload.
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-  public partial class ChatMediaUploadInitializeRequest : IAdditionalDataHolder, IParsable
+#pragma warning disable CS1591
+  public partial class ChatMediaUploadInitializeRequest : IParsable
+#pragma warning restore CS1591
   {
-    /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-    public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>XChat conversation identifier for the upload.</summary>
+    /// <summary>The XChat conversation the upload belongs to.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? ConversationId { get; set; }
@@ -25,13 +22,6 @@ namespace XbyOpenApi.Core.Client.Models
 #endif
     /// <summary>Total size of the media upload in bytes.</summary>
     public int? TotalBytes { get; set; }
-    /// <summary>
-    /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.ChatMediaUploadInitializeRequest"/> and sets the default values.
-    /// </summary>
-    public ChatMediaUploadInitializeRequest()
-    {
-      AdditionalData = new Dictionary<string, object>();
-    }
     /// <summary>
     /// Creates a new instance of the appropriate class based on discriminator value
     /// </summary>
@@ -63,7 +53,6 @@ namespace XbyOpenApi.Core.Client.Models
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
       writer.WriteStringValue("conversation_id", ConversationId);
       writer.WriteIntValue("total_bytes", TotalBytes);
-      writer.WriteAdditionalData(AdditionalData);
     }
   }
 }

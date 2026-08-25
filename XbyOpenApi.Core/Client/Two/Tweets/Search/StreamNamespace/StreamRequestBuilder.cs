@@ -42,17 +42,17 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.StreamNamespace
     /// <summary>
     /// Streams Posts in real-time matching the active rule set.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.FilteredStreamingTweetResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.StreamPostsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.FilteredStreamingTweetResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Search.StreamNamespace.StreamRequestBuilder.StreamRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.StreamPostsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Search.StreamNamespace.StreamRequestBuilder.StreamRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.FilteredStreamingTweetResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Search.StreamNamespace.StreamRequestBuilder.StreamRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.StreamPostsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Search.StreamNamespace.StreamRequestBuilder.StreamRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -60,7 +60,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.StreamNamespace
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.FilteredStreamingTweetResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.FilteredStreamingTweetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.StreamPostsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.StreamPostsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Streams Posts in real-time matching the active rule set.
@@ -142,7 +142,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.StreamNamespace
       [QueryParameter("poll%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Tweets.Search.StreamNamespace.GetPollFieldsQueryParameterType[] PollFields { get; set; }
 #endif
-      /// <summary>YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp from which the Posts will be provided.</summary>
+      /// <summary>YYYY-MM-DDTHH:mm:ssZ. The earliest UTC timestamp to which the Posts will be provided.</summary>
       [QueryParameter("start_time")]
       public DateTimeOffset? StartTime { get; set; }
       /// <summary>A comma separated list of Tweet fields to display.</summary>

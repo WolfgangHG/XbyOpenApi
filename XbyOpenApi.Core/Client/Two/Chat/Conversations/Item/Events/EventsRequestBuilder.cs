@@ -36,17 +36,17 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Events
     /// <summary>
     /// Retrieves messages and key change events for a specific Chat conversation with pagination support. For 1:1 conversations, provide the recipient&apos;s user ID; the server constructs the canonical conversation ID from the authenticated user and recipient.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ChatGetConversationResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetChatConversationEventsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.ChatGetConversationResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetChatConversationEventsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.ChatGetConversationResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetChatConversationEventsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Events.EventsRequestBuilder.EventsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,7 +54,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Events
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.ChatGetConversationResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.ChatGetConversationResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetChatConversationEventsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetChatConversationEventsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Retrieves messages and key change events for a specific Chat conversation with pagination support. For 1:1 conversations, provide the recipient&apos;s user ID; the server constructs the canonical conversation ID from the authenticated user and recipient.
@@ -100,10 +100,8 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Events
       [QueryParameter("chat_message_event%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Chat.Conversations.Item.Events.GetChat_message_eventFieldsQueryParameterType[] ChatMessageEventFields { get; set; }
 #endif
-      /// <summary>Maximum number of message events to return.</summary>
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
-      /// <summary>Token for pagination to retrieve the next page of results.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("pagination_token")]

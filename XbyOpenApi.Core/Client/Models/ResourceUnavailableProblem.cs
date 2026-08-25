@@ -7,19 +7,20 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// A problem that indicates a particular Tweet, User, etc. is not available to you.
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-  public partial class ResourceUnavailableProblem : global::XbyOpenApi.Core.Client.Models.Problem, IParsable
+#pragma warning disable CS1591
+  public partial class ResourceUnavailableProblem : IAdditionalDataHolder, IParsable
+#pragma warning restore CS1591
   {
-    /// <summary>The parameter property</summary>
+    /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+    public IDictionary<string, object> AdditionalData { get; set; }
+    /// <summary>The detail property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public string? Parameter { get; set; }
+    public string? Detail { get; set; }
 #nullable restore
 #else
-    public string Parameter { get; set; }
+    public string Detail { get; set; }
 #endif
     /// <summary>The resource_id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -30,13 +31,38 @@ namespace XbyOpenApi.Core.Client.Models
     public string ResourceId { get; set; }
 #endif
     /// <summary>The resource_type property</summary>
-    public global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem_resource_type? ResourceType { get; set; }
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? ResourceType { get; set; }
+#nullable restore
+#else
+    public string ResourceType { get; set; }
+#endif
+    /// <summary>The status property</summary>
+    public int? Status { get; set; }
+    /// <summary>The title property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? Title { get; set; }
+#nullable restore
+#else
+    public string Title { get; set; }
+#endif
+    /// <summary>The type property</summary>
+    public global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem_type? Type { get; set; }
+    /// <summary>
+    /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem"/> and sets the default values.
+    /// </summary>
+    public ResourceUnavailableProblem()
+    {
+      AdditionalData = new Dictionary<string, object>();
+    }
     /// <summary>
     /// Creates a new instance of the appropriate class based on discriminator value
     /// </summary>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem"/></returns>
     /// <param name="parseNode">The parse node to use to read the discriminator value and create the object</param>
-    public static new global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem CreateFromDiscriminatorValue(IParseNode parseNode)
+    public static global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem CreateFromDiscriminatorValue(IParseNode parseNode)
     {
       if (ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
       return new global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem();
@@ -45,26 +71,32 @@ namespace XbyOpenApi.Core.Client.Models
     /// The deserialization information for the current model
     /// </summary>
     /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
-    public override IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
+    public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
     {
-      return new Dictionary<string, Action<IParseNode>>(base.GetFieldDeserializers())
+      return new Dictionary<string, Action<IParseNode>>
             {
-                { "parameter", n => { Parameter = n.GetStringValue(); } },
+                { "detail", n => { Detail = n.GetStringValue(); } },
                 { "resource_id", n => { ResourceId = n.GetStringValue(); } },
-                { "resource_type", n => { ResourceType = n.GetEnumValue<global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem_resource_type>(); } },
+                { "resource_type", n => { ResourceType = n.GetStringValue(); } },
+                { "status", n => { Status = n.GetIntValue(); } },
+                { "title", n => { Title = n.GetStringValue(); } },
+                { "type", n => { Type = n.GetEnumValue<global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem_type>(); } },
             };
     }
     /// <summary>
     /// Serializes information the current object
     /// </summary>
     /// <param name="writer">Serialization writer to use to serialize this model</param>
-    public override void Serialize(ISerializationWriter writer)
+    public virtual void Serialize(ISerializationWriter writer)
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-      base.Serialize(writer);
-      writer.WriteStringValue("parameter", Parameter);
+      writer.WriteStringValue("detail", Detail);
       writer.WriteStringValue("resource_id", ResourceId);
-      writer.WriteEnumValue<global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem_resource_type>("resource_type", ResourceType);
+      writer.WriteStringValue("resource_type", ResourceType);
+      writer.WriteIntValue("status", Status);
+      writer.WriteStringValue("title", Title);
+      writer.WriteEnumValue<global::XbyOpenApi.Core.Client.Models.ResourceUnavailableProblem_type>("type", Type);
+      writer.WriteAdditionalData(AdditionalData);
     }
   }
 }

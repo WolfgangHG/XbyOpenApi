@@ -8,7 +8,7 @@ using System;
 namespace XbyOpenApi.Core.Client.Models
 {
   /// <summary>
-  /// Composed type wrapper for classes <see cref="global::XbyOpenApi.Core.Client.Models.FollowActivityResponsePayload"/>, <see cref="global::XbyOpenApi.Core.Client.Models.NewsActivityResponsePayload"/>, <see cref="global::XbyOpenApi.Core.Client.Models.ProfileUpdateActivityResponsePayload"/>
+  /// Composed type wrapper for classes <see cref="global::XbyOpenApi.Core.Client.Models.FollowActivityResponsePayload"/>, <see cref="global::XbyOpenApi.Core.Client.Models.LikeWithPostAuthor"/>, <see cref="global::XbyOpenApi.Core.Client.Models.NewsActivityResponsePayload"/>, <see cref="global::XbyOpenApi.Core.Client.Models.Post"/>, <see cref="global::XbyOpenApi.Core.Client.Models.PostDeleteActivityResponsePayload"/>, <see cref="global::XbyOpenApi.Core.Client.Models.ProfileUpdateActivityResponsePayload"/>
   /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
   public partial class ActivityStreamingResponsePayload : IComposedTypeWrapper, IParsable
@@ -21,6 +21,14 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public global::XbyOpenApi.Core.Client.Models.FollowActivityResponsePayload FollowActivityResponsePayload { get; set; }
 #endif
+    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.LikeWithPostAuthor"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public global::XbyOpenApi.Core.Client.Models.LikeWithPostAuthor? LikeWithPostAuthor { get; set; }
+#nullable restore
+#else
+    public global::XbyOpenApi.Core.Client.Models.LikeWithPostAuthor LikeWithPostAuthor { get; set; }
+#endif
     /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.NewsActivityResponsePayload"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -28,6 +36,22 @@ namespace XbyOpenApi.Core.Client.Models
 #nullable restore
 #else
     public global::XbyOpenApi.Core.Client.Models.NewsActivityResponsePayload NewsActivityResponsePayload { get; set; }
+#endif
+    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.Post"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public global::XbyOpenApi.Core.Client.Models.Post? Post { get; set; }
+#nullable restore
+#else
+    public global::XbyOpenApi.Core.Client.Models.Post Post { get; set; }
+#endif
+    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.PostDeleteActivityResponsePayload"/></summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public global::XbyOpenApi.Core.Client.Models.PostDeleteActivityResponsePayload? PostDeleteActivityResponsePayload { get; set; }
+#nullable restore
+#else
+    public global::XbyOpenApi.Core.Client.Models.PostDeleteActivityResponsePayload PostDeleteActivityResponsePayload { get; set; }
 #endif
     /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.ProfileUpdateActivityResponsePayload"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -51,9 +75,21 @@ namespace XbyOpenApi.Core.Client.Models
       {
         result.FollowActivityResponsePayload = new global::XbyOpenApi.Core.Client.Models.FollowActivityResponsePayload();
       }
+      else if ("like.create".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+      {
+        result.LikeWithPostAuthor = new global::XbyOpenApi.Core.Client.Models.LikeWithPostAuthor();
+      }
       else if ("news.new".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
       {
         result.NewsActivityResponsePayload = new global::XbyOpenApi.Core.Client.Models.NewsActivityResponsePayload();
+      }
+      else if ("post.create".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+      {
+        result.Post = new global::XbyOpenApi.Core.Client.Models.Post();
+      }
+      else if ("post.delete".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
+      {
+        result.PostDeleteActivityResponsePayload = new global::XbyOpenApi.Core.Client.Models.PostDeleteActivityResponsePayload();
       }
       else if ("profile.update.affiliate_badge".Equals(mappingValue, StringComparison.OrdinalIgnoreCase))
       {
@@ -71,9 +107,21 @@ namespace XbyOpenApi.Core.Client.Models
       {
         return FollowActivityResponsePayload.GetFieldDeserializers();
       }
+      else if (LikeWithPostAuthor != null)
+      {
+        return LikeWithPostAuthor.GetFieldDeserializers();
+      }
       else if (NewsActivityResponsePayload != null)
       {
         return NewsActivityResponsePayload.GetFieldDeserializers();
+      }
+      else if (Post != null)
+      {
+        return Post.GetFieldDeserializers();
+      }
+      else if (PostDeleteActivityResponsePayload != null)
+      {
+        return PostDeleteActivityResponsePayload.GetFieldDeserializers();
       }
       else if (ProfileUpdateActivityResponsePayload != null)
       {
@@ -92,9 +140,21 @@ namespace XbyOpenApi.Core.Client.Models
       {
         writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.FollowActivityResponsePayload>(null, FollowActivityResponsePayload);
       }
+      else if (LikeWithPostAuthor != null)
+      {
+        writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.LikeWithPostAuthor>(null, LikeWithPostAuthor);
+      }
       else if (NewsActivityResponsePayload != null)
       {
         writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.NewsActivityResponsePayload>(null, NewsActivityResponsePayload);
+      }
+      else if (Post != null)
+      {
+        writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.Post>(null, Post);
+      }
+      else if (PostDeleteActivityResponsePayload != null)
+      {
+        writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.PostDeleteActivityResponsePayload>(null, PostDeleteActivityResponsePayload);
       }
       else if (ProfileUpdateActivityResponsePayload != null)
       {

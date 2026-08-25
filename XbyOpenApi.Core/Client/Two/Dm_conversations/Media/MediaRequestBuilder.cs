@@ -16,7 +16,7 @@ namespace XbyOpenApi.Core.Client.Two.Dm_conversations.Media
   public partial class MediaRequestBuilder : BaseRequestBuilder
   {
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.dm_conversations.media.item collection</summary>
-    /// <param name="position">The unique identifier of the Direct Message event containing the media.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Dm_conversations.Media.Item.WithDm_ItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Dm_conversations.Media.Item.WithDm_ItemRequestBuilder this[string position]
     {

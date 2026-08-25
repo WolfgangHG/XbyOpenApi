@@ -8,22 +8,22 @@ using System;
 namespace XbyOpenApi.Core.Client.Models
 {
   /// <summary>
-  /// The scoring status of a Community Note.
+  /// Per-model scoring breakdown for the Community Note.
   /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
   public partial class NoteScoringStatus : IAdditionalDataHolder, IParsable
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>Whether the user has access to the scoring status of the Community Note.</summary>
+    /// <summary>Whether the caller has access to the scoring details.</summary>
     public bool? HasAccess { get; set; }
-    /// <summary>Rating count stats per model.</summary>
+    /// <summary>Rating counts broken down per scoring model.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public global::XbyOpenApi.Core.Client.Models.NoteScoringStatus_rating_counts_per_model? RatingCountsPerModel { get; set; }
+    public List<global::XbyOpenApi.Core.Client.Models.NoteScoringStatus_rating_counts_per_model>? RatingCountsPerModel { get; set; }
 #nullable restore
 #else
-    public global::XbyOpenApi.Core.Client.Models.NoteScoringStatus_rating_counts_per_model RatingCountsPerModel { get; set; }
+    public List<global::XbyOpenApi.Core.Client.Models.NoteScoringStatus_rating_counts_per_model> RatingCountsPerModel { get; set; }
 #endif
     /// <summary>
     /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.NoteScoringStatus"/> and sets the default values.
@@ -51,7 +51,7 @@ namespace XbyOpenApi.Core.Client.Models
       return new Dictionary<string, Action<IParseNode>>
             {
                 { "has_access", n => { HasAccess = n.GetBoolValue(); } },
-                { "rating_counts_per_model", n => { RatingCountsPerModel = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.NoteScoringStatus_rating_counts_per_model>(global::XbyOpenApi.Core.Client.Models.NoteScoringStatus_rating_counts_per_model.CreateFromDiscriminatorValue); } },
+                { "rating_counts_per_model", n => { RatingCountsPerModel = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.NoteScoringStatus_rating_counts_per_model>(global::XbyOpenApi.Core.Client.Models.NoteScoringStatus_rating_counts_per_model.CreateFromDiscriminatorValue)?.AsList(); } },
             };
     }
     /// <summary>
@@ -62,7 +62,7 @@ namespace XbyOpenApi.Core.Client.Models
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
       writer.WriteBoolValue("has_access", HasAccess);
-      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.NoteScoringStatus_rating_counts_per_model>("rating_counts_per_model", RatingCountsPerModel);
+      writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.NoteScoringStatus_rating_counts_per_model>("rating_counts_per_model", RatingCountsPerModel);
       writer.WriteAdditionalData(AdditionalData);
     }
   }

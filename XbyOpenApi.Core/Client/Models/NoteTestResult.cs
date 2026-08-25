@@ -8,28 +8,20 @@ using System;
 namespace XbyOpenApi.Core.Client.Models
 {
   /// <summary>
-  /// The evaluation result of a community note.
+  /// AI evaluation results for the Community Note (returned in test mode).
   /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
   public partial class NoteTestResult : IAdditionalDataHolder, IParsable
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>Score bucket from the evaluator result.</summary>
+    /// <summary>Per-evaluator outcomes for the note.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public string? EvaluatorScoreBucket { get; set; }
+    public List<global::XbyOpenApi.Core.Client.Models.NoteTestResult_evaluation_outcome>? EvaluationOutcome { get; set; }
 #nullable restore
 #else
-    public string EvaluatorScoreBucket { get; set; }
-#endif
-    /// <summary>The type of the evaluator.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-    public string? EvaluatorType { get; set; }
-#nullable restore
-#else
-    public string EvaluatorType { get; set; }
+    public List<global::XbyOpenApi.Core.Client.Models.NoteTestResult_evaluation_outcome> EvaluationOutcome { get; set; }
 #endif
     /// <summary>
     /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.NoteTestResult"/> and sets the default values.
@@ -56,8 +48,7 @@ namespace XbyOpenApi.Core.Client.Models
     {
       return new Dictionary<string, Action<IParseNode>>
             {
-                { "evaluator_score_bucket", n => { EvaluatorScoreBucket = n.GetStringValue(); } },
-                { "evaluator_type", n => { EvaluatorType = n.GetStringValue(); } },
+                { "evaluation_outcome", n => { EvaluationOutcome = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.NoteTestResult_evaluation_outcome>(global::XbyOpenApi.Core.Client.Models.NoteTestResult_evaluation_outcome.CreateFromDiscriminatorValue)?.AsList(); } },
             };
     }
     /// <summary>
@@ -67,8 +58,7 @@ namespace XbyOpenApi.Core.Client.Models
     public virtual void Serialize(ISerializationWriter writer)
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-      writer.WriteStringValue("evaluator_score_bucket", EvaluatorScoreBucket);
-      writer.WriteStringValue("evaluator_type", EvaluatorType);
+      writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.NoteTestResult_evaluation_outcome>("evaluation_outcome", EvaluationOutcome);
       writer.WriteAdditionalData(AdditionalData);
     }
   }

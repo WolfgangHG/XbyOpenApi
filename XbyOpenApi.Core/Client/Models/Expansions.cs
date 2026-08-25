@@ -38,6 +38,14 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public List<global::XbyOpenApi.Core.Client.Models.Poll> Polls { get; set; }
 #endif
+    /// <summary>The posts property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public List<global::XbyOpenApi.Core.Client.Models.Post>? Posts { get; set; }
+#nullable restore
+#else
+    public List<global::XbyOpenApi.Core.Client.Models.Post> Posts { get; set; }
+#endif
     /// <summary>The topics property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -45,14 +53,6 @@ namespace XbyOpenApi.Core.Client.Models
 #nullable restore
 #else
     public List<global::XbyOpenApi.Core.Client.Models.Topic> Topics { get; set; }
-#endif
-    /// <summary>The tweets property</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-    public List<global::XbyOpenApi.Core.Client.Models.Tweet>? Tweets { get; set; }
-#nullable restore
-#else
-    public List<global::XbyOpenApi.Core.Client.Models.Tweet> Tweets { get; set; }
 #endif
     /// <summary>The users property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -90,8 +90,8 @@ namespace XbyOpenApi.Core.Client.Models
                 { "media", n => { Media = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Media>(global::XbyOpenApi.Core.Client.Models.Media.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "places", n => { Places = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Place>(global::XbyOpenApi.Core.Client.Models.Place.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "polls", n => { Polls = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Poll>(global::XbyOpenApi.Core.Client.Models.Poll.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "posts", n => { Posts = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Post>(global::XbyOpenApi.Core.Client.Models.Post.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "topics", n => { Topics = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Topic>(global::XbyOpenApi.Core.Client.Models.Topic.CreateFromDiscriminatorValue)?.AsList(); } },
-                { "tweets", n => { Tweets = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Tweet>(global::XbyOpenApi.Core.Client.Models.Tweet.CreateFromDiscriminatorValue)?.AsList(); } },
                 { "users", n => { Users = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.User>(global::XbyOpenApi.Core.Client.Models.User.CreateFromDiscriminatorValue)?.AsList(); } },
             };
     }
@@ -105,8 +105,8 @@ namespace XbyOpenApi.Core.Client.Models
       writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Media>("media", Media);
       writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Place>("places", Places);
       writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Poll>("polls", Polls);
+      writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Post>("posts", Posts);
       writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Topic>("topics", Topics);
-      writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Tweet>("tweets", Tweets);
       writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.User>("users", Users);
       writer.WriteAdditionalData(AdditionalData);
     }

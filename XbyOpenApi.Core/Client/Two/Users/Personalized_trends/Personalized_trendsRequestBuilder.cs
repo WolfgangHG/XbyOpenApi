@@ -34,19 +34,19 @@ namespace XbyOpenApi.Core.Client.Two.Users.Personalized_trends
     {
     }
     /// <summary>
-    /// Retrieves personalized trending topics for the authenticated user.
+    /// Get Trends Personalized Trends
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.Get2UsersPersonalizedTrendsResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetTrendsPersonalizedTrendsResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersPersonalizedTrendsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Personalized_trends.Personalized_trendsRequestBuilder.Personalized_trendsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetTrendsPersonalizedTrendsResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Personalized_trends.Personalized_trendsRequestBuilder.Personalized_trendsRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.Get2UsersPersonalizedTrendsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Personalized_trends.Personalized_trendsRequestBuilder.Personalized_trendsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetTrendsPersonalizedTrendsResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Users.Personalized_trends.Personalized_trendsRequestBuilder.Personalized_trendsRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -54,10 +54,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Personalized_trends
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.Get2UsersPersonalizedTrendsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.Get2UsersPersonalizedTrendsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetTrendsPersonalizedTrendsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetTrendsPersonalizedTrendsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Retrieves personalized trending topics for the authenticated user.
+    /// Get Trends Personalized Trends
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -85,7 +85,7 @@ namespace XbyOpenApi.Core.Client.Two.Users.Personalized_trends
       return new global::XbyOpenApi.Core.Client.Two.Users.Personalized_trends.Personalized_trendsRequestBuilder(rawUrl, RequestAdapter);
     }
     /// <summary>
-    /// Retrieves personalized trending topics for the authenticated user.
+    /// Get Trends Personalized Trends
     /// </summary>
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Personalized_trendsRequestBuilderGetQueryParameters

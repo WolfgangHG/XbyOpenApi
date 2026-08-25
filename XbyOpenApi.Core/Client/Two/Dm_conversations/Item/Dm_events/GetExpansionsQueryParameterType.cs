@@ -16,9 +16,9 @@ namespace XbyOpenApi.Core.Client.Two.Dm_conversations.Item.Dm_events
 #pragma warning disable CS1591
     Participant_ids,
 #pragma warning restore CS1591
-    [EnumMember(Value = "referenced_tweets.id")]
+    [EnumMember(Value = "referenced_posts")]
 #pragma warning disable CS1591
-    Referenced_tweetsId,
+    Referenced_posts,
 #pragma warning restore CS1591
     [EnumMember(Value = "sender_id")]
 #pragma warning disable CS1591

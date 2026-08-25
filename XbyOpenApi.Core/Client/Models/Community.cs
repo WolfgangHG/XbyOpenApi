@@ -7,17 +7,38 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
-  /// <summary>
-  /// A X Community is a curated group of Posts.
-  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+#pragma warning disable CS1591
   public partial class Community : IAdditionalDataHolder, IParsable
+#pragma warning restore CS1591
   {
+    /// <summary>The access property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? Access { get; set; }
+#nullable restore
+#else
+    public string Access { get; set; }
+#endif
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
     /// <summary>The created_at property</summary>
-    public DateTimeOffset? CreatedAt { get; set; }
-    /// <summary>The unique identifier of this Community.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? CreatedAt { get; set; }
+#nullable restore
+#else
+    public string CreatedAt { get; set; }
+#endif
+    /// <summary>The description property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? Description { get; set; }
+#nullable restore
+#else
+    public string Description { get; set; }
+#endif
+    /// <summary>The id property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Id { get; set; }
@@ -25,7 +46,17 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Id { get; set; }
 #endif
-    /// <summary>The name of this Community.</summary>
+    /// <summary>The join_policy property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? JoinPolicy { get; set; }
+#nullable restore
+#else
+    public string JoinPolicy { get; set; }
+#endif
+    /// <summary>The member_count property</summary>
+    public int? MemberCount { get; set; }
+    /// <summary>The name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? Name { get; set; }
@@ -58,8 +89,12 @@ namespace XbyOpenApi.Core.Client.Models
     {
       return new Dictionary<string, Action<IParseNode>>
             {
-                { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
+                { "access", n => { Access = n.GetStringValue(); } },
+                { "created_at", n => { CreatedAt = n.GetStringValue(); } },
+                { "description", n => { Description = n.GetStringValue(); } },
                 { "id", n => { Id = n.GetStringValue(); } },
+                { "join_policy", n => { JoinPolicy = n.GetStringValue(); } },
+                { "member_count", n => { MemberCount = n.GetIntValue(); } },
                 { "name", n => { Name = n.GetStringValue(); } },
             };
     }
@@ -70,8 +105,12 @@ namespace XbyOpenApi.Core.Client.Models
     public virtual void Serialize(ISerializationWriter writer)
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-      writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
+      writer.WriteStringValue("access", Access);
+      writer.WriteStringValue("created_at", CreatedAt);
+      writer.WriteStringValue("description", Description);
       writer.WriteStringValue("id", Id);
+      writer.WriteStringValue("join_policy", JoinPolicy);
+      writer.WriteIntValue("member_count", MemberCount);
       writer.WriteStringValue("name", Name);
       writer.WriteAdditionalData(AdditionalData);
     }

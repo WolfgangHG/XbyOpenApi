@@ -37,7 +37,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Media.Upload.Item.Finalize
     /// Finalizes an XChat media upload session.
     /// </summary>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.ChatMediaUploadFinalizeResponse"/></returns>
-    /// <param name="body">Request body for finalizing a Chat media upload.</param>
+    /// <param name="body">The request body</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
@@ -62,7 +62,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Media.Upload.Item.Finalize
     /// Finalizes an XChat media upload session.
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
-    /// <param name="body">Request body for finalizing a Chat media upload.</param>
+    /// <param name="body">The request body</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

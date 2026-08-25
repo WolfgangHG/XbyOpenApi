@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Media.Upload
       get => new global::XbyOpenApi.Core.Client.Two.Chat.Media.Upload.Initialize.InitializeRequestBuilder(PathParameters, RequestAdapter);
     }
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.chat.media.upload.item collection</summary>
-    /// <param name="position">The session/resume id from initialize.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Chat.Media.Upload.Item.UploadItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Chat.Media.Upload.Item.UploadItemRequestBuilder this[string position]
     {

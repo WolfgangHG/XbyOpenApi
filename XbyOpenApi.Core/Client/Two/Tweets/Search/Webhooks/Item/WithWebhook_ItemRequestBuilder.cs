@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks.Item
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public WithWebhook_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
+    public WithWebhook_ItemRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/search/webhooks/{webhook_id}", pathParameters)
     {
     }
     /// <summary>
@@ -30,23 +30,23 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks.Item
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public WithWebhook_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
+    public WithWebhook_ItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/tweets/search/webhooks/{webhook_id}", rawUrl)
     {
     }
     /// <summary>
-    /// Deletes a link from FilteredStream events to the given webhook.
+    /// Deletes the link delivering FilteredStream events to the given webhook.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.WebhookLinksDeleteResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.DeleteWebhooksStreamLinkResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.WebhookLinksDeleteResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.DeleteWebhooksStreamLinkResponse?> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.WebhookLinksDeleteResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.DeleteWebhooksStreamLinkResponse> DeleteAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToDeleteRequestInformation(requestConfiguration);
@@ -54,22 +54,22 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks.Item
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.WebhookLinksDeleteResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.WebhookLinksDeleteResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.DeleteWebhooksStreamLinkResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.DeleteWebhooksStreamLinkResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Creates a link to deliver FilteredStream events to the given webhook.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.WebhookLinksCreateResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.CreateWebhooksStreamLinkResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.WebhookLinksCreateResponse?> PostAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks.Item.WithWebhook_ItemRequestBuilder.WithWebhook_ItemRequestBuilderPostQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.CreateWebhooksStreamLinkResponse?> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.WebhookLinksCreateResponse> PostAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks.Item.WithWebhook_ItemRequestBuilder.WithWebhook_ItemRequestBuilderPostQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.CreateWebhooksStreamLinkResponse> PostAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToPostRequestInformation(requestConfiguration);
@@ -77,10 +77,10 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks.Item
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.WebhookLinksCreateResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.WebhookLinksCreateResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.CreateWebhooksStreamLinkResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.CreateWebhooksStreamLinkResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Deletes a link from FilteredStream events to the given webhook.
+    /// Deletes the link delivering FilteredStream events to the given webhook.
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
@@ -93,7 +93,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks.Item
     public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.DELETE, "{+baseurl}/2/tweets/search/webhooks/{webhook_id}", PathParameters);
+      var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;
@@ -105,14 +105,14 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks.Item
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks.Item.WithWebhook_ItemRequestBuilder.WithWebhook_ItemRequestBuilderPostQueryParameters>>? requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
     {
 #nullable restore
 #else
-    public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks.Item.WithWebhook_ItemRequestBuilder.WithWebhook_ItemRequestBuilderPostQueryParameters>> requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
-      var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/2/tweets/search/webhooks/{webhook_id}{?expansions*,media%2Efields*,place%2Efields*,poll%2Efields*,tweet%2Efields*,user%2Efields*}", PathParameters);
+      var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       return requestInfo;
@@ -125,73 +125,6 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks.Item
     public global::XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks.Item.WithWebhook_ItemRequestBuilder WithUrl(string rawUrl)
     {
       return new global::XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks.Item.WithWebhook_ItemRequestBuilder(rawUrl, RequestAdapter);
-    }
-    /// <summary>
-    /// Creates a link to deliver FilteredStream events to the given webhook.
-    /// </summary>
-    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-    public partial class WithWebhook_ItemRequestBuilderPostQueryParameters
-    {
-      /// <summary>A comma separated list of fields to expand.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-      [QueryParameter("expansions")]
-      public string? Expansions { get; set; }
-#nullable restore
-#else
-      [QueryParameter("expansions")]
-      public string Expansions { get; set; }
-#endif
-      /// <summary>A comma separated list of Media fields to display.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-      [QueryParameter("media%2Efields")]
-      public string? MediaFields { get; set; }
-#nullable restore
-#else
-      [QueryParameter("media%2Efields")]
-      public string MediaFields { get; set; }
-#endif
-      /// <summary>A comma separated list of Place fields to display.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-      [QueryParameter("place%2Efields")]
-      public string? PlaceFields { get; set; }
-#nullable restore
-#else
-      [QueryParameter("place%2Efields")]
-      public string PlaceFields { get; set; }
-#endif
-      /// <summary>A comma separated list of Poll fields to display.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-      [QueryParameter("poll%2Efields")]
-      public string? PollFields { get; set; }
-#nullable restore
-#else
-      [QueryParameter("poll%2Efields")]
-      public string PollFields { get; set; }
-#endif
-      /// <summary>A comma separated list of Tweet fields to display.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-      [QueryParameter("tweet%2Efields")]
-      public string? TweetFields { get; set; }
-#nullable restore
-#else
-      [QueryParameter("tweet%2Efields")]
-      public string TweetFields { get; set; }
-#endif
-      /// <summary>A comma separated list of User fields to display.</summary>
-#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
-#nullable enable
-      [QueryParameter("user%2Efields")]
-      public string? UserFields { get; set; }
-#nullable restore
-#else
-      [QueryParameter("user%2Efields")]
-      public string UserFields { get; set; }
-#endif
     }
   }
 }

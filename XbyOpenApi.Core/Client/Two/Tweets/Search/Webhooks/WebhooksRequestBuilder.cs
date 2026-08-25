@@ -19,7 +19,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks
   public partial class WebhooksRequestBuilder : BaseRequestBuilder
   {
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.tweets.search.webhooks.item collection</summary>
-    /// <param name="position">The webhook ID to link to your FilteredStream ruleset.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks.Item.WithWebhook_ItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks.Item.WithWebhook_ItemRequestBuilder this[string position]
     {
@@ -49,17 +49,17 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks
     /// <summary>
     /// Get a list of webhook links associated with a filtered stream ruleset.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.WebhookLinksGetResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetWebhooksStreamLinksResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.WebhookLinksGetResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetWebhooksStreamLinksResponse?> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.WebhookLinksGetResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetWebhooksStreamLinksResponse> GetAsync(Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -67,7 +67,7 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.Webhooks
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.WebhookLinksGetResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.WebhookLinksGetResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetWebhooksStreamLinksResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetWebhooksStreamLinksResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Get a list of webhook links associated with a filtered stream ruleset.

@@ -25,7 +25,7 @@ namespace XbyOpenApi.Core.Client.Two.Media.Upload
       get => new global::XbyOpenApi.Core.Client.Two.Media.Upload.Initialize.InitializeRequestBuilder(PathParameters, RequestAdapter);
     }
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.media.upload.item collection</summary>
-    /// <param name="position">The media identifier for the media to perform the append operation.</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Media.Upload.Item.UploadItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Media.Upload.Item.UploadItemRequestBuilder this[string position]
     {
@@ -41,7 +41,7 @@ namespace XbyOpenApi.Core.Client.Two.Media.Upload
     /// </summary>
     /// <param name="pathParameters">Path parameters for the request</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public UploadRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "", pathParameters)
+    public UploadRequestBuilder(Dictionary<string, object> pathParameters, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/media/upload{?command*}", pathParameters)
     {
     }
     /// <summary>
@@ -49,23 +49,23 @@ namespace XbyOpenApi.Core.Client.Two.Media.Upload
     /// </summary>
     /// <param name="rawUrl">The raw URL to use for the request builder.</param>
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
-    public UploadRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "", rawUrl)
+    public UploadRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/media/upload{?command*}", rawUrl)
     {
     }
     /// <summary>
     /// Retrieves the status of a Media upload by its ID.
     /// </summary>
-    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.MediaUploadResponse"/></returns>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.GetMediaUploadStatusResponse"/></returns>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.MediaUploadResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Media.Upload.UploadRequestBuilder.UploadRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetMediaUploadStatusResponse?> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Media.Upload.UploadRequestBuilder.UploadRequestBuilderGetQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.MediaUploadResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Media.Upload.UploadRequestBuilder.UploadRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.GetMediaUploadStatusResponse> GetAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Media.Upload.UploadRequestBuilder.UploadRequestBuilderGetQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       var requestInfo = ToGetRequestInformation(requestConfiguration);
@@ -73,10 +73,10 @@ namespace XbyOpenApi.Core.Client.Two.Media.Upload
             {
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
-      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.MediaUploadResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.MediaUploadResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetMediaUploadStatusResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetMediaUploadStatusResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Uploads a media file for use in posts or other content.
+    /// Uploads a media file for use in posts, direct messages, or ads. The response carries the media identifiers, including the media_key used to reference the asset in later calls.
     /// </summary>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.MediaUploadResponse"/></returns>
     /// <param name="body">The request body</param>
@@ -85,11 +85,11 @@ namespace XbyOpenApi.Core.Client.Two.Media.Upload
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public async Task<global::XbyOpenApi.Core.Client.Models.MediaUploadResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.MediaUploadRequestOneShot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.MediaUploadResponse?> PostAsync(global::XbyOpenApi.Core.Client.Models.MediaUploadRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #nullable restore
 #else
-    public async Task<global::XbyOpenApi.Core.Client.Models.MediaUploadResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.MediaUploadRequestOneShot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    public async Task<global::XbyOpenApi.Core.Client.Models.MediaUploadResponse> PostAsync(global::XbyOpenApi.Core.Client.Models.MediaUploadRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
@@ -120,22 +120,22 @@ namespace XbyOpenApi.Core.Client.Two.Media.Upload
       return requestInfo;
     }
     /// <summary>
-    /// Uploads a media file for use in posts or other content.
+    /// Uploads a media file for use in posts, direct messages, or ads. The response carries the media identifiers, including the media_key used to reference the asset in later calls.
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="body">The request body</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.MediaUploadRequestOneShot body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.MediaUploadRequest body, Action<RequestConfiguration<DefaultQueryParameters>>? requestConfiguration = default)
     {
 #nullable restore
 #else
-    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.MediaUploadRequestOneShot body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
+    public RequestInformation ToPostRequestInformation(global::XbyOpenApi.Core.Client.Models.MediaUploadRequest body, Action<RequestConfiguration<DefaultQueryParameters>> requestConfiguration = default)
     {
 #endif
       if (ReferenceEquals(body, null)) throw new ArgumentNullException(nameof(body));
-      var requestInfo = new RequestInformation(Method.POST, "{+baseurl}/2/media/upload", PathParameters);
+      var requestInfo = new RequestInformation(Method.POST, UrlTemplate, PathParameters);
       requestInfo.Configure(requestConfiguration);
       requestInfo.Headers.TryAdd("Accept", "application/json");
       requestInfo.SetContentFromParsable(RequestAdapter, "application/json", body);
@@ -156,10 +156,8 @@ namespace XbyOpenApi.Core.Client.Two.Media.Upload
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UploadRequestBuilderGetQueryParameters
     {
-      /// <summary>The command for the media upload request.</summary>
       [QueryParameter("command")]
       public global::XbyOpenApi.Core.Client.Two.Media.Upload.GetCommandQueryParameterType? Command { get; set; }
-      /// <summary>Media id for the requested media upload status.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
       [QueryParameter("media_id")]

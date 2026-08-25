@@ -16,7 +16,7 @@ namespace XbyOpenApi.Core.Client.Models
     public IDictionary<string, object> AdditionalData { get; set; }
     /// <summary>Event time.</summary>
     public DateTimeOffset? EventAt { get; set; }
-    /// <summary>Unique identifier of this Tweet. This is returned as a string in order to avoid complications with languages and tools that cannot handle large integers.</summary>
+    /// <summary>Unique identifier of a Post</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? UpToTweetId { get; set; }

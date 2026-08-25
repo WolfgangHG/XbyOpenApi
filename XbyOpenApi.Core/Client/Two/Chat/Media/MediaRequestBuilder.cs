@@ -22,7 +22,7 @@ namespace XbyOpenApi.Core.Client.Two.Chat.Media
       get => new global::XbyOpenApi.Core.Client.Two.Chat.Media.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
     }
     /// <summary>Gets an item from the XbyOpenApi.Core.Client.Two.chat.media.item collection</summary>
-    /// <param name="position">The recipient&apos;s user ID for a 1:1 conversation, or a group conversation ID (prefixed with &apos;g&apos;).</param>
+    /// <param name="position">Unique identifier of the item</param>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Two.Chat.Media.Item.MediaItemRequestBuilder"/></returns>
     public global::XbyOpenApi.Core.Client.Two.Chat.Media.Item.MediaItemRequestBuilder this[string position]
     {

@@ -14,7 +14,7 @@ namespace XbyOpenApi.Core.Client.Models
   {
     /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
     public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>The IP address of the connected client.</summary>
+    /// <summary>The client_ip property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? ClientIp { get; set; }
@@ -22,11 +22,11 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string ClientIp { get; set; }
 #endif
-    /// <summary>The timestamp when the connection was established.</summary>
+    /// <summary>The connected_at property</summary>
     public DateTimeOffset? ConnectedAt { get; set; }
-    /// <summary>The timestamp when the connection was disconnected, if applicable.</summary>
+    /// <summary>The disconnected_at property</summary>
     public DateTimeOffset? DisconnectedAt { get; set; }
-    /// <summary>The reason for disconnection, if the connection is inactive.</summary>
+    /// <summary>The disconnect_reason property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? DisconnectReason { get; set; }
@@ -34,13 +34,21 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string DisconnectReason { get; set; }
 #endif
-    /// <summary>The name of the streaming endpoint.</summary>
+    /// <summary>The endpoint_name property</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? EndpointName { get; set; }
 #nullable restore
 #else
     public string EndpointName { get; set; }
+#endif
+    /// <summary>The id property</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public string? Id { get; set; }
+#nullable restore
+#else
+    public string Id { get; set; }
 #endif
     /// <summary>
     /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.Connection"/> and sets the default values.
@@ -72,6 +80,7 @@ namespace XbyOpenApi.Core.Client.Models
                 { "disconnect_reason", n => { DisconnectReason = n.GetStringValue(); } },
                 { "disconnected_at", n => { DisconnectedAt = n.GetDateTimeOffsetValue(); } },
                 { "endpoint_name", n => { EndpointName = n.GetStringValue(); } },
+                { "id", n => { Id = n.GetStringValue(); } },
             };
     }
     /// <summary>
@@ -86,6 +95,7 @@ namespace XbyOpenApi.Core.Client.Models
       writer.WriteDateTimeOffsetValue("disconnected_at", DisconnectedAt);
       writer.WriteStringValue("disconnect_reason", DisconnectReason);
       writer.WriteStringValue("endpoint_name", EndpointName);
+      writer.WriteStringValue("id", Id);
       writer.WriteAdditionalData(AdditionalData);
     }
   }
