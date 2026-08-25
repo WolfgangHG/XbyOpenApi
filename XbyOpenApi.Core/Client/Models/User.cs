@@ -128,6 +128,8 @@ namespace XbyOpenApi.Core.Client.Models
 #endif
     /// <summary>Indicates if you can send a DM to this User.</summary>
     public bool? ReceivesYourDm { get; set; }
+    /// <summary>The number of Premium subscribers of this User.</summary>
+    public int? SubscriberCount { get; set; }
     /// <summary>Indicates if this User subscribes to you.</summary>
     public bool? SubscribesToYou { get; set; }
     /// <summary>The subscription relationship between this User and you.</summary>
@@ -225,6 +227,7 @@ namespace XbyOpenApi.Core.Client.Models
                 { "protected", n => { Protected = n.GetBoolValue(); } },
                 { "public_metrics", n => { PublicMetrics = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.UserPublicMetrics>(global::XbyOpenApi.Core.Client.Models.UserPublicMetrics.CreateFromDiscriminatorValue); } },
                 { "receives_your_dm", n => { ReceivesYourDm = n.GetBoolValue(); } },
+                { "subscriber_count", n => { SubscriberCount = n.GetIntValue(); } },
                 { "subscribes_to_you", n => { SubscribesToYou = n.GetBoolValue(); } },
                 { "subscription", n => { Subscription = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.UserSubscription>(global::XbyOpenApi.Core.Client.Models.UserSubscription.CreateFromDiscriminatorValue); } },
                 { "subscription_type", n => { SubscriptionType = n.GetStringValue(); } },
@@ -261,6 +264,7 @@ namespace XbyOpenApi.Core.Client.Models
       writer.WriteBoolValue("protected", Protected);
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.UserPublicMetrics>("public_metrics", PublicMetrics);
       writer.WriteBoolValue("receives_your_dm", ReceivesYourDm);
+      writer.WriteIntValue("subscriber_count", SubscriberCount);
       writer.WriteBoolValue("subscribes_to_you", SubscribesToYou);
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.UserSubscription>("subscription", Subscription);
       writer.WriteStringValue("subscription_type", SubscriptionType);

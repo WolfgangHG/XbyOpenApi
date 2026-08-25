@@ -68,6 +68,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Muting
 #pragma warning disable CS1591
     Receives_your_dm,
 #pragma warning restore CS1591
+    [EnumMember(Value = "subscriber_count")]
+#pragma warning disable CS1591
+    Subscriber_count,
+#pragma warning restore CS1591
     [EnumMember(Value = "subscribes_to_you")]
 #pragma warning disable CS1591
     Subscribes_to_you,
