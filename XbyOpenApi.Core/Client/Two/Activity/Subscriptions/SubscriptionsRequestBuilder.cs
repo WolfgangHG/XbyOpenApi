@@ -93,7 +93,7 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions
       return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetActivitySubscriptionsResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetActivitySubscriptionsResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Creates a subscription for an X activity event. OAuth2 user-context tokens must hold the scope matching the requested event_type: dm.read for chat.* and dm.* events, like.read for like.* events, mute.read for mute.* events, block.read for block.* events, and tweet.read for all other event types. Mute and block subscriptions are actor-only: filter.user_id must identify the authenticated user and direction is not supported.
+    /// Creates a subscription for an X activity event. OAuth2 user-context tokens must hold the scope matching the requested event_type: dm.read for chat.* and dm.* events, like.read for like.* events, mute.read for mute.* events, block.read for block.* events, and tweet.read for all other event types. Mute and block subscriptions are actor-only: filter.user_id must identify the authenticated user and direction is not supported. Optional filter.qualifiers further narrow supported chat, follow, unfollow, and like events.
     /// </summary>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionResponse"/></returns>
     /// <param name="body">The request body</param>
@@ -156,7 +156,7 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions
       return requestInfo;
     }
     /// <summary>
-    /// Creates a subscription for an X activity event. OAuth2 user-context tokens must hold the scope matching the requested event_type: dm.read for chat.* and dm.* events, like.read for like.* events, mute.read for mute.* events, block.read for block.* events, and tweet.read for all other event types. Mute and block subscriptions are actor-only: filter.user_id must identify the authenticated user and direction is not supported.
+    /// Creates a subscription for an X activity event. OAuth2 user-context tokens must hold the scope matching the requested event_type: dm.read for chat.* and dm.* events, like.read for like.* events, mute.read for mute.* events, block.read for block.* events, and tweet.read for all other event types. Mute and block subscriptions are actor-only: filter.user_id must identify the authenticated user and direction is not supported. Optional filter.qualifiers further narrow supported chat, follow, unfollow, and like events.
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="body">The request body</param>
@@ -194,12 +194,16 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions
     {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("ids")]
       public string[]? Ids { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("ids")]
       public string[] Ids { get; set; }
+#pragma warning restore CS1591
 #endif
     }
     /// <summary>
@@ -208,8 +212,10 @@ namespace XbyOpenApi.Core.Client.Two.Activity.Subscriptions
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class SubscriptionsRequestBuilderGetQueryParameters
     {
+#pragma warning disable CS1591
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
+#pragma warning restore CS1591
       /// <summary>A base32hex-encoded pagination token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

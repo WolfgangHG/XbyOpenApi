@@ -95,12 +95,16 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological
       public DateTimeOffset? EndTime { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("exclude")]
       public global::XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological.GetExcludeQueryParameterType[]? Exclude { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("exclude")]
       public global::XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological.GetExcludeQueryParameterType[] Exclude { get; set; }
+#pragma warning restore CS1591
 #endif
       /// <summary>A comma separated list of fields to expand.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
@@ -112,8 +116,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological
       [QueryParameter("expansions")]
       public global::XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological.GetExpansionsQueryParameterType[] Expansions { get; set; }
 #endif
+#pragma warning disable CS1591
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
+#pragma warning restore CS1591
       /// <summary>A comma separated list of Media fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -166,24 +172,32 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Timelines.Reverse_chronological
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("since_id")]
       public string? SinceId { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("since_id")]
       public string SinceId { get; set; }
+#pragma warning restore CS1591
 #endif
       /// <summary>Must be on or after 2010-11-06.</summary>
       [QueryParameter("start_time")]
       public DateTimeOffset? StartTime { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("until_id")]
       public string? UntilId { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("until_id")]
       public string UntilId { get; set; }
+#pragma warning restore CS1591
 #endif
       /// <summary>A comma separated list of User fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

@@ -90,8 +90,10 @@ namespace XbyOpenApi.Core.Client.Two.Trends.By.Woeid.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class WithWoeItemRequestBuilderGetQueryParameters
     {
+#pragma warning disable CS1591
       [QueryParameter("max_trends")]
       public int? MaxTrends { get; set; }
+#pragma warning restore CS1591
       /// <summary>A comma separated list of Trend fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

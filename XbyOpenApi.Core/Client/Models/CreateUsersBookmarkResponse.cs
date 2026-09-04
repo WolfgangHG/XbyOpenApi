@@ -7,36 +7,28 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
+  /// <summary>
+  /// Composed type wrapper for classes <see cref="global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponseMember1"/>, <see cref="global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponseMember2"/>
+  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-#pragma warning disable CS1591
-  public partial class CreateUsersBookmarkResponse : IAdditionalDataHolder, IParsable
-#pragma warning restore CS1591
+  public partial class CreateUsersBookmarkResponse : IComposedTypeWrapper, IParsable
   {
-    /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
-    public IDictionary<string, object> AdditionalData { get; set; }
-    /// <summary>The data property</summary>
+    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponseMember1"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponseData? Data { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponseMember1? CreateUsersBookmarkResponseMember1 { get; set; }
 #nullable restore
 #else
-    public global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponseData Data { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponseMember1 CreateUsersBookmarkResponseMember1 { get; set; }
 #endif
-    /// <summary>The errors property</summary>
+    /// <summary>Composed type representation for type <see cref="global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponseMember2"/></summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public List<global::XbyOpenApi.Core.Client.Models.Problem>? Errors { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponseMember2? CreateUsersBookmarkResponseMember2 { get; set; }
 #nullable restore
 #else
-    public List<global::XbyOpenApi.Core.Client.Models.Problem> Errors { get; set; }
+    public global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponseMember2 CreateUsersBookmarkResponseMember2 { get; set; }
 #endif
-    /// <summary>
-    /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponse"/> and sets the default values.
-    /// </summary>
-    public CreateUsersBookmarkResponse()
-    {
-      AdditionalData = new Dictionary<string, object>();
-    }
     /// <summary>
     /// Creates a new instance of the appropriate class based on discriminator value
     /// </summary>
@@ -45,7 +37,9 @@ namespace XbyOpenApi.Core.Client.Models
     public static global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponse CreateFromDiscriminatorValue(IParseNode parseNode)
     {
       if (ReferenceEquals(parseNode, null)) throw new ArgumentNullException(nameof(parseNode));
-      return new global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponse();
+      var mappingValue = parseNode.GetChildNode("")?.GetStringValue();
+      var result = new global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponse();
+      return result;
     }
     /// <summary>
     /// The deserialization information for the current model
@@ -53,11 +47,15 @@ namespace XbyOpenApi.Core.Client.Models
     /// <returns>A IDictionary&lt;string, Action&lt;IParseNode&gt;&gt;</returns>
     public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
     {
-      return new Dictionary<string, Action<IParseNode>>
-            {
-                { "data", n => { Data = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponseData>(global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponseData.CreateFromDiscriminatorValue); } },
-                { "errors", n => { Errors = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Problem>(global::XbyOpenApi.Core.Client.Models.Problem.CreateFromDiscriminatorValue)?.AsList(); } },
-            };
+      if (CreateUsersBookmarkResponseMember1 != null)
+      {
+        return CreateUsersBookmarkResponseMember1.GetFieldDeserializers();
+      }
+      else if (CreateUsersBookmarkResponseMember2 != null)
+      {
+        return CreateUsersBookmarkResponseMember2.GetFieldDeserializers();
+      }
+      return new Dictionary<string, Action<IParseNode>>();
     }
     /// <summary>
     /// Serializes information the current object
@@ -66,9 +64,14 @@ namespace XbyOpenApi.Core.Client.Models
     public virtual void Serialize(ISerializationWriter writer)
     {
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponseData>("data", Data);
-      writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.Problem>("errors", Errors);
-      writer.WriteAdditionalData(AdditionalData);
+      if (CreateUsersBookmarkResponseMember1 != null)
+      {
+        writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponseMember1>(null, CreateUsersBookmarkResponseMember1);
+      }
+      else if (CreateUsersBookmarkResponseMember2 != null)
+      {
+        writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponseMember2>(null, CreateUsersBookmarkResponseMember2);
+      }
     }
   }
 }

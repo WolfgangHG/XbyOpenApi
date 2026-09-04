@@ -127,12 +127,16 @@ namespace XbyOpenApi.Core.Client.Two.Spaces
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("ids")]
       public string[]? Ids { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("ids")]
       public string[] Ids { get; set; }
+#pragma warning restore CS1591
 #endif
       /// <summary>A comma separated list of Space fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER

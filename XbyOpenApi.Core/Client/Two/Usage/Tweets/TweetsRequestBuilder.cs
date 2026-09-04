@@ -90,8 +90,10 @@ namespace XbyOpenApi.Core.Client.Two.Usage.Tweets
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class TweetsRequestBuilderGetQueryParameters
     {
+#pragma warning disable CS1591
       [QueryParameter("days")]
       public int? Days { get; set; }
+#pragma warning restore CS1591
       /// <summary>A comma separated list of Usage fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

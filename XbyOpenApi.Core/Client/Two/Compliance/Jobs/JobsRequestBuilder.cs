@@ -160,10 +160,14 @@ namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs
       [QueryParameter("compliance_job%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.GetCompliance_jobFieldsQueryParameterType[] ComplianceJobFields { get; set; }
 #endif
+#pragma warning disable CS1591
       [QueryParameter("status")]
       public global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.GetStatusQueryParameterType? Status { get; set; }
+#pragma warning restore CS1591
+#pragma warning disable CS1591
       [QueryParameter("type")]
       public global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.GetTypeQueryParameterType? Type { get; set; }
+#pragma warning restore CS1591
     }
     /// <summary>
     /// Creates a new Compliance Job for the specified job type.

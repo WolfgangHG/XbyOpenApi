@@ -7,12 +7,15 @@ using System.IO;
 using System;
 namespace XbyOpenApi.Core.Client.Models
 {
+  /// <summary>
+  /// At least one of `tweet_id`, `tweet_ids` is required.
+  /// </summary>
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
-#pragma warning disable CS1591
-  public partial class CreateUsersBookmarkRequest : IParsable
-#pragma warning restore CS1591
+  public partial class CreateUsersBookmarkRequest : IAdditionalDataHolder, IParsable
   {
-    /// <summary>Optional ID of the Bookmark folder to add the Post to. When omitted, the Post is added to the user&apos;s top-level Bookmarks only.</summary>
+    /// <summary>Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.</summary>
+    public IDictionary<string, object> AdditionalData { get; set; }
+    /// <summary>Optional ID of the Bookmark folder to add the Post(s) to. When omitted, Posts are added to the user&apos;s top-level Bookmarks only. A bulk request uses this one folder for every ID.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? FolderId { get; set; }
@@ -20,7 +23,7 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string FolderId { get; set; }
 #endif
-    /// <summary>The ID of the Post to add to the user&apos;s Bookmarks.</summary>
+    /// <summary>The ID of the Post to add to the user&apos;s Bookmarks. Mutually exclusive with `tweet_ids`.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
     public string? TweetId { get; set; }
@@ -28,6 +31,21 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string TweetId { get; set; }
 #endif
+    /// <summary>Post IDs to add to the user&apos;s Bookmarks. At most 25. Mutually exclusive with `tweet_id`.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public List<string>? TweetIds { get; set; }
+#nullable restore
+#else
+    public List<string> TweetIds { get; set; }
+#endif
+    /// <summary>
+    /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkRequest"/> and sets the default values.
+    /// </summary>
+    public CreateUsersBookmarkRequest()
+    {
+      AdditionalData = new Dictionary<string, object>();
+    }
     /// <summary>
     /// Creates a new instance of the appropriate class based on discriminator value
     /// </summary>
@@ -48,6 +66,7 @@ namespace XbyOpenApi.Core.Client.Models
             {
                 { "folder_id", n => { FolderId = n.GetStringValue(); } },
                 { "tweet_id", n => { TweetId = n.GetStringValue(); } },
+                { "tweet_ids", n => { TweetIds = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
             };
     }
     /// <summary>
@@ -59,6 +78,8 @@ namespace XbyOpenApi.Core.Client.Models
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
       writer.WriteStringValue("folder_id", FolderId);
       writer.WriteStringValue("tweet_id", TweetId);
+      writer.WriteCollectionOfPrimitiveValues<string>("tweet_ids", TweetIds);
+      writer.WriteAdditionalData(AdditionalData);
     }
   }
 }

@@ -76,7 +76,7 @@ namespace XbyOpenApi.Core.Client.Two.Media.Upload
       return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetMediaUploadStatusResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetMediaUploadStatusResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Uploads a media file for use in posts, direct messages, or ads. The response carries the media identifiers, including the media_key used to reference the asset in later calls.
+    /// Uploads a media file for use in posts, direct messages, or ads. The response carries the media identifiers, including the media_key used to reference the asset in later calls. The media field carries the file content base64-encoded in JSON bodies (raw bytes in multipart bodies); media_category is tweet_image, tweet_video, or tweet_gif for posts and ads, dm_image/dm_video/dm_gif for DMs, or subtitles. For X Ads accounts, register the returned media_key via create_media_library_item to add it to the account&apos;s media library and use it in campaigns.
     /// </summary>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.MediaUploadResponse"/></returns>
     /// <param name="body">The request body</param>
@@ -120,7 +120,7 @@ namespace XbyOpenApi.Core.Client.Two.Media.Upload
       return requestInfo;
     }
     /// <summary>
-    /// Uploads a media file for use in posts, direct messages, or ads. The response carries the media identifiers, including the media_key used to reference the asset in later calls.
+    /// Uploads a media file for use in posts, direct messages, or ads. The response carries the media identifiers, including the media_key used to reference the asset in later calls. The media field carries the file content base64-encoded in JSON bodies (raw bytes in multipart bodies); media_category is tweet_image, tweet_video, or tweet_gif for posts and ads, dm_image/dm_video/dm_gif for DMs, or subtitles. For X Ads accounts, register the returned media_key via create_media_library_item to add it to the account&apos;s media library and use it in campaigns.
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
     /// <param name="body">The request body</param>
@@ -156,16 +156,22 @@ namespace XbyOpenApi.Core.Client.Two.Media.Upload
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class UploadRequestBuilderGetQueryParameters
     {
+#pragma warning disable CS1591
       [QueryParameter("command")]
       public global::XbyOpenApi.Core.Client.Two.Media.Upload.GetCommandQueryParameterType? Command { get; set; }
+#pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("media_id")]
       public string? MediaId { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("media_id")]
       public string MediaId { get; set; }
+#pragma warning restore CS1591
 #endif
     }
   }

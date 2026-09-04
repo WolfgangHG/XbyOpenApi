@@ -6,9 +6,11 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 using System;
+using XbyOpenApi.Core.Client.Two.Account;
 using XbyOpenApi.Core.Client.Two.Account_activity;
 using XbyOpenApi.Core.Client.Two.Activity;
 using XbyOpenApi.Core.Client.Two.Articles;
+using XbyOpenApi.Core.Client.Two.Bots;
 using XbyOpenApi.Core.Client.Two.Broadcasts;
 using XbyOpenApi.Core.Client.Two.Chat;
 using XbyOpenApi.Core.Client.Two.Communities;
@@ -36,6 +38,11 @@ namespace XbyOpenApi.Core.Client.Two
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
   public partial class TwoRequestBuilder : BaseRequestBuilder
   {
+    /// <summary>The account property</summary>
+    public global::XbyOpenApi.Core.Client.Two.Account.AccountRequestBuilder Account
+    {
+      get => new global::XbyOpenApi.Core.Client.Two.Account.AccountRequestBuilder(PathParameters, RequestAdapter);
+    }
     /// <summary>The account_activity property</summary>
     public global::XbyOpenApi.Core.Client.Two.Account_activity.Account_activityRequestBuilder Account_activity
     {
@@ -50,6 +57,11 @@ namespace XbyOpenApi.Core.Client.Two
     public global::XbyOpenApi.Core.Client.Two.Articles.ArticlesRequestBuilder Articles
     {
       get => new global::XbyOpenApi.Core.Client.Two.Articles.ArticlesRequestBuilder(PathParameters, RequestAdapter);
+    }
+    /// <summary>The bots property</summary>
+    public global::XbyOpenApi.Core.Client.Two.Bots.BotsRequestBuilder Bots
+    {
+      get => new global::XbyOpenApi.Core.Client.Two.Bots.BotsRequestBuilder(PathParameters, RequestAdapter);
     }
     /// <summary>The broadcasts property</summary>
     public global::XbyOpenApi.Core.Client.Two.Broadcasts.BroadcastsRequestBuilder Broadcasts

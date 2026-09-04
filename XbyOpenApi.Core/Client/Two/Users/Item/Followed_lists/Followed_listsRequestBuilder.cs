@@ -170,8 +170,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Followed_lists
       [QueryParameter("list%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Users.Item.Followed_lists.GetListFieldsQueryParameterType[] ListFields { get; set; }
 #endif
+#pragma warning disable CS1591
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
+#pragma warning restore CS1591
       /// <summary>A 64-bit signed integer.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

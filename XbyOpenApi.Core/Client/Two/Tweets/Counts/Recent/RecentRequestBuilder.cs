@@ -90,10 +90,14 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Counts.Recent
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RecentRequestBuilderGetQueryParameters
     {
+#pragma warning disable CS1591
       [QueryParameter("end_time")]
       public DateTimeOffset? EndTime { get; set; }
+#pragma warning restore CS1591
+#pragma warning disable CS1591
       [QueryParameter("granularity")]
       public global::XbyOpenApi.Core.Client.Two.Tweets.Counts.Recent.GetGranularityQueryParameterType? Granularity { get; set; }
+#pragma warning restore CS1591
       /// <summary>A base32hex-encoded pagination token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -116,42 +120,58 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Counts.Recent
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("query")]
       public string? Query { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("query")]
       public string Query { get; set; }
+#pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("search_count%2Efields")]
       public string? SearchCountFields { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("search_count%2Efields")]
       public string SearchCountFields { get; set; }
+#pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("since_id")]
       public string? SinceId { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("since_id")]
       public string SinceId { get; set; }
+#pragma warning restore CS1591
 #endif
       /// <summary>Must be within the last 7 days.</summary>
       [QueryParameter("start_time")]
       public DateTimeOffset? StartTime { get; set; }
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("until_id")]
       public string? UntilId { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("until_id")]
       public string UntilId { get; set; }
+#pragma warning restore CS1591
 #endif
     }
   }

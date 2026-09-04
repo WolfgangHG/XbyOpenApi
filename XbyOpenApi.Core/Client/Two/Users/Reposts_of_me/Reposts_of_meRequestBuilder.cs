@@ -100,8 +100,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Reposts_of_me
       [QueryParameter("expansions")]
       public global::XbyOpenApi.Core.Client.Two.Users.Reposts_of_me.GetExpansionsQueryParameterType[] Expansions { get; set; }
 #endif
+#pragma warning disable CS1591
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
+#pragma warning restore CS1591
       /// <summary>A comma separated list of Media fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

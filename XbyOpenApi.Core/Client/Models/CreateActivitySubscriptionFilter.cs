@@ -22,6 +22,14 @@ namespace XbyOpenApi.Core.Client.Models
 #else
     public string Keyword { get; set; }
 #endif
+    /// <summary>Optional event-specific string predicates.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionFilter_qualifiers? Qualifiers { get; set; }
+#nullable restore
+#else
+    public global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionFilter_qualifiers Qualifiers { get; set; }
+#endif
     /// <summary>User the subscription is scoped to. For mute.* and block.* events, this must be the authenticated source user.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -50,6 +58,7 @@ namespace XbyOpenApi.Core.Client.Models
             {
                 { "direction", n => { Direction = n.GetEnumValue<global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionFilter_direction>(); } },
                 { "keyword", n => { Keyword = n.GetStringValue(); } },
+                { "qualifiers", n => { Qualifiers = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionFilter_qualifiers>(global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionFilter_qualifiers.CreateFromDiscriminatorValue); } },
                 { "user_id", n => { UserId = n.GetStringValue(); } },
             };
     }
@@ -62,6 +71,7 @@ namespace XbyOpenApi.Core.Client.Models
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
       writer.WriteEnumValue<global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionFilter_direction>("direction", Direction);
       writer.WriteStringValue("keyword", Keyword);
+      writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.CreateActivitySubscriptionFilter_qualifiers>("qualifiers", Qualifiers);
       writer.WriteStringValue("user_id", UserId);
     }
   }

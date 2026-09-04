@@ -76,10 +76,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks
       return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetUsersBookmarksResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetUsersBookmarksResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
-    /// Create Users Bookmark
+    /// Adds one or more Posts to the authenticated user&apos;s Bookmarks. Supply `tweet_id` for a single Post, or `tweet_ids` (at most 25) to bookmark several in one request. Optional `folder_id` applies to every Post in the request. Billing and rate limits still apply per HTTP request.
     /// </summary>
     /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.CreateUsersBookmarkResponse"/></returns>
-    /// <param name="body">The request body</param>
+    /// <param name="body">At least one of `tweet_id`, `tweet_ids` is required.</param>
     /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
     /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
@@ -120,10 +120,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks
       return requestInfo;
     }
     /// <summary>
-    /// Create Users Bookmark
+    /// Adds one or more Posts to the authenticated user&apos;s Bookmarks. Supply `tweet_id` for a single Post, or `tweet_ids` (at most 25) to bookmark several in one request. Optional `folder_id` applies to every Post in the request. Billing and rate limits still apply per HTTP request.
     /// </summary>
     /// <returns>A <see cref="RequestInformation"/></returns>
-    /// <param name="body">The request body</param>
+    /// <param name="body">At least one of `tweet_id`, `tweet_ids` is required.</param>
     /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -166,8 +166,10 @@ namespace XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks
       [QueryParameter("expansions")]
       public global::XbyOpenApi.Core.Client.Two.Users.Item.Bookmarks.GetExpansionsQueryParameterType[] Expansions { get; set; }
 #endif
+#pragma warning disable CS1591
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
+#pragma warning restore CS1591
       /// <summary>A comma separated list of Media fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable

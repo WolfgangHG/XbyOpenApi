@@ -150,34 +150,48 @@ namespace XbyOpenApi.Core.Client.Two.Broadcasts.Scheduled
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ScheduledRequestBuilderGetQueryParameters
     {
+#pragma warning disable CS1591
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
+#pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("newest_start_time")]
       public string? NewestStartTime { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("newest_start_time")]
       public string NewestStartTime { get; set; }
+#pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("oldest_start_time")]
       public string? OldestStartTime { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("oldest_start_time")]
       public string OldestStartTime { get; set; }
+#pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("pagination_token")]
       public string? PaginationToken { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("pagination_token")]
       public string PaginationToken { get; set; }
+#pragma warning restore CS1591
 #endif
     }
   }

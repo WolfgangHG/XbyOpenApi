@@ -100,21 +100,31 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Analytics
       [QueryParameter("analytics%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Tweets.Analytics.GetAnalyticsFieldsQueryParameterType[] AnalyticsFields { get; set; }
 #endif
+#pragma warning disable CS1591
       [QueryParameter("end_time")]
       public DateTimeOffset? EndTime { get; set; }
+#pragma warning restore CS1591
+#pragma warning disable CS1591
       [QueryParameter("granularity")]
       public global::XbyOpenApi.Core.Client.Two.Tweets.Analytics.GetGranularityQueryParameterType? Granularity { get; set; }
+#pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("ids")]
       public string[]? Ids { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("ids")]
       public string[] Ids { get; set; }
+#pragma warning restore CS1591
 #endif
+#pragma warning disable CS1591
       [QueryParameter("start_time")]
       public DateTimeOffset? StartTime { get; set; }
+#pragma warning restore CS1591
     }
   }
 }

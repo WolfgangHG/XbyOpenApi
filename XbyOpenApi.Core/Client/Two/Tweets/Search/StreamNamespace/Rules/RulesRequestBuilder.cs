@@ -145,15 +145,21 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.StreamNamespace.Rules
     {
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("ids")]
       public string[]? Ids { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("ids")]
       public string[] Ids { get; set; }
+#pragma warning restore CS1591
 #endif
+#pragma warning disable CS1591
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
+#pragma warning restore CS1591
       /// <summary>A base32hex-encoded pagination token.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -171,10 +177,14 @@ namespace XbyOpenApi.Core.Client.Two.Tweets.Search.StreamNamespace.Rules
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class RulesRequestBuilderPostQueryParameters
     {
+#pragma warning disable CS1591
       [QueryParameter("delete_all")]
       public bool? DeleteAll { get; set; }
+#pragma warning restore CS1591
+#pragma warning disable CS1591
       [QueryParameter("dry_run")]
       public bool? DryRun { get; set; }
+#pragma warning restore CS1591
     }
   }
 }

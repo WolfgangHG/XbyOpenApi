@@ -33,10 +33,10 @@ namespace XbyOpenApi.Core.Client.Models
     /// <summary>Returns detailed information about the relationship between two users.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
-    public List<global::XbyOpenApi.Core.Client.Models.StreamObject>? ConnectionStatus { get; set; }
+    public List<global::XbyOpenApi.Core.Client.Models.Bots?>? ConnectionStatus { get; set; }
 #nullable restore
 #else
-    public List<global::XbyOpenApi.Core.Client.Models.StreamObject> ConnectionStatus { get; set; }
+    public List<global::XbyOpenApi.Core.Client.Models.Bots?> ConnectionStatus { get; set; }
 #endif
     /// <summary>Creation time of this User.</summary>
     public DateTimeOffset? CreatedAt { get; set; }
@@ -211,7 +211,7 @@ namespace XbyOpenApi.Core.Client.Models
             {
                 { "affiliation", n => { Affiliation = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.UserAffiliation>(global::XbyOpenApi.Core.Client.Models.UserAffiliation.CreateFromDiscriminatorValue); } },
                 { "confirmed_email", n => { ConfirmedEmail = n.GetStringValue(); } },
-                { "connection_status", n => { ConnectionStatus = n.GetCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.StreamObject>(global::XbyOpenApi.Core.Client.Models.StreamObject.CreateFromDiscriminatorValue)?.AsList(); } },
+                { "connection_status", n => { ConnectionStatus = n.GetCollectionOfEnumValues<global::XbyOpenApi.Core.Client.Models.Bots>()?.AsList(); } },
                 { "created_at", n => { CreatedAt = n.GetDateTimeOffsetValue(); } },
                 { "description", n => { Description = n.GetStringValue(); } },
                 { "entities", n => { Entities = n.GetObjectValue<global::XbyOpenApi.Core.Client.Models.UserEntities>(global::XbyOpenApi.Core.Client.Models.UserEntities.CreateFromDiscriminatorValue); } },
@@ -248,7 +248,7 @@ namespace XbyOpenApi.Core.Client.Models
       if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.UserAffiliation>("affiliation", Affiliation);
       writer.WriteStringValue("confirmed_email", ConfirmedEmail);
-      writer.WriteCollectionOfObjectValues<global::XbyOpenApi.Core.Client.Models.StreamObject>("connection_status", ConnectionStatus);
+      writer.WriteCollectionOfEnumValues<global::XbyOpenApi.Core.Client.Models.Bots>("connection_status", ConnectionStatus);
       writer.WriteDateTimeOffsetValue("created_at", CreatedAt);
       writer.WriteStringValue("description", Description);
       writer.WriteObjectValue<global::XbyOpenApi.Core.Client.Models.UserEntities>("entities", Entities);

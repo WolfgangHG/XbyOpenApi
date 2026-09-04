@@ -100,34 +100,48 @@ namespace XbyOpenApi.Core.Client.Two.Communities.Search
       [QueryParameter("community%2Efields")]
       public global::XbyOpenApi.Core.Client.Two.Communities.Search.GetCommunityFieldsQueryParameterType[] CommunityFields { get; set; }
 #endif
+#pragma warning disable CS1591
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
+#pragma warning restore CS1591
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("next_token")]
       public string? NextToken { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("next_token")]
       public string NextToken { get; set; }
+#pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("pagination_token")]
       public string? PaginationToken { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("pagination_token")]
       public string PaginationToken { get; set; }
+#pragma warning restore CS1591
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("query")]
       public string? Query { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("query")]
       public string Query { get; set; }
+#pragma warning restore CS1591
 #endif
     }
   }

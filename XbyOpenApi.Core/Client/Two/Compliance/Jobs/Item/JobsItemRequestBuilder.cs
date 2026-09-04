@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Threading;
 using System;
 using XbyOpenApi.Core.Client.Models;
+using XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.Download;
+using XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.Upload;
 namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item
 {
   /// <summary>
@@ -17,6 +19,16 @@ namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item
   [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
   public partial class JobsItemRequestBuilder : BaseRequestBuilder
   {
+    /// <summary>The download property</summary>
+    public global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.Download.DownloadRequestBuilder Download
+    {
+      get => new global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.Download.DownloadRequestBuilder(PathParameters, RequestAdapter);
+    }
+    /// <summary>The upload property</summary>
+    public global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.Upload.UploadRequestBuilder Upload
+    {
+      get => new global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.Upload.UploadRequestBuilder(PathParameters, RequestAdapter);
+    }
     /// <summary>
     /// Instantiates a new <see cref="global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.JobsItemRequestBuilder"/> and sets the default values.
     /// </summary>
@@ -32,6 +44,29 @@ namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item
     /// <param name="requestAdapter">The request adapter to use to execute the requests.</param>
     public JobsItemRequestBuilder(string rawUrl, IRequestAdapter requestAdapter) : base(requestAdapter, "{+baseurl}/2/compliance/jobs/{id}{?compliance_job%2Efields}", rawUrl)
     {
+    }
+    /// <summary>
+    /// Cancels a Compliance Job that has not finished processing; its status becomes failed and a new job of the same type can be created.
+    /// </summary>
+    /// <returns>A <see cref="global::XbyOpenApi.Core.Client.Models.DeleteComplianceJobsByIdResponse"/></returns>
+    /// <param name="cancellationToken">Cancellation token to use when cancelling requests</param>
+    /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+    /// <exception cref="global::XbyOpenApi.Core.Client.Models.Error">When receiving a 4XX or 5XX status code</exception>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public async Task<global::XbyOpenApi.Core.Client.Models.DeleteComplianceJobsByIdResponse?> DeleteAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.JobsItemRequestBuilder.JobsItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default, CancellationToken cancellationToken = default)
+    {
+#nullable restore
+#else
+    public async Task<global::XbyOpenApi.Core.Client.Models.DeleteComplianceJobsByIdResponse> DeleteAsync(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.JobsItemRequestBuilder.JobsItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default, CancellationToken cancellationToken = default)
+    {
+#endif
+      var requestInfo = ToDeleteRequestInformation(requestConfiguration);
+      var errorMapping = new Dictionary<string, ParsableFactory<IParsable>>
+            {
+                { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
+            };
+      return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.DeleteComplianceJobsByIdResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.DeleteComplianceJobsByIdResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
     }
     /// <summary>
     /// Retrieves details of a specific Compliance Job by its ID.
@@ -55,6 +90,25 @@ namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item
                 { "XXX", global::XbyOpenApi.Core.Client.Models.Error.CreateFromDiscriminatorValue },
             };
       return await RequestAdapter.SendAsync<global::XbyOpenApi.Core.Client.Models.GetComplianceJobsByIdResponse>(requestInfo, global::XbyOpenApi.Core.Client.Models.GetComplianceJobsByIdResponse.CreateFromDiscriminatorValue, errorMapping, cancellationToken).ConfigureAwait(false);
+    }
+    /// <summary>
+    /// Cancels a Compliance Job that has not finished processing; its status becomes failed and a new job of the same type can be created.
+    /// </summary>
+    /// <returns>A <see cref="RequestInformation"/></returns>
+    /// <param name="requestConfiguration">Configuration for the request such as headers, query parameters, and middleware options.</param>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+    public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.JobsItemRequestBuilder.JobsItemRequestBuilderDeleteQueryParameters>>? requestConfiguration = default)
+    {
+#nullable restore
+#else
+    public RequestInformation ToDeleteRequestInformation(Action<RequestConfiguration<global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.JobsItemRequestBuilder.JobsItemRequestBuilderDeleteQueryParameters>> requestConfiguration = default)
+    {
+#endif
+      var requestInfo = new RequestInformation(Method.DELETE, UrlTemplate, PathParameters);
+      requestInfo.Configure(requestConfiguration);
+      requestInfo.Headers.TryAdd("Accept", "application/json");
+      return requestInfo;
     }
     /// <summary>
     /// Retrieves details of a specific Compliance Job by its ID.
@@ -83,6 +137,23 @@ namespace XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item
     public global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.JobsItemRequestBuilder WithUrl(string rawUrl)
     {
       return new global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.JobsItemRequestBuilder(rawUrl, RequestAdapter);
+    }
+    /// <summary>
+    /// Cancels a Compliance Job that has not finished processing; its status becomes failed and a new job of the same type can be created.
+    /// </summary>
+    [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
+    public partial class JobsItemRequestBuilderDeleteQueryParameters
+    {
+      /// <summary>A comma separated list of ComplianceJob fields to display.</summary>
+#if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
+#nullable enable
+      [QueryParameter("compliance_job%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.DeleteCompliance_jobFieldsQueryParameterType[]? ComplianceJobFields { get; set; }
+#nullable restore
+#else
+      [QueryParameter("compliance_job%2Efields")]
+      public global::XbyOpenApi.Core.Client.Two.Compliance.Jobs.Item.DeleteCompliance_jobFieldsQueryParameterType[] ComplianceJobFields { get; set; }
+#endif
     }
     /// <summary>
     /// Retrieves details of a specific Compliance Job by its ID.

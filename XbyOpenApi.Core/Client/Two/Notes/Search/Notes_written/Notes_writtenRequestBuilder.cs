@@ -90,8 +90,10 @@ namespace XbyOpenApi.Core.Client.Two.Notes.Search.Notes_written
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class Notes_writtenRequestBuilderGetQueryParameters
     {
+#pragma warning disable CS1591
       [QueryParameter("max_results")]
       public int? MaxResults { get; set; }
+#pragma warning restore CS1591
       /// <summary>A comma separated list of Note fields to display.</summary>
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
@@ -104,15 +106,21 @@ namespace XbyOpenApi.Core.Client.Two.Notes.Search.Notes_written
 #endif
 #if NETSTANDARD2_1_OR_GREATER || NETCOREAPP3_1_OR_GREATER
 #nullable enable
+#pragma warning disable CS1591
       [QueryParameter("pagination_token")]
       public string? PaginationToken { get; set; }
+#pragma warning restore CS1591
 #nullable restore
 #else
+#pragma warning disable CS1591
       [QueryParameter("pagination_token")]
       public string PaginationToken { get; set; }
+#pragma warning restore CS1591
 #endif
+#pragma warning disable CS1591
       [QueryParameter("test_mode")]
       public bool? TestMode { get; set; }
+#pragma warning restore CS1591
     }
   }
 }

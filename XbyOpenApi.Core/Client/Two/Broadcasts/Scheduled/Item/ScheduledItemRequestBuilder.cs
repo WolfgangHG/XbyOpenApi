@@ -185,8 +185,10 @@ namespace XbyOpenApi.Core.Client.Two.Broadcasts.Scheduled.Item
     [global::System.CodeDom.Compiler.GeneratedCode("Kiota", "1.0.0")]
     public partial class ScheduledItemRequestBuilderDeleteQueryParameters
     {
+#pragma warning disable CS1591
       [QueryParameter("roll_forward")]
       public bool? RollForward { get; set; }
+#pragma warning restore CS1591
     }
   }
 }
