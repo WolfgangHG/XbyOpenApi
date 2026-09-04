@@ -77,16 +77,16 @@ for doing either OAuth1 or OAuth2, so see below for different ways to create a c
 You could e.g. fetch your own user data with a call like this:
 
 ```c#
-Get2UsersMeResponse response = await client.Two.Users.Me.GetAsync();
+GetUsersMeResponse response = await client.Two.Users.Me.GetAsync();
 ```
 
 Sending a tweet is also easy:
 
 ```c#
-TweetCreateRequest body = new TweetCreateRequest();
+CreatePostsRequest body = new CreatePostsRequest();
 body.Text = "Sample post";
 
-TweetCreateResponse response = await xClient.Two.Tweets.PostAsync(body);
+CreatePostsResponse response = await xClient.Two.Tweets.PostAsync(body);
 ```
 
 All request/response classes were created by Kiota.

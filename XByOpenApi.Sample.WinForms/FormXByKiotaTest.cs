@@ -343,6 +343,22 @@ namespace XByOpenApi.Sample.WinForms
             $"Plain response: {plainResponse}");
         }
       }
+      catch (Error error)
+      {
+        string errorMessage = $"An error occured: " + LogError(error) + Environment.NewLine;
+        //Should never be NULL (but "Stream.Null"). But who knows....
+        if (requestOption.RequestBody != null)
+        {
+          string plainRerequest = GetStringFromStream(requestOption.RequestBody);
+          errorMessage += $"Plain request: {plainRerequest}" + Environment.NewLine;
+        }
+        if (requestOption.ResponseBody != null)
+        {
+          string plainResponse = GetStringFromStream(requestOption.ResponseBody);
+          errorMessage = $"Plain response: {plainResponse}" + Environment.NewLine;
+        }
+        MessageBox.Show(this, errorMessage);
+      }
       catch (Exception ex)
       {
         string error = "An error occured while creating the tweet: " + ex.ToString();
@@ -436,6 +452,22 @@ namespace XByOpenApi.Sample.WinForms
           this.textBoxDeleteTweetId.Text = response.Data.Id;
         }
 
+        MessageBox.Show(this, builderMessage.ToString());
+      }
+      catch (Error error)
+      {
+        builderMessage.AppendLine($"An error occured: " + LogError(error));
+        //Should never be NULL (but "Stream.Null"). But who knows....
+        if (requestOption.RequestBody != null)
+        {
+          string plainRerequest = GetStringFromStream(requestOption.RequestBody);
+          builderMessage.AppendLine($"Plain request: {plainRerequest}");
+        }
+        if (requestOption.ResponseBody != null)
+        {
+          string plainResponse = GetStringFromStream(requestOption.ResponseBody);
+          builderMessage.AppendLine($"Plain response: {plainResponse}");
+        }
         MessageBox.Show(this, builderMessage.ToString());
       }
       catch (Exception ex)
@@ -599,6 +631,22 @@ namespace XByOpenApi.Sample.WinForms
 
         MessageBox.Show(this, builderMessage.ToString());
       }
+      catch (Error error)
+      {
+        string errorMessage = $"An error occured: " + LogError(error);
+        //Should never be NULL (but "Stream.Null"). But who knows....
+        if (requestOption.RequestBody != null)
+        {
+          string plainRerequest = GetStringFromStream(requestOption.RequestBody);
+          builderMessage.AppendLine($"Plain request: {plainRerequest}");
+        }
+        if (requestOption.ResponseBody != null)
+        {
+          string plainResponse = GetStringFromStream(requestOption.ResponseBody);
+          builderMessage.AppendLine($"Plain response: {plainResponse}");
+        }
+        MessageBox.Show(this, errorMessage);
+      }
       catch (Exception ex)
       {
         builderMessage.AppendLine("An error occured: " + ex.ToString());
@@ -658,9 +706,21 @@ namespace XByOpenApi.Sample.WinForms
             $"Plain response: {plainResponse}");
         }
       }
+      catch (Error error)
+      {
+        string errorMessage = $"Error on deleting a tweet: " + LogError(error);
+        if (requestOption.ResponseBody != null)
+        {
+          string plainResponse = GetStringFromStream(requestOption.ResponseBody);
+
+          errorMessage += Environment.NewLine + Environment.NewLine +
+            $"Plain response: {plainResponse}";
+        }
+        MessageBox.Show(this, errorMessage);
+      }
       catch (Exception ex)
       {
-        string error = "Error on deleting a tweet: " + ex.ToString();
+        string error = "Exception on deleting a tweet: " + ex.ToString();
         if (requestOption.ResponseBody != null)
         {
           string plainResponse = GetStringFromStream(requestOption.ResponseBody);
@@ -1012,6 +1072,21 @@ namespace XByOpenApi.Sample.WinForms
     {
       XClient client = XClientOAuth2Util.InitXClient(this.OAuth2AccessToken);
       return client;
+    }
+
+    /// <summary>
+    /// Logs details of an "Error" class (that might be thrown by service calls): AdditionalData seems to contain the error details.
+    /// </summary>
+    /// <param name="error"></param>
+    /// <returns>"StatusCode: xyz" and content of <see cref="Error.AdditionalData"/>, separated by newlines</returns>
+    private static string LogError(Error error)
+    {
+      string errorMessage = $"StatusCode: {error.ResponseStatusCode}, Message: {error.Message}" + Environment.NewLine;
+      foreach (KeyValuePair<string, object> data in error.AdditionalData)
+      {
+        errorMessage += data.Key + ": " + data.Value + Environment.NewLine;
+      }
+      return errorMessage;
     }
 
     /// <summary>

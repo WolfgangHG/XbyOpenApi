@@ -11,7 +11,6 @@ The spec is found at https://api.twitter.com/2/openapi.json
 - [Initializing the project](#initializing-the-project)
 - [Using the client](#using-the-client)
 - [Hack: logging requests and responses](#hack-logging-requests-and-responses)
-- [Kiota trouble: uploading binary data](#kiota-trouble-uploading-binary-data)
 - [What about other OpenAPI libraries?](#what-about-other-openapi-libraries)
 
 
@@ -33,7 +32,7 @@ This will create a file `dotnet-tools.json` with this content:
   "isRoot": true,
   "tools": {
     "microsoft.openapi.kiota": {
-      "version": "1.30.0",
+      "version": "1.35.0",
       "commands": [
         "kiota"
       ],
@@ -65,7 +64,7 @@ Add this Nuget package reference to client project to make it compile:
 
 ```xml
   <ItemGroup>
-    <PackageReference Include="Microsoft.Kiota.Bundle" Version="1.21.2" />
+    <PackageReference Include="Microsoft.Kiota.Bundle" Version="2.1.1" />
   </ItemGroup>
 ```
 
@@ -76,7 +75,7 @@ This could be simple. For example this snippet should fetch the data of the curr
 ```c#
 XClient client = new XClient();
 
-Get2UsersMeResponse response = await client.Two.Users.Me.GetAsync();
+GetUsersMeResponse response = await client.Two.Users.Me.GetAsync();
 ```
 
 But we need authorization for each API call. This is described in different sections [OAuth1](OAuth1.md) and [OAuth2](OAuth2.md).
@@ -97,7 +96,7 @@ XClient client = new XClient();
 
 var requestOption = new BodyInspectionHandlerOption { InspectResponseBody = true };
 
-Get2UsersMeResponse response = await client.Two.Users.Me.GetAsync(conf =>
+GetUsersMeResponse response = await client.Two.Users.Me.GetAsync(conf =>
 {
   conf.Options.Add(requestOption);
 }
@@ -124,10 +123,10 @@ The same can be done for inspecting the request. Here is a sample for posting a 
 ```c#
 var requestOption = new BodyInspectionHandlerOption { InspectRequestBody = true, InspectResponseBody = true };
 
-TweetCreateRequest body = new TweetCreateRequest();
+CreatePostsRequest body = new CreatePostsRequest();
 body.Text = "Sample post";
 
-TweetCreateResponse response = await xClient.Two.Tweets.PostAsync(body, conf =>
+CreatePostsResponse response = await xClient.Two.Tweets.PostAsync(body, conf =>
 {
   conf.Options.Add(requestOption);
 });
@@ -138,7 +137,7 @@ string request = GetStringFromStream(requestOption.RequestBody);
 
 
 This trick might be helpful for error handling. Normally, Kiota creates error objects that contain the error message object from the service.
-If you try to delete a tweet with an id that you dont' have write access, the service response message is this:
+If you try to delete a tweet with an id that you dont' have write access (e.g. "100"), the service response message is this:
 
 ```json
 {
@@ -149,124 +148,28 @@ If you try to delete a tweet with an id that you dont' have write access, the se
 }
 ```
 
-This matches the generated model class "Problem", so it should be thrown and you would see a helpful error. 
-But unfortunately, Kiota throws an "Error" instance instance, which has different fields
+This neither matches any of the generated model subclasses of  "Problem" nor the "Error" class, which has different fields
 and thus cannot be filled with the response data - the thrown error seems to be invalid.
 
+In this situation, it helped to catch the `Error` class and read the fields from the `AdditionalData` property.
 
-Here, two problems come together: 
-* Problem 1: the endpoint to delete a tweet currently apparently has a wrong definition
-in OpenAPI version 2.157: it should return an object "Error" if the response content type is "application/json" and 
-"Problem" if the content type is "application/problem+json".
-But with an invalid tweet id it returns a "Problem" object and the content type is "application/json". When invoking the endpoint with an
-invalid OAuth2 access token, it returns also a "Problem" object, but with content type "application/problem+json".
-Kiota tries to parse the wrong error object and thus throws an empty (and meaningless) error message.
-* Problem 2 (would be relevant if the X specification would be valid): I think Kiota cannot handle different results 
-based on the content type at all, so I created issue https://github.com/microsoft/kiota/issues/7338
+```c#
+catch (Error error)
+{
+  string errorMessage = $"Error on deleting a tweet: StatusCode: {error.ResponseStatusCode}" + Environment.NewLine;
+  foreach (var data in error.AdditionalData)
+  {
+    errorMessage += data.Key + ": " + data.Value + Environment.NewLine;
+  }
+  MessageBox.Show(this, errorMessage);
+}
+```
 
 To see the actual error message, I added the `BodyInspectionHandlerOption` and parsed the request in the catch block,
 which revealed the actual error.
 
-# Kiota trouble: uploading binary data
+I don't know whether the X openapi description is wrong here, or whether Kiota does not support this kind of error handling.
 
-Handling of binary data does not work with at least one endpoint of the Kiota generated client.
-The endpoint to upload media (https://docs.x.com/x-api/media/upload-media) is created with unusable code.
-
-It could work like this using the generated classes:
-
-```c#
-byte[] data = ...;
-MediaUploadRequestOneShot mediaUpload = new MediaUploadRequestOneShot();
-mediaUpload.MediaCategory = MediaCategoryOneShot.Tweet_image;
-mediaUpload.Media = new MediaUploadRequestOneShot.MediaUploadRequestOneShot_media();
-mediaUpload.Media.MediaPayloadByte = new MediaPayloadByte();
-
-await xClient.Two.Media.Upload.PostAsync(mediaUpload);
-```
-
-But there is no way to add the binary data of a media. The class `MediaPayloadByte` has no properties at all.
-
-I asked this in the Kiota project, an answer is pending: https://github.com/microsoft/kiota/discussions/7247 and https://github.com/microsoft/kiota/issues/7394
-
-But I hope I found a workaround.
-
-This is the generated class (slightly simplified to remove e.g. namespaces and code that is not relevant here):
-```c#
-public partial class MediaUploadRequestOneShot : IParsable
-{
-  public MediaUploadRequestOneShot.MediaUploadRequestOneShot_media Media { get; set; }
-  public MediaCategoryOneShot? MediaCategory { get; set; }
-  public MediaUploadRequestOneShot_media_type? MediaType { get; set; }
-  public bool? Shared { get; set; }
-  
-  public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-  {
-    return new Dictionary<string, Action<IParseNode>>
-          {
-              { "additional_owners", n => { AdditionalOwners = n.GetCollectionOfPrimitiveValues<string>()?.AsList(); } },
-              { "media", n => { Media = n.GetObjectValue<MediaUploadRequestOneShot.MediaUploadRequestOneShot_media>(MediaUploadRequestOneShot.MediaUploadRequestOneShot_media.CreateFromDiscriminatorValue); } },
-              { "media_category", n => { MediaCategory = n.GetEnumValue<MediaCategoryOneShot>(); } },
-              { "media_type", n => { MediaType = n.GetEnumValue<MediaUploadRequestOneShot_media_type>(); } },
-              { "shared", n => { Shared = n.GetBoolValue(); } },
-          };
-  }
-  
-  public virtual void Serialize(ISerializationWriter writer)
-  {
-    if (ReferenceEquals(writer, null)) throw new ArgumentNullException(nameof(writer));
-    writer.WriteCollectionOfPrimitiveValues<string>("additional_owners", AdditionalOwners);
-    writer.WriteObjectValue<MediaUploadRequestOneShot.MediaUploadRequestOneShot_media>("media", Media);
-    writer.WriteEnumValue<MediaCategoryOneShot>("media_category", MediaCategory);
-    writer.WriteEnumValue<MediaUploadRequestOneShot_media_type>("media_type", MediaType);
-    writer.WriteBoolValue("shared", Shared);
-  }
-}
-```
-
-I modified the property `Media` to be of type `byte[]`. One line in `GetFieldDeserializers` and `Serialize` had
-to be changed, too:
-
-```c#
-public partial class MediaUploadRequestOneShot : IParsable
-{
-  ...
-  public byte[] Media { get; set; }
-  ...
-  
-  public virtual IDictionary<string, Action<IParseNode>> GetFieldDeserializers()
-  {
-    return new Dictionary<string, Action<IParseNode>>
-          {
-                ...
-              { "media", n => { Media = n.GetByteArrayValue(); } },
-              ....
-  
-          };
-  }
-  
-  public virtual void Serialize(ISerializationWriter writer)
-  {
-    ...
-    writer.WriteByteArrayValue("media", Media);
-    ...
-  }
-```
-
-Now, upload works with this piece of code:
-
-```c#
-byte[] data = ...;
-MediaUploadRequestOneShot mediaUpload = new MediaUploadRequestOneShot();
-mediaUpload.MediaCategory = MediaCategoryOneShot.Tweet_image;
-mediaUpload.Media = data;
-
-await xClient.Two.Media.Upload.PostAsync(mediaUpload);
-```
-
-Looking at the request, we see that Kiota uploads a base64 string.
-
-Note: this issue does not happen when using the "chunked" media upload (initialize/append/finalize): https://docs.x.com/x-api/media/initialize-media-upload. 
-So, there is something in the OpenAPI description that Kiota cannot handle
 
 # What about other OpenAPI libraries?
 
