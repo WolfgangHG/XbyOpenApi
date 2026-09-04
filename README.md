@@ -11,7 +11,7 @@ to generate a client which should (in theory) make it easy to call any endpoint.
 
 The only problem is authorization. X currently supports OAuth1 and OAuth2. Using either of those two protocols, you have to fetch an access token to make API calls.
 
-Here comes this sample into play. You can use the sample code to implement your own X client (it is not much magic involved ;-)). Or you could use the Nuget packages that I created
+Here comes this sample into play. You can use the sample code to implement your own X client (it is not much magic involved :grin: ). Or you could use the Nuget packages that I created
 from the sample.
 
 
